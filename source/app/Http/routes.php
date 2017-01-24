@@ -39,6 +39,28 @@ Route::get('administration/finance-committee',function(){
 Route::get('administration/bwc',function(){
 	return view('bwc');
 });
+
+Route::group(['prefix' => 'students'], function () {
+    Route::get('achievements', function ()    {
+        return view('student_achievements');
+    });
+    Route::get('gymkhana',function(){
+    	return view('gymkhana');
+    });
+    Route::get('activities',function(){
+    	return view('student_activities');
+    });
+    Route::get('hostels',function(){
+    	return view('hostels');
+    });
+    Route::get('dean_office',function(){
+    	return view('dean_office');
+    });
+    Route::get('councelling',function(){
+    	return view('councelling');
+    });
+});
+
 Route::get('calender',function(){
 	return view('calender');
 });
@@ -50,6 +72,12 @@ Route::get('admission',function(){
 });
 Route::get('college-tour',function(){
 	return view('college_tour');
+});
+Route::get('class-tour',function(){
+	return view('class_tour');
+});
+Route::get('hostel-tour',function(){
+	return view('hostel_tour');
 });
 Route::get('jagriti-tour',function(){
 	return view('jagriti_tour');
@@ -80,4 +108,7 @@ Route::get('hindi',function(){
 });
 Route::get('contact',function(){
 	return view('contact');
+});
+Route::get('research',function(){
+	return view('research');
 });

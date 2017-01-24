@@ -531,16 +531,16 @@
 
 									<ul>
 
-										<LI><a href="http://site.iiitdmj.ac.in/students/gymkhana/gymkhana.php">Gymkhana</a></LI>
+										<LI><a href="/students/gymkhana">Gymkhana</a></LI>
 
-										<LI><a href="http://site.iiitdmj.ac.in/students/activities.php">Activities</a></LI>
+										<LI><a href="/students/activities">Activities</a></LI>
 
-										<LI><a href="http://site.iiitdmj.ac.in/students/achievements.php">Achievments</a></LI>
+										<LI><a href="/students/achievements">Achievments</a></LI>
 
-										<LI><a href="http://site.iiitdmj.ac.in/students/councelling.php">Counseling</a></LI>
-										<LI><a href="http://site.iiitdmj.ac.in/students/dean_office.php">Office of Dean Students</a></LI>
+										<LI><a href="/students/councelling">Counseling</a></LI>
+										<LI><a href="/students/dean_office">Office of Dean Students</a></LI>
 
-										<LI><a href="http://site.iiitdmj.ac.in/students/hostels.php">Hostels</a></LI>
+										<LI><a href="/students/hostels">Hostels</a></LI>
 
 										<LI><a href="http://alumni.iiitdmj.ac.in/index.php">Alumni</a></LI>
 

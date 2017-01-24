@@ -1,4 +1,3 @@
-
 <html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     
@@ -13,45 +12,25 @@
 
     <meta name="author" content="IIIT DMJ">
 
-    <title>IIITDMJ</title>
+    <title>IIIT DMJ</title>
 
 
 
     <!-- Favicons-->
 
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     
 
     <!-- BASE CSS -->
 
-    <link href="/css/main_font/main_font.css" rel="stylesheet">
+    <link href="/tour_files/base.css" rel="stylesheet">
 
-    <link href="/css/animate.min.css" rel="stylesheet"> <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="/css/menu.css" rel="stylesheet">
-
-    <link href="/css/style.css" rel="stylesheet">
-
-    <link href="/css/responsive.css" rel="stylesheet">
-
-    <link href="/css/elegant_font/elegant_font.min.css" rel="stylesheet">
-
-    <link href="/css/icon_font/pe-icon-7-stroke.min.css" rel="stylesheet">
-
-    <link href="/css/fontello/css/fontello.min.css" rel="stylesheet">
-
-    <link href="/css/edu_fonts/edu_fonts.min.css" rel="stylesheet">
-
-    <link href="/css/magnific-popup.css" rel="stylesheet">
-
-    <link href="/css/custom.css" rel="stylesheet">
-
-
+    
 
     <!-- SPECIFIC CSS -->
 
-    <link href="/css/tour.css" rel="stylesheet">
+    <link href="/tour_files/tour.css" rel="stylesheet">
 
     
 
@@ -65,7 +44,7 @@
 
     <!-- Modernizr -->
 
-	<script src="/js/modernizr_tour.js"></script> 
+	<script src="/tour_files/modernizr_tour.js"></script> 
 
 
 
@@ -97,9 +76,9 @@
 
 <section class="tour-section">
 
-		<div class="full-container" style="background-size:100% 100%;transform: scale(1); opacity: 0;background-image: url('/img/jagriti/cover.jpg');">
+		<div class="full-container" style="transform: scale(1); opacity: 0;background-image: url('/img/tour/intro.png');">
 
-			<h1 id="intro_txt" class="animated fadeInDown"><span></span></h1>
+			<h1 id="intro_txt" class="animated fadeInDown">Welcome to IIIT DM Jabalpur<span>An Institute Established by MHRD of India</span></h1>
 
 		</div>
 
@@ -111,7 +90,7 @@
 
 		<div class="full-container" style="transform: scale(1); opacity: 0;">
 
-			<div class="half-container" style="transform: translateX(-613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/jagriti/1.JPG');"></div>
+			<div class="half-container" style="transform: translateX(-613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/tour/img-1.jpg');"></div>
 
 
 
@@ -119,9 +98,9 @@
 
 				<div class="txt_container">
 
-                	<h3>Jagriti is Happy hours of our life.</h3>
+                	<h3>Unique study plans and tutors</h3>
 
-					<p>...and the little lives with us. Jagriti provides free education to the underpriviledge children of nearby villages. We provide clothing and other basic amenities to improve their lifestyle. We are giving shape to the future of these small children.</p><!-- 
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eos labore ratione illum excepturi neque sunt blanditiis ducimus soluta quae!</p>
 
                     <ul class="intro_icons">
 
@@ -131,7 +110,7 @@
 
                     <li><i class="pe-7s-graph1"></i>Focus on succes</li>
 
-                    </ul> -->
+                    </ul>
 
 				</div>
 
@@ -147,7 +126,7 @@
 
 		<div class="full-container" style="transform: scale(1); opacity: 0;">
 
-			<div class="half-container" style="transform: translateX(613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/jagriti/4.JPG');"></div>
+			<div class="half-container" style="transform: translateX(613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/tour/img-2.jpg');"></div>
 
 
 
@@ -155,17 +134,11 @@
 
 			<div class="txt_container">
 
-                	
+                	<h3>Well equiped class rooms</h3>
 
-					<p>We here at Jagrati not only educate the children but also cultivate cultural values to them and improve their personality.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eos labore ratione illum excepturi neque sunt blanditiis ducimus soluta quae!</p>
 
-					<p>At Jagriti we help these little kids to find their talents and shape their future life.</p>
-
-					<br/>
-
-					<p><strong><i>"Education does not produce money, education produces wisdom, money is the side product"</i></strong></p>
-
-                    <!-- <ul class="intro_icons">
+                    <ul class="intro_icons">
 
                     <li><i class="pe-7s-display2"></i>Interactive</li>
 
@@ -173,7 +146,7 @@
 
                     <li><i class="pe-7s-monitor"></i>Computers</li>
 
-                    </ul> -->
+                    </ul>
 
 				</div>
 
@@ -189,7 +162,7 @@
 
 		<div class="full-container" style="transform: scale(1); opacity: 0;">
 
-			<div class="half-container" style="transform: translateX(-613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/jagriti/2.jpg');"></div>
+			<div class="half-container" style="transform: translateX(-613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/tour/img-3.jpg');"></div>
 
 
 
@@ -197,11 +170,11 @@
 
 				<div class="txt_container">
 
-                	<h3></h3>
+                	<h3>Qualified Teachers for a better education</h3>
 
-					<p>We regularly visit the villages around us and come to know the various problems faced byu the people. Today we have more than 300 students and 80 members working for the deelopment of the social &amp; mental status of nearby society. We here at Jagriti, not only educate the children but also cultivate cultural values to them and to improve their personality.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eos labore ratione illum excepturi neque sunt blanditiis ducimus soluta quae!</p>
 
-                    <!-- <ul class="intro_icons">
+                    <ul class="intro_icons">
 
                     <li><i class="pe-7s-medal"></i>Honored staff</li>
 
@@ -209,7 +182,7 @@
 
                     <li><i class="pe-7s-study"></i>Certifications</li>
 
-                    </ul> -->
+                    </ul>
 
 				</div>
 
@@ -225,7 +198,7 @@
 
 		<div class="full-container" style="transform: scale(1); opacity: 0;">
 
-			<div class="half-container" style="transform: translateX(613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/jagriti/3.JPG');"></div>
+			<div class="half-container" style="transform: translateX(613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/tour/img-4.jpg');"></div>
 
 
 
@@ -233,15 +206,17 @@
 
 				<div class="txt_container">
 
-                	<h3></h3>
+                	<h3>Great Gym and activity center</h3>
 
-					<p><i>Today, Jagriti has reached heights and gained a lots of popularity. But the real success that it has achieved is the love and support of people.</i></p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eos labore ratione illum excepturi neque sunt blanditiis ducimus soluta quae!</p>
 
                     <ul class="intro_icons">
 
                     <li><i class="pe-7s-ball"></i>Sports</li>
 
                     <li><i class="pe-7s-smile"></i>Funny activities</li>
+
+                    <li><i class="pe-7s-gym"></i>Gym center</li>
 
                     </ul>
 
@@ -259,7 +234,7 @@
 
 		<div class="full-container" style="transform: scale(1); opacity: 0;">
 
-			<div class="half-container" style="transform: translateX(-613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/jagriti/5.JPG');"></div>
+			<div class="half-container" style="transform: translateX(-613px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/tour/img-6.jpg');"></div>
 
 
 
@@ -267,11 +242,11 @@
 
 				<div class="txt_container">
 
-                	<h3>What We Get ... ???</h3>
+                	<h3>Great Campus structure</h3>
 
-					<p>May be this question troubling you the most.<br/> What we get by doing all this ?<br/>The answer is very simple...<br/>We get a hope for the bright future of our country which we wish to see...!!!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eos labore ratione illum excepturi neque sunt blanditiis ducimus soluta quae!</p>
 
-<!--                     <ul class="intro_icons">
+                    <ul class="intro_icons">
 
                     <li><i class="pe-7s-culture"></i>Conference hall</li>
 
@@ -279,7 +254,7 @@
 
                     <li><i class="pe-7s-coffee"></i>Bar and restaurant</li>
 
-                    </ul> -->
+                    </ul>
 
 				</div>
 
@@ -295,7 +270,7 @@
 
 		<div class="full-container" style="transform: scale(1); opacity: 1;">
 
-			<div class="half-container" style="transform: translateX(0px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('/img/tour/5.png');background-size: 300px 360px;"></div>
+			<div class="half-container" style="transform: translateX(0px); box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;background-image: url('../img/tour/img-5.jpg');"></div>
 
 
 
@@ -303,13 +278,11 @@
 
 				<div class="txt_container">
 
-                	<h3>We feel proud to be JAGRATIAN</h3>
+                	<h3>Leave your email, we will contact you</h3>
 
-					<p>We are serving our nation at a superior level as darkness of each kind can be removed by the light of education.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eos labore ratione illum excepturi neque sunt blanditiis ducimus soluta quae!</p>
 
-					<p>Our team is trying to explore the idea of Jagriti and many students studying in different institutes have aquired the idea of doing great deeds.</p>
-
-                	<!-- <a href="#" class="button">Contact us</a> -->
+                	<a href="#" class="button">Contact us</a>
 
 				</div>
 
@@ -339,7 +312,7 @@
 
 		<ul class="top-nav">
 
-			<li><a href="/" class="back"><i class="arrow_back"></i></a></li>
+			<li><a href="#" class="back"><i class="arrow_back"></i></a></li>
 
 		</ul>
 
@@ -349,15 +322,15 @@
 
 <!-- Common scripts -->
 
-<script src="/js/jquery-1.11.2.min.js"></script>
+<script src="/tour_files/jquery-1.11.2.min.js"></script>
 
-<script src="/site_launch/js/functions.js"></script>
+<script src="/tour_files/functions.js"></script>
 
 
 
 <!-- Specific scripts -->
 
-<script src="/js/tour.min.js"></script>
+<script src="/tour_files/tour.min.js"></script>
 
 
 

@@ -1,0 +1,177 @@
+/* CUSTOM CSS HERE */
+
+
+
+a:active,
+a:hover {
+  outline: 0; }
+
+
+img {
+  border: 0; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  vertical-align: middle; }
+
+
+
+.image_row .owl-next, .image_row .owl-prev {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4; }
+
+
+
+
+.image_row img {
+  max-width: 100%;
+  height: auto; }
+
+.image_row .owl-carousel .owl-stage {
+  margin-right: auto;
+  margin-left: auto; }
+
+.image_row .owl-next, .image_row .owl-prev {
+  line-height: 1;
+  padding: 0px;
+  position: absolute;
+  transition: all linear 0.15s;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  top: 50%; }
+  .image_row .owl-next i, .image_row .owl-prev i {
+    background-color: transparent;
+    font-size: 18px;
+    height: auto;
+    margin: 0px;
+    padding: 3px 0px;
+    transition: all linear 0.15s; }
+  .image_row .owl-next:hover, .image_row .owl-prev:hover {
+    background-color: #c6af5c; }
+    .image_row .owl-next:hover i, .image_row .owl-prev:hover i {
+      color: #fff; }
+
+.image_row .owl-next {
+  right: 14px;
+  padding: 5px 9px 4px 10px; }
+
+.image_row .owl-prev {
+  left: 14px;
+  padding: 5px 10px 4px 9px; }
+
+.image_row .row_index {
+  background-color: #fff;
+  margin: 0px;
+  position: relative;
+  padding: 10px 50px; }
+  .image_row .row_index .owl-stage-outer {
+    cursor: pointer; }
+
+.image_row .image_row-preview {
+  position: relative; }
+
+.image_row .image_row-list-item {
+  display: none;
+  list-style: none;
+  margin: 0px;
+  padding: 10px;
+  transition: all linear 0.15s;
+  width: 100%; }
+  .image_row .image_row-list-item a {
+    border-bottom: none;
+    display: block;
+    /*height: 70px;*/
+    overflow: hidden; }
+    .image_row .image_row-list-item a img {
+      height: 100%;
+      max-width: none;
+      min-width: 100%;
+      width: auto; }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .image_row .image_row-list-item a {
+        height: 50px; } }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .image_row .image_row-list-item a {
+        height: 40px; } }
+    @media (max-width: 767px) {
+      .image_row .image_row-list-item a {
+        height: 60px; } }
+
+.image_row .owl-item .image_row-list-item img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: .6;
+  transition: all linear 0.15s; }
+
+.image_row .owl-item .image_row-list-item.active img, .image_row .owl-item .image_row-list-item:hover img {
+  -webkit-filter: grayscale(0%);
+  opacity: 1;
+  filter: grayscale(0%); }
+
+.image_row .owl-item .image_row-list-item {
+  display: inline-block; }
+
+.slider_wrap {
+  background-color: #f7f8f9;
+  display: table;
+  height: 100%;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%; }
+
+.mobislider-pic{
+  width: 212px !important;
+}
+
+.slider_padding{
+  padding-top: 20px !important;
+}
+
+
+::selection { background: #a4dcec; }
+::-moz-selection { background: #a4dcec; }
+::-webkit-selection { background: #a4dcec; }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #ccc;
+  font-style: italic;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+  font-style: italic;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #ccc;
+  font-style: italic;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #ccc !important;
+  font-style: italic;  
+}
+
+ol, ul { list-style: none; }
+
+/** reset lightbox position **/
+#lightbox-container-image-data-box {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+#thumbnails { display: block; margin-bottom: 10px; }
+#thumbnails ul li { float: left; margin-right: 26px; margin-bottom: 12px; }
+
+/** clearfix **/
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }

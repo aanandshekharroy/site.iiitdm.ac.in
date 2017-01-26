@@ -12,7 +12,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','proPic',
+        'specialization','department','designation',
+        'phone','webpage','about_me','interests',
     ];
 
     /**
@@ -21,6 +23,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','proPic',
     ];
+    public function getProPicAttribute($value) 
+    { return (is_null($value)) ? '/proPic/default.png' : '/proPic/' . $value; }
 }

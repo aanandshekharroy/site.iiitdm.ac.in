@@ -17,6 +17,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('proPic')->nullable(true);
+            $table->string('designation');
+            $table->string('department');
+            $table->string('specialization');
+            $table->string('phone');
+            $table->string('webpage');
+            $table->longText('about_me');
+            $table->longText('interests');
             $table->rememberToken();
             $table->timestamps();
         });

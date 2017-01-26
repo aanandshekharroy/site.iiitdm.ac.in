@@ -40,12 +40,12 @@
 		<link href="/css/owl.carousel.css" rel="stylesheet" type="text/css" >
 		<link href="/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" >
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
-		<link href="/css/layerslider.css" rel="stylesheet">
+		<link href="/layerslider/css/layerslider.css" rel="stylesheet">
 		<link href="/css/tabs.css" rel="stylesheet">
 <!--BootstrapDataTables CSS-->
 		<link href="/css/dataTables.bootstrap.min.css" rel="stylesheet">
 		<link href="/css/jquery.mCustomScrollbar.css" rel="stylesheet">
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<!--[if lt IE 9]>
 
 	  <script src="js/html5shiv.min.js"></script>
@@ -253,78 +253,6 @@
 
 
 
-
-
-		<script type="text/javascript">
-
-
-
-	 //encoding the password;
-
-	 var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9+/=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/rn/g,"n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
-
-
-
-	 function faculty_login()
-
-	 {
-
-
-
-
-
-	 	var id=document.getElementById("fac_id").value;
-
-	 	var pass=Base64.encode(document.getElementById("fac_pass").value);
-
-	 	window.location.assign("http://site.iiitdmj.ac.in/people/authenticate_login.php?type=faculty;id:"+id+";pass:"+pass+";");
-
-
-
-	 }
-
-	 function student_login()
-
-	 {
-
-
-
-
-
-	 	var id=document.getElementById("student_id").value;
-
-	 	var pass=Base64.encode(document.getElementById("student_pass").value);
-
-	 	window.location.assign("http://site.iiitdmj.ac.in/people/authenticate_login.php?type=student;id:"+id+";pass:"+pass+";");
-
-
-
-	 }
-
-	 function alumni_login()
-
-	 {
-
-
-
-
-
-	 	var id=document.getElementById("alumni_id").value;
-
-	 	var pass=Base64.encode(document.getElementById("alumni_pass").value);
-
-	 	window.location.assign("http://site.iiitdmj.ac.in/people/authenticate_login.php?type=alumni;id:"+id+";pass:"+pass+";");
-
-
-
-	 }
-
-
-
-
-
-	</script>
-
 	<div class="container-fluid">
 
 
@@ -332,8 +260,16 @@
 		<!-- Faculty Login -->
 
 
-
-		<div class="modal fade" id="faculty_login" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true" style="display: none;">  <div class="modal-dialog" style="margin-top: 14.5px;">      <div class="modal-content modal-popup">  <a href="#" class="close-link">X</a>    <form   class="popup-form" id="myLogin">        <input type="text" class="form-control form-white" id="fac_id" placeholder="Faculty Username">          <input type="password" class="form-control form-white" placeholder="Password" id="fac_pass">           <button type="button" class="btn btn-submit" onClick="faculty_login()" >Login</button>       </form>    </div>    </div>  </div>
+		@if(Auth::guest())
+		<div class="modal fade" id="faculty_login" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true" style="display: none;">  <div class="modal-dialog" style="margin-top: 14.5px;">      <div class="modal-content modal-popup">  <a href="#" class="close-link">X</a>    
+			<form   class="popup-form" id="myLogin" method="post" action="/login">        
+			{{ csrf_field() }}
+				<input type="text" class="form-control form-white" id="fac_id" placeholder="Faculty Username">          
+				<input type="password" class="form-control form-white" placeholder="Password" id="fac_pass">           
+				<button type="submit" class="btn btn-submit"  >Login</button>       
+			</form>    
+		</div>    </div>  </div>
+		@endif
 
 		<div class="row">
 
@@ -451,9 +387,9 @@
 
 											<ul>
 
-												<LI><a href="/academics/programme">B.Tech</a></LI>
+												<LI><a href="/programme">B.Tech</a></LI>
 
-												<LI><a href="/academics/programme#pg">M.Tech</a></LI>
+												<LI><a href="/programme#pg">M.Tech</a></LI>
 
 												<LI><a href="/programme#mdes">B.Des</a></LI>
 

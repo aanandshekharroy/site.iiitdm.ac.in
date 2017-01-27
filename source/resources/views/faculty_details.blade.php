@@ -210,120 +210,60 @@
 	                 			</div>
                  			</form>
                 		</div>
-                	</div>
-                	
-					<div class="indent_title_in">
-                
+                	</div>                	
+					<div class="indent_title_in">              
+                		<h4>3) Qualification</h4><br>
+                		
+              			<div class="more_qual">
+	              			<form action="/update-qualifications" method="post">
+	              				{{csrf_field()}}
+	              				@foreach (Auth::user()->qualifications as $qualification)
+	                  			<div class="qualification">
+	                  				<a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
+	                    			<div class="row">
+			                            <div class="col-md-6">
+			                                <div class="form-group">
+				                                <label>Degree</label>
+				                                <input type="text" class="form-control styled required" required id="q_degree_1" name="degree[]" placeholder="Degree you attained" value="{{$qualification->degree}}">
+			                            	</div>
+	                            		</div>
+			                            <div class="col-md-6">
+			                                <div class="form-group">
+				                                <label>Institute</label>
+				                                <input type="text"  required class="form-control styled required" id="q_institute_1" name="degree_college[]" placeholder="Institute of degree attainment" value="{{$qualification->college}}">
+	                                        </div>
+	                                    </div>
+	                        		</div><!-- End row -->
+	                        		<div class="row">
+	                    				<div class="col-md-6">
+	                                		<label>Description</label>
+	                              			<textarea id="q_description" required name="degree_description[]"  placeholder="Period of completion or any other information (200 characters)" rows="7" cols="45">{{$qualification->description}}</textarea>
+				                               <!-- div hidden>
+				                               <input type="text" class="form-control styled required" id="q_desc" name="q_desc" value="" placeholder="Describe your work" >
+				                               </div> -->
+	                           			</div>
+	                   				</div>
+			                     <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
+		                     	</div>
+		                     	@endforeach
+								<div class="row">
+		                            <div class="col-md-3">
+		                                <div class="form-group">
+		                        
+			                                <button type="button" class="add_button_qual"  ><img src="/img/plus.png"/></button>
+			                                 &nbsp&nbsp  <label>Add more fields</label>
+		                            	</div>
+		                            </div>
+	                            </div>
 
-                <h4>3) Qualification</h4><br>
-              
-             
-                <div class="more_qual">
-                  <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Degree</label>
-                                <input type="text" class="form-control styled required" id="q_degree_1" name="degree" placeholder="Degree you attained" value="PhD in Computer Science and Engineering 2010">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="q_institute_1" name="institute" placeholder="Institute of degree attainment" value="IIT Guwahati">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>Description</label>
-                                
-                              <textarea id="q_description" name="q_description"  placeholder="Period of completion or any other information (200 characters)" rows="7" cols="45">Thesis Title: I/O Efficient Algorithms for Matrix Computation</textarea>
-                               <div hidden>
-                               <input type="text" class="form-control styled required" id="q_desc" name="q_desc" value="" placeholder="Describe your work" >
-                               </div>
-                           
-                            </div>
-                             
-                   </div>
-                     <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
-                     </div>
-                           
-                   
-<div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Degree</label>
-                                <input type="text" class="form-control styled required" id="q_degree_2" name="degree" placeholder="Degree you attained" value="MTech in Computer Science 2003">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="q_institute_2" name="institute" placeholder="Institute of degree attainment" value="Utkal University">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>Description</label>
-                                
-                              <textarea id="q_description" name="q_description"  placeholder="Period of completion or any other information (200 characters)" rows="7" cols="45"></textarea>
-                               <div hidden>
-                               <input type="text" class="form-control styled required" id="q_desc" name="q_desc" value="" placeholder="Describe your work" >
-                               </div>
-                           
-                            </div>
-                             
-                   </div>
-                     <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
-                     </div>
-                           
-                   
-<div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Degree</label>
-                                <input type="text" class="form-control styled required" id="q_degree_3" name="degree" placeholder="Degree you attained" value="MSc in Mathematics 2001">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="q_institute_3" name="institute" placeholder="Institute of degree attainment" value="Utkal University">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>Description</label>
-                                
-                              <textarea id="q_description" name="q_description"  placeholder="Period of completion or any other information (200 characters)" rows="7" cols="45"></textarea>
-                               <div hidden>
-                               <input type="text" class="form-control styled required" id="q_desc" name="q_desc" value="" placeholder="Describe your work" >
-                               </div>
-                           
-                            </div>
-                             
-                   </div>
-                     <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
-                     </div>
-                           
-                   
-</div> <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                        
-                                <button type="button" class="add_button_qual"  ><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            </div>
-                            </div><!-- end of row -->
+
+	              				<div class="row">
+	                  				<div class="col-md-2">    
+	                                	<input class="button" type="submit" value="Update Qualifiactions" name="submit"> 
+	                  				</div>
+	                 			</div>
+	              			</form> 
+              			<!-- end of row -->
                             
                  <br><br><br>
                 <h4>4) Professional Experience</h4><br>
@@ -2187,4 +2127,13 @@
         </div><!--End container -->
        
 </div>
+
+
+<script type="text/javascript">
+	$(function(){
+		$('a.remove_button').on('click',function(){
+			alert('ff');
+		});
+	});
+</script>
 @endsection

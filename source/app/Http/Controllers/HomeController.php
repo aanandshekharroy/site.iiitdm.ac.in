@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Auth;
 use Hash;
+use App\Qualification;
 class HomeController extends Controller
 {
     /**
@@ -78,5 +79,24 @@ class HomeController extends Controller
         $user->interests=$request->input('interests');
         $user->save();
         return back()->with('msg-basic-details','Updated successfully');
+    }
+    public function update_qualifications(Request $request){
+        // var_dump($request->input('degree_description'));
+        $degree_description=$request->input('degree_description');
+        $degrees=$request->input('degree');
+        $degree_college=$request->input('degree_college');
+        $qualifications=Qualification::where('user_id',Auth::id())->get();
+        foreach ($qualifications as $qualification) {
+            $qualification->delete();
+        }
+        foreach ($degrees as $index => $degree) {
+            # code...
+            $qualification=new Qualification;
+            $qualification->user_id=Auth::id();
+            $qualification->degree=$degree;
+            $qualification->college=$degree_college[$index];
+            $qualification->description=$degree_description[$index];
+            $qualification->save();
+        }
     }
 }

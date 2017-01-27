@@ -27,4 +27,8 @@ class User extends Authenticatable
     ];
     public function getProPicAttribute($value) 
     { return (is_null($value)) ? '/proPic/default.png' : '/proPic/' . $value; }
+
+    public function qualifications(){
+        return $this->hasMany('App\Qualification','user_id','id');
+    }
 }

@@ -22,6 +22,7 @@ Route::post('upload-photo','HomeController@upload_pic');
 Route::post('update-password','HomeController@update_password');
 Route::post('update-index-page','HomeController@update_index_page');
 Route::post('update-basic-details','HomeController@update_basic_details');
+Route::post('update-qualifications','HomeController@update_qualifications');
 Route::get('tender', function(){
 	return view('tender');
 });

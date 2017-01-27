@@ -15,6 +15,8 @@ class User extends Authenticatable
         'name', 'email', 'password','proPic',
         'specialization','department','designation',
         'phone','webpage','about_me','interests','cv',
+        'gmail','twitter','facebook','linkedin','skype',
+        'alternate_phone','fax',
     ];
 
     /**
@@ -42,5 +44,8 @@ class User extends Authenticatable
     }
     public function gallery(){
         return $this->hasMany('App\Gallery','user_id','id');
+    }
+    public function students(){
+        return $this->hasMany('App\FacultyStudent','faculty_id','id');   
     }
 }

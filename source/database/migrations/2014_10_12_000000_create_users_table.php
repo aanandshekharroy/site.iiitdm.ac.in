@@ -19,10 +19,18 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('proPic')->nullable(true);
             $table->string('cv')->nullable(true);
+
             $table->string('designation');
             $table->string('department');
             $table->string('specialization');
             $table->string('phone');
+            $table->string('gmail')->nullable(true);
+            $table->string('twitter')->nullable(true);
+            $table->string('linkedin')->nullable(true);
+            $table->string('facebook')->nullable(true);
+            $table->string('skype')->nullable(true);
+            $table->string('alternate_phone')->nullable(true);
+            $table->string('fax')->nullable(true);
             $table->string('webpage');
             $table->longText('about_me');
             $table->longText('interests');

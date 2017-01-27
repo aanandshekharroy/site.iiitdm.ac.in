@@ -26,6 +26,9 @@ Route::post('update-qualifications','HomeController@update_qualifications');
 Route::post('update-professional-experience','HomeController@update_professional_qualification');
 Route::post('update-administrative-position','HomeController@update_administrative_position');
 Route::post('update-cv','HomeController@update_cv');
+Route::post('update-students','HomeController@update_students');
+Route::post('update-webdata','HomeController@update_web_data');
+
 Route::get('delete-cv','HomeController@delete_cv');
 Route::get('delete-image/{id}','HomeController@delete_images');
 Route::get('tender', function(){

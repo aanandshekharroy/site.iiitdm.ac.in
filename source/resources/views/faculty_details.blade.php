@@ -1596,220 +1596,88 @@
                         </div>        <br><br><br>
                     <div class="wrapper_indent">
                     <h4>4) Students</h4><br>
-                    <div class="more_students"> <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
+                    <div class="more_students">
+                    	<form action="/update-students" method="post">
+	              				{{csrf_field()}} 
+	                    @foreach(Auth::user()->students as $student)
+	                    	<div>
+	                    		<a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
+								<div class="row">
+	                        		<div class="col-md-2">
+	                             		<label>Roll number</label>
+	                                	<input type="text" class="form-control styled"  name="roll_number[]" value="{{$student->roll_number}}" >
+	                        		</div>
+									<div class="col-md-3">
+	                             		<label>Name</label>
+	                                	<input type="text" class="form-control styled"  name="name[]" required value="{{$student->name}}" >
+	                        		</div>
+									<div class="col-md-2">
+	                        			<label>Category</label>
+	                                 	<select  class="form-control styled required" name="category[]">
+	                                 		@if($student->category=='Mtech')
+	                                 			<option value="Mtech" selected>Mtech</option>
+	                                 			<option value="PhD" >PhD</option>
+	                                 			<option value="PBI" >PBI</option>
 
-                        <div class="row">
-                        <div class="col-md-2">
-                             <label>Roll number</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="0" >
-                        </div>
-
-                        <div class="col-md-3">
-                             <label>Name</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Ms. R. Jothi" >
-                        </div>
-
-                         <div class="col-md-2">
-                        
-                        <label>Category</label>
-                                 <select  class="form-control styled required" > <option value="Mtech" >Mtech</option><option value="PhD" selected>PhD</option><option value="PBI" >PBI</option>  </select>
-                          
-                        </div>
-                             <div class="col-md-3">
-                        
-                        <label>Status</label>
-                                 <select  class="form-control styled required" > <option value="Completed" >Completed</option> <option value="Ongoing" selected>Ongoing</option>  </select>
-                          
-                        </div>
-                     
-                            <div class="col-md-2">
-                                 <label>Year</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="" >
-                            </div>
-                       
-                        </div><!-- End row -->
-
-
-                        <br>
-                          <div class="row">
-                            
-
-                            <div class="col-md-7">
-                             <label>Title of Work</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Minimum Spanning Tree based Clustering Algorithms for Gene Expression Analysis" >
-                        </div>
-
-                             <div class="col-md-5">
-                                 <label>Co-guide(s)</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="Prof. A. Ojha" >
-                            </div>
-
-                          </div>
-
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-2">
-                             <label>Roll number</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="0" >
-                        </div>
-
-                        <div class="col-md-3">
-                             <label>Name</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Mr. Rohit Ahuja" >
-                        </div>
-
-                         <div class="col-md-2">
-                        
-                        <label>Category</label>
-                                 <select  class="form-control styled required" > <option value="Mtech" >Mtech</option><option value="PhD" selected>PhD</option><option value="PBI" >PBI</option>  </select>
-                          
-                        </div>
-                             <div class="col-md-3">
-                        
-                        <label>Status</label>
-                                 <select  class="form-control styled required" > <option value="Completed" >Completed</option> <option value="Ongoing" selected>Ongoing</option>  </select>
-                          
-                        </div>
-                     
-                            <div class="col-md-2">
-                                 <label>Year</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="" >
-                            </div>
-                       
-                        </div><!-- End row -->
-
-
-                        <br>
-                          <div class="row">
-                            
-
-                            <div class="col-md-7">
-                             <label>Title of Work</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Security Issues in Cloud Computing" >
-                        </div>
-
-                             <div class="col-md-5">
-                                 <label>Co-guide(s)</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="" >
-                            </div>
-
-                          </div>
-
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-2">
-                             <label>Roll number</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="0" >
-                        </div>
-
-                        <div class="col-md-3">
-                             <label>Name</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Gaurav Mishra" >
-                        </div>
-
-                         <div class="col-md-2">
-                        
-                        <label>Category</label>
-                                 <select  class="form-control styled required" > <option value="Mtech" >Mtech</option><option value="PhD" selected>PhD</option><option value="PBI" >PBI</option>  </select>
-                          
-                        </div>
-                             <div class="col-md-3">
-                        
-                        <label>Status</label>
-                                 <select  class="form-control styled required" > <option value="Completed" >Completed</option> <option value="Ongoing" selected>Ongoing</option>  </select>
-                          
-                        </div>
-                     
-                            <div class="col-md-2">
-                                 <label>Year</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="" >
-                            </div>
-                       
-                        </div><!-- End row -->
-
-
-                        <br>
-                          <div class="row">
-                            
-
-                            <div class="col-md-7">
-                             <label>Title of Work</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Graph Theoretic Clustering Methods" >
-                        </div>
-
-                             <div class="col-md-5">
-                                 <label>Co-guide(s)</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="" >
-                            </div>
-
-                          </div>
-
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-2">
-                             <label>Roll number</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="0" >
-                        </div>
-
-                        <div class="col-md-3">
-                             <label>Name</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Bhoopenra Kumar Ahirwar" >
-                        </div>
-
-                         <div class="col-md-2">
-                        
-                        <label>Category</label>
-                                 <select  class="form-control styled required" > <option value="Mtech" >Mtech</option><option value="PhD" selected>PhD</option><option value="PBI" >PBI</option>  </select>
-                          
-                        </div>
-                             <div class="col-md-3">
-                        
-                        <label>Status</label>
-                                 <select  class="form-control styled required" > <option value="Completed" >Completed</option> <option value="Ongoing" selected>Ongoing</option>  </select>
-                          
-                        </div>
-                     
-                            <div class="col-md-2">
-                                 <label>Year</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="" >
-                            </div>
-                       
-                        </div><!-- End row -->
-
-
-                        <br>
-                          <div class="row">
-                            
-
-                            <div class="col-md-7">
-                             <label>Title of Work</label>
-                                <input type="text" class="form-control styled required"  placeholder="" value="Security Challenges in Smart-Grid" >
-                        </div>
-
-                             <div class="col-md-5">
-                                 <label>Co-guide(s)</label>
-                                    <input type="text" class="form-control styled required"  placeholder="" value="" >
-                            </div>
-
-                          </div>
-
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div> </div>
-                        <div class="row">
+	                                 		@elseif($student->category=='PhD')
+	                                 			<option value="Mtech" >Mtech</option>
+	                                 			<option value="PhD" selected>PhD</option>
+	                                 			<option value="PBI" >PBI</option>
+	                                 		@else
+	                                 			<option value="Mtech" >Mtech</option>
+	                                 			<option value="PhD" >PhD</option>
+	                                 			<option value="PBI" selected >PBI</option>
+	                                 		@endif                                		
+	                                 	</select>                          
+	                        		</div>
+	                             	<div class="col-md-3">
+	                        			<label>Status</label>
+	                                 	<select name="status[]" class="form-control styled ">
+	                                 	@if($student->status=='Completed') 
+	                                 		<option value="Completed" selected>Completed</option>
+	                                 		<option value="Ongoing" >Ongoing</option>
+	                                 	@else
+	                                 		<option value="Completed" >Completed</option>
+	                                 		<option value="Ongoing" selected>Ongoing</option>
+	                                 	@endif
+                             			</select>
+	                        		</div>                     
+		                            <div class="col-md-2">
+		                                <label>Year</label>
+	                                    <input type="text" class="form-control styled required"  name="year[]" value="{{$student->year}}" >
+		                            </div>
+	                   			</div><!-- End row -->
+								<br>
+	                        	<div class="row">                  
+									<div class="col-md-7">
+	                             		<label>Title of Work</label>
+	                                	<input type="text" class="form-control styled required"  name="title_work[]" value="{{$student->title_work}}" >
+	                        		</div>
+	                             	<div class="col-md-5">
+	                            		<label>Co-guide(s)</label>
+	                                    <input type="text" class="form-control styled required"  name="co_guide[]" value="{{$student->co_guide}}" >
+	                            	</div>
+								</div>
+								<hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
+	                        </div>
+	                    @endforeach
+	                    <div class="row">
                             <div class="col-md-3">
-                                <div class="form-group">
-                                <button type="button" class="add_button_students"><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add student</label>
+                                <div class="form-group">		                        
+	                                <button type="button" class="add_student"  ><img src="/img/plus.png"/></button>
+	                                 &nbsp&nbsp  <label>Add more fields</label>
+                            	</div>
                             </div>
-                            </div>   
-                       
                         </div>
+
+
+              				<div class="row">
+                  				<div class="col-md-2">    
+                                	<input class="button" type="submit" value="Update Students Section" name="submit"> 
+                  				</div>
+                 			</div>
+              			</form>
+                    </div>
                         <hr class="styled_2">
                     
                     
@@ -1987,6 +1855,7 @@
 		var qualification_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Degree</label><input type='text' class='form-control styled ' required name='degree[]' placeholder='Degree you attained' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Institute</label><input type='text' class='form-control styled required' required name='degree_college[]' placeholder='Institute of degree attainment' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><textarea  name='degree_description[]'  placeholder='Period of completion or any other information (200 characters)' rows='7' cols='45'></textarea></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var professional_experiences_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='professional_experience_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='professional_experience_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='professional_experience_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='professional_experience_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var administrative_positions_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='administrative_position_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='administrative_position_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='administrative_position_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='administrative_position_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
+		var student_detail_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-2'><label>Roll number</label><input type='text' class='form-control styled'  name='roll_number[]' value='' ></div><div class='col-md-3'><label>Name</label><input type='text' class='form-control styled'  name='name[]' required value='' ></div><div class='col-md-2'><label>Category</label><select  class='form-control styled ' name='category[]' value=''> <option value='Mtech' >Mtech</option><option value='PhD' selected>PhD</option><option value='PBI' >PBI</option></select></div><div class='col-md-3'><label>Status</label><select name='status[]' class='form-control styled required'value=''><option value='Completed' >Completed</option> <option value='Ongoing' selected>Ongoing</option></select></div><div class='col-md-2'><label>Year</label><input type='text' class='form-control styled required'  name='year[]' value='' ></div></div><!-- End row --><br><div class='row'><div class='col-md-7'><label>Title of Work</label><input type='text' class='form-control styled required'  name='title_work[]' value='' ></div><div class='col-md-5'><label>Co-guide(s)</label><input type='text' class='form-control styled'  name='co_guide[]' value='' ></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
         $('button.add_qualification').on('click',function(){
 			$(this).parent().parent().parent().prepend(qualification_HTML);
 		});
@@ -1995,6 +1864,9 @@
 		});
 		$('button.add_administrative_position').on('click',function(){
 			$(this).parent().parent().parent().prepend(administrative_positions_HTML);
+		});
+		$('button.add_student').on('click',function(){
+			$(this).parent().parent().parent().prepend(student_detail_HTML)
 		});
 		$('a.remove_button').on('click',function(){
 			$(this).parent().remove();

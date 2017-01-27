@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Input;
 use App\ProfessionalExperience;
 use App\AdministrativePosition;
 use App\Gallery;
+use App\FacultyStudent;
 class HomeController extends Controller
 {
     /**
@@ -209,5 +210,47 @@ class HomeController extends Controller
         }
         $image->delete();
         return back()->with('msg','Image Deleted');
+    }
+    public function update_students(Request $request){
+        $roll_numbers=$request->input('roll_number');
+        $names=$request->input('name');
+        $categories=$request->input('category');
+        $status=$request->input('status');
+        $years=$request->input('year');
+        $title_works=$request->input('title_work');
+        $co_guides=$request->input('co_guide');
+        $students=FacultyStudent::where('faculty_id',Auth::id())->get();
+        foreach ($students as $student) {
+            $student->delete();
+        }
+        if(!empty($names)){
+            foreach ($names as $index => $name) {
+            # code...
+                $student=new FacultyStudent;
+                $student->faculty_id=Auth::id();
+                $student->roll_number=$roll_numbers[$index];
+                $student->name=$name;
+                $student->category=$categories[$index];
+                $student->status=$status[$index];
+                $student->year=$years[$index];
+                $student->title_work=$title_works[$index];
+                $student->co_guide=$co_guides[$index];
+                $student->save();
+            }
+        }
+        
+        return back()->with('msg','Updated successfully');
+    }
+    public function update_web_address(Request $request){
+        $user=Auth::user();
+        $user->gmail=$request->input('gmail');
+        $user->facebook=$request->input('facebook');
+        $user->twitter=$request->input('twitter');
+        $user->skype=$request->input('skype');
+        $user->alternate_phone=$request->input('alternate_phone');
+        $user->fax=$request->input('fax');
+        $user->linkedin=$request->input('linkedin');
+        $user->save();
+        return back()->with('msg','Updated successfully');
     }
 }

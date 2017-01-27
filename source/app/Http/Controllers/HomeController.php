@@ -10,6 +10,7 @@ use App\Qualification;
 use Illuminate\Support\Facades\Input;
 use App\ProfessionalExperience;
 use App\AdministrativePosition;
+use App\Gallery;
 class HomeController extends Controller
 {
     /**
@@ -44,8 +45,23 @@ class HomeController extends Controller
                 return back()->with('msg','Image Upload successful');
             }else{
                 return back()->with('msg','Image Upload un-successful');
-            }
-            
+            }            
+        }else if($request->input('type')=='gallery'){
+            $file=$request->file('photo');
+            if($file!=null){
+                $imageName =time().'.'.$file->getClientOriginalExtension();
+                $path = base_path() . '/public/proPic/';
+                $file->move($path , $imageName);
+                $user_id=Auth::id();
+                $gallery=new Gallery;
+                $gallery->user_id=$user_id;
+                $gallery->description=$request->input('gallery_description');
+                $gallery->filename=$imageName;
+                $gallery->save();
+                return back()->with('msg','Image Upload successful');
+            }else{
+                return back()->with('msg','Image Upload un-successful');
+            }  
         }
     }
     public function update_password(Request $request){
@@ -142,6 +158,7 @@ class HomeController extends Controller
         foreach ($administrative_positions as $position) {
             $position->delete();
         }
+        // var_dump($administrative_position_title);die();
         if(!empty($administrative_position_title)){
             foreach ($administrative_position_title as $index => $title) {
             # code...
@@ -156,5 +173,41 @@ class HomeController extends Controller
         }
         
         return back()->with('msg','Updated successfully');
+    }
+    public function update_cv(Request $request){
+        if($request->file('cv')){
+            $file=$request->file('cv');
+            if($file!=null){
+                $fileName =time().'.'.$file->getClientOriginalExtension();
+                $path = base_path() . '/public/cv/';
+                $file->move($path , $fileName);
+                $user=Auth::user();
+                $user->cv=$fileName;
+                $user->save();
+                return back()->with('msg','CV Upload successful');
+            }else{
+                return back()->with('msg','CV Upload un-successful');
+            }
+            
+        }
+    }
+    public function delete_cv(){
+        $user=Auth::user();
+        $file_loc=base_path() .'/public'.$user->cv;
+        if(file_exists($file_loc)){
+            unlink($file_loc);
+        }
+        $user->cv=null;
+        $user->save();
+        return back()->with('msg','CV Deleted');
+    }
+    public function delete_images($id){
+        $image=Gallery::where(['user_id'=>Auth::id(),'id'=>$id])->first();
+        $file_loc=base_path() .'/public'.$image->filename;
+        if(file_exists($file_loc)){
+            unlink($file_loc);
+        }
+        $image->delete();
+        return back()->with('msg','Image Deleted');
     }
 }

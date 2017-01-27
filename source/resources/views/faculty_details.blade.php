@@ -345,193 +345,81 @@
               
              
                 <div class="more_admin_position">
-                <form action="/administrative_positions" method="post">
-      				{{csrf_field()}}
-      				@foreach(Auth::user()->professional_experiences as  $experience)
-                  		<div>
-                  			<a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    		<div class="row">
-                            	<div class="col-md-6">
-                                	<div class="form-group">
-	                                	<label>Title</label>
-	                                	<input type="text" class="form-control styled required" id="p_title_1" name="title" placeholder="Title of position eg. Professor etc." value="Coordinator Computer Center">
-                            		</div>
-                            	</div>
-                            	<div class="col-md-6">
-                                	<div class="form-group">
-	                                	<label>Description</label>
-	                                	<input type="text" class="form-control styled required" id="p_institute_1" name="institute" placeholder="Description" value="IIITDM Jabalpur">
-                            		</div>
-                            	</div>
-                        	</div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>From</label>
-                                
-                             <input type="text" class="form-control styled required" id="p_from_1" name="p_from" placeholder="Start date (year or month etc)" value="September 2014">
-                           
-                            </div>
-
-                     <div class="col-md-6">
-                                <label>To</label>
-                                
-                             <input type="text" class="form-control styled required" id="p_to_1" name="p_to" placeholder="End date (year or month etc)" value="Till date">
-                           
-                            </div>
-                             
-                   </div>
-                     <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
-                     </div>
-                           
-                   
-<div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_2" name="title" placeholder="Title of position eg. Professor etc." value="Warden Hall-IV">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Description</label>
-                                <input type="text" class="form-control styled required" id="p_institute_2" name="institute" placeholder="Description" value="IIITDM Jabalpur">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>From</label>
-                                
-                             <input type="text" class="form-control styled required" id="p_from_2" name="p_from" placeholder="Start date (year or month etc)" value="Nov 2012">
-                           
-                            </div>
-
-                     <div class="col-md-6">
-                                <label>To</label>
-                                
-                             <input type="text" class="form-control styled required" id="p_to_2" name="p_to" placeholder="End date (year or month etc)" value="June 2016">
-                           
-                            </div>
-                             
-                   </div>
-                     <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
-                     </div>
-                           
-                   
-</div> <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                        
-                                <button type="button" class="add_button_admin_position"  ><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            </div>
-                            </div><!-- end of row -->
-                            
+	                <form action="update-administrative-position" method="post">
+	      				{{csrf_field()}}
+	      				@foreach(Auth::user()->administrative_positions as  $position)
+	                  		<div>
+	                  			<a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
+	                    		<div class="row">
+	                            	<div class="col-md-6">
+	                                	<div class="form-group">
+		                                	<label>Title</label>
+		                                	<input type="text" class="form-control styled required" required name="administrative_position_title[]" placeholder="Title of position eg. Professor etc." value="{{$position->title}}">
+	                            		</div>
+	                            	</div>
+	                            	<div class="col-md-6">
+	                                	<div class="form-group">
+		                                	<label>Description</label>
+		                                	<input type="text" class="form-control styled required" name="administrative_position_description[]" placeholder="Description" value="{{$position->description}}">
+	                            		</div>
+	                            	</div>
+	                        	</div><!-- End row -->                        
+	                         	<div class="row">
+	                    			<div class="col-md-6">
+	                                	<label>From</label>
+	                            		<input type="text" class="form-control styled required" name="administrative_position_from[]" placeholder="Start date (year or month etc)" value="{{$position->from}}">
+	                           
+	                            	</div>
+	                     			<div class="col-md-6">
+	                                	<label>To</label>
+	                             		<input type="text" class="form-control styled required" name="administrative_position_to[]" placeholder="End date (year or month etc)" value="{{$position->to}}">
+		                           </div>
+			                   	</div>
+	                     		<hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
+	                     	</div>
+	                 	@endforeach<div class="row">
+	                        <div class="col-md-3">
+	                            <div class="form-group">		                        
+	                                <button type="button" class="add_administrative_position"  ><img src="/img/plus.png"/></button>
+	                                 &nbsp&nbsp  <label>Add more fields</label>
+	                        	</div>
+	                        </div>
+	                    </div>
+	      				<div class="row">
+	          				<div class="col-md-2">    
+	                        	<input class="button" type="submit" value="Update Administrative Position" name="submit"> 
+	          				</div>
+	         			</div>
+	      			</form>                  	
+                </div>                            
                 <br><br><br>
-                <h4>6) Honors</h4><br>
-                 
-                 
-                <div class="more_honors">      <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="honor_title_1" name="h_title" placeholder="Title of this honor" value="Awarded SRF by CSIR">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Period</label>
-                                <input type="text" class="form-control styled required" id="honor_period_1" name="period" placeholder="When did you receive it?" value="2007">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>Description</label>
-                               
-                                <textarea id="honor_about" name="honor_about"  placeholder="Describe this honour" rows="7" cols="45"></textarea>
-                               <div hidden>
-                               <input type="text" class="form-control styled required" id="honor_description_1" name="description" value="" placeholder="Describe your work" >
-                               </div>
-                              
-                         
-                            </div>
-                       
-                   </div>
-                   <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                   </div>
-                        
-                            <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="honor_title_2" name="h_title" placeholder="Title of this honor" value="Qualified GATE in CSE">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Period</label>
-                                <input type="text" class="form-control styled required" id="honor_period_2" name="period" placeholder="When did you receive it?" value="2003">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>Description</label>
-                               
-                                <textarea id="honor_about" name="honor_about"  placeholder="Describe this honour" rows="7" cols="45"></textarea>
-                               <div hidden>
-                               <input type="text" class="form-control styled required" id="honor_description_2" name="description" value="" placeholder="Describe your work" >
-                               </div>
-                              
-                         
-                            </div>
-                       
-                   </div>
-                   <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                   </div>
-                        
-                       </div><div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                
-                                <button type="button" class="add_button_honors"><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            
-                            </div>
-                        
-                      </div>
-
-                    <div class="row">
+                <div class="row">
                     <br><br>
-                             <div class="col-md-12">
-                                <h4>6) Curriculum-Vitae</h4> <br><br>
-                                <label>Current CV Link - &nbsp&nbsp</label>
-                                <a target = "_blank" href="">No link at present</a></div></div>
-                           <div class="row">
-                        <div class="col-md-6">
-                        <div id="uploadingCV">
-                        <br><label> Upload/Update your CV </label><br>
-
-                            <form action="upload_CV.php" method="post" enctype="multipart/form-data" id="uploadCVForm">
-                             
-                            <input type="file" name="fileToUpload1" id="fileToUpload1">
-                            <br>
-                            <input class="button" type="submit" value="Upload CV" name="submit1" id="upload_cv">
+                    <div class="col-md-12">
+                        <h4>6) Curriculum-Vitae</h4> <br><br>
+                            <label>Current CV Link - &nbsp&nbsp</label>
+                            @if(!Auth::user()->cv)
+                            	<a href="#">No link present</a>
+                            @else
+								<a  href="{{Auth::user()->cv}}">Download cv</a>
+								<a href="/delete-cv">Remove CV</a>
+                            @endif
+                            
+                    </div>
+                </div>
+	            <div class="row">
+                    <div class="col-md-6">
+	                    <div id="uploadingCV">
+    	                    <br><label> Upload/Update your CV </label><br>
+							<form action="/update-cv" method="post" enctype="multipart/form-data" >      
+								{{csrf_field()}}                       
+                            	<input type="file" name="cv">
+	                            <br>
+	                            <input class="button" type="submit" value="Upload CV" name="submit">
                             </form>
                        </div>
-                       </div>
-
-                   </div>
+                   	</div>
+               	</div>
          </div></div>    <hr class="styled_2">
                     
                    <div class="indent_title_in">
@@ -1999,130 +1887,67 @@
                       </div>
                       </div>
                    <div class="wrapper_indent">
-                     <br><br><br>
-                     <h4>2) Add Address</h4><br><div class="more_address"></div> <div class="row">
+                     	<br><br><br>
+                     	<h4>2) Add Address</h4><br>
+                     	<div class="more_address">
+                     	</div> 
+                     	<div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
                         
-                                <button type="button" class="add_button_address"  ><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
+	                                <button type="button" class="add_button_address"  ><img src="../img/plus.png"/></button>
+	                                 &nbsp&nbsp  <label>Add more fields</label>
+                            	</div>
                             </div>
-                            </div>
-                            </div>
-                            <hr class="styled_2">
+                        </div>
+                        <hr class="styled_2">
          
-                <h2>Gallery</h2>
-                <p style="    color: #999; margin: 0;   padding: 0;  font-size: 13px;  line-height: 14px;"> Add images to Gallery</p>
+                		<h2>Gallery</h2>
+                		<p style="    color: #999; margin: 0;   padding: 0;  font-size: 13px;  line-height: 14px;"> Add images to Gallery</p>
           
-                     <br>
-                     <h4>1) Add Images</h4><br>
+                     	<br>
+                     	<h4>1) Add Images</h4><br>
 
                      
 
-                     <div class="more_gallery">             
-                      
-                   <div>
-                    <div class="row">
-                       <div class="col-md-6">
-                        <div id="uploadingGallery">
-
-
-                            <form action="upload_gallery.php" method="post" enctype="multipart/form-data" id="uploadGallery">
-                       
-
-                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <input type="text" class="form-control styled" id="gallery_description" name="gallery_description" placeholder="Title or short description for the image" value="">
-                            </div>
-                           </div>      
-                            <input type="file" name="fileToUpload2" id="fileToUpload2">
-                            <br>
-                            <input class="button" type="submit" value="Upload Image" name="submit2" id="upload_gallery">
-                            </form>
-                       </div>
-                       </div>
-
-
-
-                        </div>
-                         
-                       
-                         
-
-                         </div><br><br><div class="row">
-
-                            <h4>Current Collection</h4>
-                            <div class="more_gallery_pics"> 
-                          
-                                  <div class="col-md-3">
-                                     <a href="javascript:void(0);" class="remove_button" onclick="remove_gallery_pic(29,2)" title="Remove field">Remove</a><br><br>
-                                  <img  src="../assets/img/faculty/personal/DSC00482.JPG" class="img-thumbnail" alt="Silong Trip" >
-                                  <p>Silong Trip </p>
-                                  </div>
-
-
-
-                            
-
-                            
-                          
-                                  <div class="col-md-3">
-                                     <a href="javascript:void(0);" class="remove_button" onclick="remove_gallery_pic(29,3)" title="Remove field">Remove</a><br><br>
-                                  <img  src="../assets/img/faculty/personal/PIC000564.jpg" class="img-thumbnail" alt="My Office" >
-                                  <p>My Office </p>
-                                  </div>
-
-
-
-                            
-
-                            
-                          
-                                  <div class="col-md-3">
-                                     <a href="javascript:void(0);" class="remove_button" onclick="remove_gallery_pic(29,4)" title="Remove field">Remove</a><br><br>
-                                  <img  src="../assets/img/faculty/personal/sraban.jpg" class="img-thumbnail" alt="" >
-                                  <p> </p>
-                                  </div>
-
-
-
-                            
-
-                                     </div> <!-- end of more_gallery_pics -->                   </div>
-                            </div></div>
-  
-                               
-                            
-                       
-
-
-
-
-
-
-                   
-
-
-
-                  
-                 
-
-
-					
-                   
-                
-                       
-
-
-
-
-
-
-
-
-          
-                      
+	                    <div class="more_gallery">             
+	                      
+		                   	<div>
+			                    <div class="row">
+			                       <div class="col-md-6">
+			                        	<div id="uploadingGallery">
+											<form action="/upload-photo" method="post" enctype="multipart/form-data" >
+											{{csrf_field()}}                    
+			                         			<div class="col-md-12">
+			                            			<div class="form-group">
+			                                			<label>Description</label>
+			                                			<input type="text" class="form-control styled" name="gallery_description" placeholder="Title or short description for the image" value="">
+			                                			<input type="hidden" name="type" value="gallery">
+			                            			</div>
+			                           			</div>      
+			                            		<input type="file" name="photo">
+			                            		<br>
+			                            		<input class="button" type="submit" value="Upload Image" name="submit" >
+			                            	</form>
+			                       		</div>
+			                       	</div>
+			                   	</div>
+		                    </div>
+		                    <br><br>
+		                    <div class="row">
+		                        <h4>Current Collection</h4>
+		                        <div class="more_gallery_pics"> 
+			                        @foreach(Auth::user()->gallery as $image)
+			                        	<div class="col-md-3">
+			                             	<a href="/delete-image/{{$image->id}}" title="Remove field">Remove</a><br><br>
+			                                  <img  src="{{$image->filename}}" class="img-thumbnail" alt="{{$image->description}}" >
+			                                  <p>{{$image->description}}</p>
+			                          	</div>
+			                        @endforeach
+								</div> <!-- end of more_gallery_pics -->         
+							</div>
+	                    </div>
+                    </div>                     
                       <hr class="styled_2">
                       
                       <div class="wrapper_indent">

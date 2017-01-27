@@ -14,7 +14,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','proPic',
         'specialization','department','designation',
-        'phone','webpage','about_me','interests',
+        'phone','webpage','about_me','interests','cv',
     ];
 
     /**
@@ -27,7 +27,10 @@ class User extends Authenticatable
     ];
     public function getProPicAttribute($value) 
     { return (is_null($value)) ? '/proPic/default.png' : '/proPic/' . $value; }
-
+    
+    public function getCvAttribute($value) 
+    { return (is_null($value)) ? null : '/cv/' . $value; }
+    
     public function qualifications(){
         return $this->hasMany('App\Qualification','user_id','id');
     }
@@ -36,5 +39,8 @@ class User extends Authenticatable
     }
     public function administrative_positions(){
         return $this->hasMany('App\AdministrativePosition','user_id','id');
+    }
+    public function gallery(){
+        return $this->hasMany('App\Gallery','user_id','id');
     }
 }

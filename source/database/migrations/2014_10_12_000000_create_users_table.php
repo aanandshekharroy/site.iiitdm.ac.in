@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('proPic')->nullable(true);
+            $table->string('cv')->nullable(true);
             $table->string('designation');
             $table->string('department');
             $table->string('specialization');

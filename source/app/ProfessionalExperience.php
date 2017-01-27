@@ -1,0 +1,11 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ProfessionalExperience extends Model
+{
+    //
+    protected $table = 'professional_experience';
+}

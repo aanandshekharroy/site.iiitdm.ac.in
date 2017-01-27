@@ -31,4 +31,10 @@ class User extends Authenticatable
     public function qualifications(){
         return $this->hasMany('App\Qualification','user_id','id');
     }
+    public function professional_experiences(){
+        return $this->hasMany('App\ProfessionalExperience','user_id','id');
+    }
+    public function administrative_positions(){
+        return $this->hasMany('App\AdministrativePosition','user_id','id');
+    }
 }

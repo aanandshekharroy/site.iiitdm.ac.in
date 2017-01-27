@@ -23,6 +23,8 @@ Route::post('update-password','HomeController@update_password');
 Route::post('update-index-page','HomeController@update_index_page');
 Route::post('update-basic-details','HomeController@update_basic_details');
 Route::post('update-qualifications','HomeController@update_qualifications');
+Route::post('update-professional-experience','HomeController@update_professional_qualification');
+Route::post('update-administrative-position','HomeController@update_administrative_position');
 Route::get('tender', function(){
 	return view('tender');
 });

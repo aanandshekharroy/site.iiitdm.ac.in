@@ -215,6 +215,11 @@
                 		<h4>3) Qualification</h4><br>
                 		
               			<div class="more_qual">
+              			@if(Session::has('msg-qualification'))
+						    <div class="alert-box success">
+						        <strong><h2>{{ Session::get('msg-qualification') }}</h2><strong>
+						    </div>
+						@endif
 	              			<form action="/update-qualifications" method="post">
 	              				{{csrf_field()}}
 	              				@foreach (Auth::user()->qualifications as $qualification)
@@ -224,20 +229,20 @@
 			                            <div class="col-md-6">
 			                                <div class="form-group">
 				                                <label>Degree</label>
-				                                <input type="text" class="form-control styled required" required id="q_degree_1" name="degree[]" placeholder="Degree you attained" value="{{$qualification->degree}}">
+				                                <input type="text" class="form-control styled required"  name="degree[]" placeholder="Degree you attained" value="{{$qualification->degree}}">
 			                            	</div>
 	                            		</div>
 			                            <div class="col-md-6">
 			                                <div class="form-group">
 				                                <label>Institute</label>
-				                                <input type="text"  required class="form-control styled required" id="q_institute_1" name="degree_college[]" placeholder="Institute of degree attainment" value="{{$qualification->college}}">
+				                                <input type="text"   class="form-control styled required"  name="degree_college[]" placeholder="Institute of degree attainment" value="{{$qualification->college}}">
 	                                        </div>
 	                                    </div>
 	                        		</div><!-- End row -->
 	                        		<div class="row">
 	                    				<div class="col-md-6">
 	                                		<label>Description</label>
-	                              			<textarea id="q_description" required name="degree_description[]"  placeholder="Period of completion or any other information (200 characters)" rows="7" cols="45">{{$qualification->description}}</textarea>
+	                              			<textarea id="q_description"  name="degree_description[]"  placeholder="Period of completion or any other information (200 characters)" rows="7" cols="45">{{$qualification->description}}</textarea>
 				                               <!-- div hidden>
 				                               <input type="text" class="form-control styled required" id="q_desc" name="q_desc" value="" placeholder="Describe your work" >
 				                               </div> -->
@@ -248,9 +253,8 @@
 		                     	@endforeach
 								<div class="row">
 		                            <div class="col-md-3">
-		                                <div class="form-group">
-		                        
-			                                <button type="button" class="add_button_qual"  ><img src="/img/plus.png"/></button>
+		                                <div class="form-group">		                        
+			                                <button type="button" class="add_qualification"  ><img src="/img/plus.png"/></button>
 			                                 &nbsp&nbsp  <label>Add more fields</label>
 		                            	</div>
 		                            </div>
@@ -263,79 +267,103 @@
 	                  				</div>
 	                 			</div>
 	              			</form> 
+
               			<!-- end of row -->
                             
                  <br><br><br>
+
+
+
                 <h4>4) Professional Experience</h4><br>
               
              
                 <div class="more_position">
-                  <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_1" name="title" placeholder="Title of position eg. Professor etc." value="Assistant Professor in CSE">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Description</label>
-                                <input type="text" class="form-control styled required" id="p_institute_1" name="institute" placeholder="Description" value="PDPM IIITDM Jabalpur">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                    <div class="col-md-6">
-                                <label>From</label>
-                                
-                             <input type="text" class="form-control styled required" id="p_from_1" name="p_from" placeholder="Start date (year or month etc)" value="July 2011">
-                           
-                            </div>
-
-                     <div class="col-md-6">
-                                <label>To</label>
-                                
-                             <input type="text" class="form-control styled required" id="p_to_1" name="p_to" placeholder="End date (year or month etc)" value="Till date">
-                           
-                            </div>
-                             
-                   </div>
-                     <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
-                     </div>
-                           
-                   
-</div> <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                        
-                                <button type="button" class="add_button_position"  ><img src="../img/plus.png"/></button>
+                <form action="/update-professional-experience" method="post">
+      				{{csrf_field()}}
+	               	@foreach(Auth::user()->professional_experiences as  $experience)
+	               		<div>
+	                  		<a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
+	                   		<div class="row">
+	                            <div class="col-md-6">
+	                                <div class="form-group">
+		                                <label>Title</label>
+		                                <input type="text" class="form-control styled required" 
+		                                name="professional_experience_title[]" placeholder="Title of position eg. Professor etc." 
+		                                value="{{$experience->title}}">
+	                            	</div>
+	                            </div>
+	                            <div class="col-md-6">
+	                                <div class="form-group">
+		                                <label>Description</label>
+		                                <input type="text" class="form-control styled required" 
+		                                name="professional_experience_description[]" 
+		                                placeholder="Description" value="{{$experience->description}}">
+	                            	</div>
+	                            </div>
+	                        </div><!-- End row -->                        
+	                        <div class="row">
+	                    		<div class="col-md-6">
+	                                <label>From</label>
+	                            	<input type="text" class="form-control styled required" 
+	                            	 name="professional_experience_from[]" 
+	                            	 placeholder="Start date (year or month etc)" value="{{$experience->from}}">
+	                           	</div>
+	                     		<div class="col-md-6">
+	                                <label>To</label>
+	                            	<input type="text" class="form-control styled required"  
+	                            	name="professional_experience_to[]" placeholder="End date (year or month etc)" 
+	                            	value="{{$experience->to}}">
+	                           	</div>                             
+	                   		</div>
+	                     	<hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
+	                    </div>
+	               	@endforeach
+	               	<div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">		                        
+                                <button type="button" class="add_professional_experience"  ><img src="/img/plus.png"/></button>
                                  &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            </div>
-                            </div><!-- end of row -->
-                            
+                        	</div>
+                        </div>
+                    </div>
+
+
+      				<div class="row">
+          				<div class="col-md-2">    
+                        	<input class="button" type="submit" value="Update Professional Experience" name="submit"> 
+          				</div>
+         			</div>
+      			</form>
+
+                  	
+                </div>                            
                  <br><br><br>
+
+
+
                 <h4>5) Administrative Positions</h4><br>
               
              
                 <div class="more_admin_position">
-                  <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_1" name="title" placeholder="Title of position eg. Professor etc." value="Coordinator Computer Center">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Description</label>
-                                <input type="text" class="form-control styled required" id="p_institute_1" name="institute" placeholder="Description" value="IIITDM Jabalpur">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
+                <form action="/administrative_positions" method="post">
+      				{{csrf_field()}}
+      				@foreach(Auth::user()->professional_experiences as  $experience)
+                  		<div>
+                  			<a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>
+                    		<div class="row">
+                            	<div class="col-md-6">
+                                	<div class="form-group">
+	                                	<label>Title</label>
+	                                	<input type="text" class="form-control styled required" id="p_title_1" name="title" placeholder="Title of position eg. Professor etc." value="Coordinator Computer Center">
+                            		</div>
+                            	</div>
+                            	<div class="col-md-6">
+                                	<div class="form-group">
+	                                	<label>Description</label>
+	                                	<input type="text" class="form-control styled required" id="p_institute_1" name="institute" placeholder="Description" value="IIITDM Jabalpur">
+                            		</div>
+                            	</div>
+                        	</div><!-- End row -->
                         
                          <div class="row">
                     <div class="col-md-6">
@@ -2131,8 +2159,20 @@
 
 <script type="text/javascript">
 	$(function(){
+		var qualification_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Degree</label><input type='text' class='form-control styled ' required name='degree[]' placeholder='Degree you attained' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Institute</label><input type='text' class='form-control styled required' required name='degree_college[]' placeholder='Institute of degree attainment' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><textarea  name='degree_description[]'  placeholder='Period of completion or any other information (200 characters)' rows='7' cols='45'></textarea></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
+		var professional_experiences_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='professional_experience_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='professional_experience_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='professional_experience_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='professional_experience_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
+		var administrative_positions_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='administrative_position_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='administrative_position_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='administrative_position_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='administrative_position_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
+        $('button.add_qualification').on('click',function(){
+			$(this).parent().parent().parent().prepend(qualification_HTML);
+		});
+		$('button.add_professional_experience').on('click',function(){
+			$(this).parent().parent().parent().prepend(professional_experiences_HTML);
+		});
+		$('button.add_administrative_position').on('click',function(){
+			$(this).parent().parent().parent().prepend(administrative_positions_HTML);
+		});
 		$('a.remove_button').on('click',function(){
-			alert('ff');
+			$(this).parent().remove();
 		});
 	});
 </script>

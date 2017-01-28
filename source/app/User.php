@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\FacultyStudent;
+use App\Course;
 class User extends Authenticatable
 {
     /**
@@ -75,4 +76,13 @@ class User extends Authenticatable
         ->orderBy('name')->get();
         return $students;
     }
+    public function current_courses(){
+        $current_courses=Course::where('currently_teaching',1)->get();
+        return $current_courses;
+    }
+    public function previous_courses(){
+        $previous_courses=Course::where('currently_teaching',0)->get();
+        return $previous_courses;
+    }
+
 }

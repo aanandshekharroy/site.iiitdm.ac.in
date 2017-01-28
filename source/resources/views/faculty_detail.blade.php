@@ -160,10 +160,15 @@
 																<th>Institute</th>
 															</tr>
 														</thead>
-														<tbody><tr><td><a href="" style="color:#444;">CS410</a></td><td><a href="" style="color:#444;">Compiler Design</a></td>
-															<td>UG/</td><td>IIITDM Jabalpur</td></tr>
-															<tr><td> &nbsp&nbsp -</td><td><a href="" style="color:#444;">Computational Number Theory & Cryptography</a></td>
-																<td>UG/</td><td>IIITDM Jabalpur</td></tr>
+														<tbody>
+														@foreach ($user->current_courses() as $course)
+															<tr>
+															<td><a href="" style="color:#444;">{{$course->code}}</a></td>
+															<td><a href="" style="color:#444;">{{$course->name}}</a></td>
+																<td>{{$course->course_category()}}</td>
+																<td>{{$course->code}}</td>
+															</tr>
+															@endforeach
 															</tbody>
 														</table>
 													</div>
@@ -178,16 +183,15 @@
 																	<th>Institute</th>
 																</tr>
 															</thead>
-															<tbody><tr><td><a href="" style="color:#444;">ES103</a></td><td><a href="" style="color:#444;">Data Structures and Algorithms</a></td>
-																<td>UG/</td><td>IIITDM Jabalpur</td></tr>
-																<tr><td><a href="" style="color:#444;">CS205</a></td><td><a href="" style="color:#444;"> Language Theory</a></td>
-																	<td>UG/</td><td>IIITDM Jabalpur</td></tr>
-																	<tr><td><a href="" style="color:#444;">CS532</a></td><td><a href="" style="color:#444;"> Advanced Data Structures and Algorithms </a></td>
-																		<td>PG/</td><td>IIITDM Jabalpur</td></tr>
-																		<tr><td><a href="" style="color:#444;">CS607</a></td><td><a href="" style="color:#444;"> Cryptography & N/W Security</a></td>
-																			<td>PG/</td><td>IIITDM Jabalpur</td></tr>
-																			<tr><td><a href="" style="color:#444;">CS308</a></td><td><a href="" style="color:#444;"> Operating Systems</a></td>
-																				<td>UG/</td><td>IIITDM Jabalpur</td></tr>
+															<tbody>
+															@foreach ($user->previous_courses() as $course)
+															<tr>
+															<td><a href="" style="color:#444;">{{$course->code}}</a></td>
+															<td><a href="" style="color:#444;">{{$course->name}}</a></td>
+																<td>{{$course->course_category()}}</td>
+																<td>{{$course->code}}</td>
+															</tr>
+															@endforeach
 																			</tbody>
 																		</table>
 																	</div> 

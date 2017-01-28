@@ -16,6 +16,7 @@ use App\Conference;
 use App\Course;
 use App\Publication;
 use App\Project;
+use App\Honor;
 class HomeController extends Controller
 {
     /**
@@ -351,8 +352,28 @@ class HomeController extends Controller
                 $project->description=$descriptions[$index];
                 $project->save();
             }
+        }        
+        return back()->with('msg','Updated successfully');
+    }
+    public function update_honors(Request $request){
+        $titles=$request->input('title');
+        $descriptions=$request->input('description');
+        $periods=$request->input('period');
+        $honors=Honor::where('user_id',Auth::id())->get();
+        foreach ($honors as $honor) {
+            $honor->delete();
         }
-        
+        if(!empty($titles)){
+            foreach ($titles as $index => $title) {
+            # code...
+                $honor=new Honor;
+                $honor->user_id=Auth::id();
+                $honor->title=$title;
+                $honor->description=$descriptions[$index];
+                $honor->period=$periods[$index];
+                $honor->save();
+            }
+        }        
         return back()->with('msg','Updated successfully');
     }
 }

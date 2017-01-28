@@ -60,4 +60,7 @@ class User extends Authenticatable
     public function projects(){
         return $this->hasMany('App\Project','user_id','id');   
     }
+    public function honors(){
+        return $this->hasMany('App\Honor','user_id','id');   
+    }
 }

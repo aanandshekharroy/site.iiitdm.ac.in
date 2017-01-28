@@ -394,10 +394,68 @@
 	      			</form>                  	
                 </div>                            
                 <br><br><br>
+
+                <h4>6) Honors</h4><br>
+
+
+                <div class="more_honors">
+                <form action="/update-honors" method="post">
+                	{{csrf_field()}}
+                	@foreach(Auth::user()->honors as $honor)
+            		<div><a href='javascript:void(0);' class='remove_button' 
+            		title='Remove field'>Remove</a><br><br>
+	                    <div class='row'>
+	                        <div class='col-md-6'>
+	                            <div class='form-group'>
+	                                <label>Title</label>
+	                                <input type='text' maxlength=500 
+	                                class='form-control styled ' required 
+	                                name='title[]' placeholder='Title of this honor' 
+	                                value='{{$honor->title}}'>
+	                            </div>
+	                        </div>
+	                        <div class='col-md-6'>
+	                            <div class='form-group'>
+	                                <label>Period</label>
+	                                <input type='text' maxlength=15 
+	                                class='form-control styled required' 
+	                                 name='period[]' placeholder='When did you receive it?' 
+	                                 value='{{$honor->value}}'>
+	                            </div>
+	                        </div>
+	                    </div><!-- End row -->
+						<div class='row'>
+	                    	<div class='col-md-6'>
+	                            <label>Description</label>
+								<textarea maxlength=500 id='honor_about' 
+								name='description[]'  placeholder='Describe this honour' 
+								rows='7' cols='45'>{{$honor->description}}</textarea>
+	                        </div>
+						</div>
+	                   	<hr style='height:1px;border:none;color:#333;background-color:#333;' /><br>
+               		</div>
+                	@endforeach
+                	<div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">		                        
+                                <button type="button" class="add_honors"  ><img src="/img/plus.png"/></button>
+                                 &nbsp&nbsp  <label>Add more fields</label>
+                        	</div>
+                        </div>
+                    </div>
+      				<div class="row">
+          				<div class="col-md-2">    
+                        	<input class="button" type="submit" value="Update Honors Section" name="submit"> 
+          				</div>
+         			</div>
+      			</form>                  	
+                </div>     
+                
+
                 <div class="row">
                     <br><br>
                     <div class="col-md-12">
-                        <h4>6) Curriculum-Vitae</h4> <br><br>
+                        <h4>7) Curriculum-Vitae</h4> <br><br>
                             <label>Current CV Link - &nbsp&nbsp</label>
                             @if(!Auth::user()->cv)
                             	<a href="#">No link present</a>
@@ -1001,7 +1059,7 @@
  <hr class="styled">
                     <div class="box_side"><h4>Have a glance</h4> <i class="icon_pencil-edit"></i>
                     <p>After you update your profile, you can have the final look of your public profile by clicking on the button below </p>
-                    <a onclick="see_profile()" class="button small">See your profile</a>
+                    <a href="/faculty/{{AUth::id()}}" class="button small">See your profile</a>
 </div>
 
            </div>
@@ -1018,9 +1076,100 @@
 		var administrative_positions_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='administrative_position_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='administrative_position_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='administrative_position_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='administrative_position_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var student_detail_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-2'><label>Roll number</label><input type='text' class='form-control styled'  name='roll_number[]' value='' ></div><div class='col-md-3'><label>Name</label><input type='text' class='form-control styled'  name='name[]' required value='' ></div><div class='col-md-2'><label>Category</label><select  class='form-control styled ' name='category[]' value=''> <option value='Mtech' >Mtech</option><option value='PhD' selected>PhD</option><option value='PBI' >PBI</option></select></div><div class='col-md-3'><label>Status</label><select name='status[]' class='form-control styled required'value=''><option value='Completed' >Completed</option> <option value='Ongoing' selected>Ongoing</option></select></div><div class='col-md-2'><label>Year</label><input type='text' class='form-control styled required'  name='year[]' value='' ></div></div><!-- End row --><br><div class='row'><div class='col-md-7'><label>Title of Work</label><input type='text' class='form-control styled required'  name='title_work[]' value='' ></div><div class='col-md-5'><label>Co-guide(s)</label><input type='text' class='form-control styled'  name='co_guide[]' value='' ></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var conferences_HTML="<div><a href='javascript:void(0);' class='remove_button'	title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' required name='description[]' placeholder='Title, Description, Period etc.' value='' ></div></div><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' name='link[]' placeholder='Add Link' value='' ></div></div></div><!-- End row --><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
-        var courses_HTML="";
+      //   var courses_HTML="<div>
+	     //            	<a href='javascript:void(0);' 
+	     //            	class='remove_button' title='Remove field'>
+	     //            	Remove</a><br><br>   
+						// <div class='row'>
+	     //                    <div class='col-md-4'>
+	     //                        <div class='form-group'>
+	     //            	            <label>Course Code</label>
+	     //                            <input type='text' class='form-control styled' name='code[]'
+	     //                             placeholder='Code of this course' value='{{$course->code}}'
+	     //                              >
+	     //                        </div>
+	     //                    </div>
+						// 	<div class='col-md-8'>
+	     //                        <div class='form-group'>
+	     //                            <label>Course Name</label>
+	     //                            <input type='text' class='form-control styled '
+	     //                            name='name[]' placeholder='Title of this course' 
+	     //                            value='{{$course->name}}' required>
+	     //                        </div>
+	     //                    </div>
+
+	     //                </div><!-- End row -->
+						// <div class='row'>
+	     //                	<div class='col-md-4'>
+	     //                    	<label>Currently Teaching?</label>
+	     //                        <select class='form-control styled required' name='currently_teaching[]'> 
+	     //                        	<option value='1' selected>Yes</option>
+	     //                        	<option value='0' >No</option>  
+	     //                    	</select>                          
+	     //                    </div>
+	     //                   	<div class='col-md-8'>
+	     //                        <div class='form-group'>
+	     //                            <label>Department</label>
+		    //                         <select  class='form-control styled ' name='department[]'>
+			   //                      	<option value='Computer Science & Engineering' selected>
+			   //                      	Computer Science & Engineering
+			   //                      	</option> 
+			   //                      	<option value='Electronics & Communication Engineering' >
+			   //                      	Electronics & Communication Engineering
+			   //                      	</option>
+			   //                      	<option value='Mechanical Engineering' >
+			   //                      	Mechanical Engineering
+			   //                      	</option> 
+			   //                      	<option value='Natural Sciences' >
+			   //                      	Natural Sciences
+			   //                      	</option>
+			   //                      	<option value='Design' >
+			   //                      	 Design
+			   //                      	</option>
+		    //                     	</select>
+						// 		</div>
+	     //                    </div>
+						// </div>
+	     //                <div class='row'>
+	     //                	<div class='col-md-12'>
+	     //                        <div class='form-group'>
+		    //                         <label>Link</label>
+		    //                         <input type='text' class='form-control styled ' 
+		    //                         name='link' 
+		    //                         placeholder='Link of this course(Give the full path 
+		    //                         : including http/https)' value='{{$course->link}}' >
+	     //                    	</div>
+	     //                    </div>
+	     //                </div><!-- End row -->
+						// <div class='row'>
+	     //                    <div class='col-md-12'>
+	     //                        <div class='form-group'>
+	     //                            <label>Institute</label>
+	     //                            <input type='text' class='form-control styled '
+	     //                             name='institute[]'
+	     //                              placeholder='Institute where this course was held' 
+	     //                              value='{{$course->institute}}' >
+	     //                        </div>
+	     //                    </div>
+						// </div><!-- End row -->
+						// <div class='row'>
+						// 	<div class='col-md-12'>
+	     //                        <div class='form-group'>
+	     //                            <label>Category</label><br>
+	     //                        	<input type='checkbox' name='category[][]' value='UG' 
+	     //                        	checked>UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	     //                        	<input type='checkbox' name='category[][]' value='PG'>
+	     //                        	PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	     //                        	<input type='checkbox' name='category[][]' value='PhD'>
+	     //                        	PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+	     //                        </div>
+	     //                    </div>
+						// </div>
+						// <hr style='height:1px;border:none;color:#333;background-color:#333;' /><br>  
+	     //            </div>";
         var publications_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='title[]' placeholder='Title of this publication'  value=''></div></div><div class='col-md-6'><div class='form-group'><label>Authors</label><input type='text' class='form-control styled '	 name='author[]' placeholder='Names of authors' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><div class='styled-select'><input type='text' class='form-control styled' name='description[]' placeholder='Short description for this publication' value=''></div></div><div class='col-md-6'><label>Type</label><div class='styled-select'><input type='text' class='form-control styled' name='type[]' placeholder='Conference or journal? etc.' value=''></div></div></div><div class='row'><div class='col-md-6'><label>Download Link</label><div class='styled-select'><input type='url' class='form-control styled' name='link[]' placeholder='Provide a link for this paper(Give the full path : including http/https)' value=''></div></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br>  </div>";
         var projects_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' maxlength=200 class='form-control styled ' required name='title[]' placeholder='Title' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><textarea id='research_desc' maxlength=500 name='description[]'  placeholder='Give a short description for this work' rows='7' cols='45' ></textarea></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
+        var honors_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' maxlength=500 class='form-control styled ' required name='title[]' placeholder='Title of this honor' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Period</label><input type='text' maxlength=15 class='form-control styled required' name='period[]' placeholder='When did you receive it?' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><textarea maxlength=500 name='description[]'  placeholder='Describe this honour' rows='7' cols='45'></textarea></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
         $('button.add_qualification').on('click',function(){
 			$(this).parent().parent().parent().prepend(qualification_HTML);
 		});
@@ -1044,6 +1193,9 @@
 		});
 		$('button.add_projects').on('click',function(){
 			$(this).parent().parent().parent().prepend(projects_HTML)
+		});
+		$('button.add_honors').on('click',function(){
+			$(this).parent().parent().parent().prepend(honors_HTML)
 		});
 		$('body').on('click', 'a.remove_button', function() {
     		$(this).parent().remove();

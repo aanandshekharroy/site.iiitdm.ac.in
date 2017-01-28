@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+use App\User;
 Route::get('/', function () {
     return view('index');
 });
@@ -32,6 +32,12 @@ Route::post('update-conferences','HomeController@update_conferences');
 Route::post('update-courses','HomeController@update_courses');
 Route::post('update-publications','HomeController@update_publications');
 Route::post('update-projects','HomeController@update_projects');
+Route::post('update-honors','HomeController@update_honors');
+Route::get('/faculty/{id}',function($id){
+	$user=User::where('id',$id)->first();
+	return view('faculty_detail')->with('user',$user);
+});
+
 Route::get('delete-cv','HomeController@delete_cv');
 Route::get('delete-image/{id}','HomeController@delete_images');
 Route::get('tender', function(){

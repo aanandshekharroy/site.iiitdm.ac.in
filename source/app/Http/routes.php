@@ -29,6 +29,9 @@ Route::post('update-cv','HomeController@update_cv');
 Route::post('update-students','HomeController@update_students');
 Route::post('update-webdata','HomeController@update_web_data');
 Route::post('update-conferences','HomeController@update_conferences');
+Route::post('update-courses','HomeController@update_courses');
+Route::post('update-publications','HomeController@update_publications');
+Route::post('update-projects','HomeController@update_projects');
 Route::get('delete-cv','HomeController@delete_cv');
 Route::get('delete-image/{id}','HomeController@delete_images');
 Route::get('tender', function(){

@@ -13,6 +13,9 @@ use App\AdministrativePosition;
 use App\Gallery;
 use App\FacultyStudent;
 use App\Conference;
+use App\Course;
+use App\Publication;
+use App\Project;
 class HomeController extends Controller
 {
     /**
@@ -269,6 +272,84 @@ class HomeController extends Controller
                 $conference->description=$description;
                 $conference->link=$links[$index];
                 $conference->save();
+            }
+        }
+        
+        return back()->with('msg','Updated successfully');
+    }
+    public function update_courses(Request $request){
+        $codes=$request->input('code');
+        $names=$request->input('name');
+        $currently_teaching=$request->input('currently_teaching');
+        $department=$request->input('department');
+        $links=$request->input('link');
+        $institute=$request->input('institute');
+        $category=$request->input('category');
+        $courses=Course::where('user_id',Auth::id())->get();
+        // var_dump(json_encode($category[]));
+        die();
+        foreach ($courses as $course) {
+            $course->delete();
+        }
+        if(!empty($names)){
+            foreach ($names as $index => $name) {
+            # code...
+                $student=new FacultyStudent;
+                $student->faculty_id=Auth::id();
+                $student->roll_number=$roll_numbers[$index];
+                $student->name=$name;
+                $student->category=$categories[$index];
+                $student->status=$status[$index];
+                $student->year=$years[$index];
+                $student->title_work=$title_works[$index];
+                $student->co_guide=$co_guides[$index];
+                $student->save();
+            }
+        }
+        
+        return back()->with('msg','Updated successfully');
+    }
+    public function update_publications(Request $request){
+        $titles=$request->input('title');
+        $authors=$request->input('author');
+        $description=$request->input('description');
+        $types=$request->input('type');
+        $links=$request->input('link');
+        $publications=Publication::where('user_id',Auth::id())->get();
+        foreach ($publications as $publication) {
+            $publication->delete();
+        }
+        if(!empty($titles)){
+            foreach ($titles as $index => $title) {
+            # code...
+                $publication=new Publication;
+                $publication->user_id=Auth::id();
+                $publication->title=$title;
+                $publication->type=$types[$index];
+                $publication->author=$authors[$index];
+                $publication->description=$description[$index];
+                $publication->link=$links[$index];
+                $publication->save();
+            }
+        }
+        
+        return back()->with('msg','Updated successfully');
+    }
+    public function update_projects(Request $request){
+        $titles=$request->input('title');
+        $descriptions=$request->input('description');
+        $projects=Project::where('user_id',Auth::id())->get();
+        foreach ($projects as $project) {
+            $project->delete();
+        }
+        if(!empty($titles)){
+            foreach ($titles as $index => $title) {
+            # code...
+                $project=new Project;
+                $project->user_id=Auth::id();
+                $project->title=$title;
+                $project->description=$descriptions[$index];
+                $project->save();
             }
         }
         

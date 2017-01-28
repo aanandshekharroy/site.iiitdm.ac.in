@@ -435,602 +435,118 @@
                <br><br>
                    <h4>1) Add Courses</h4><br>
                 <div class="more_courses">
-         
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
+         		<form action="/update-courses" method="post">
+         			{{csrf_field()}}
+	     			@foreach(Auth::user()->courses as $course)
+	     			<div>
+	                	<a href="javascript:void(0);" 
+	                	class="remove_button" title="Remove field">
+	                	Remove</a><br><br>   
+						<div class="row">
+	                        <div class="col-md-4">
+	                            <div class="form-group">
+	                	            <label>Course Code</label>
+	                                <input type="text" class="form-control styled" name="code[]"
+	                                 placeholder="Code of this course" value="{{$course->code}}"
+	                                  >
+	                            </div>
+	                        </div>
+							<div class="col-md-8">
+	                            <div class="form-group">
+	                                <label>Course Name</label>
+	                                <input type="text" class="form-control styled "
+	                                name="name[]" placeholder="Title of this course" 
+	                                value="{{$course->name}}" required>
+	                            </div>
+	                        </div>
 
-                 
-                   
-                    <div class="row">
-
-                         <div class="col-md-4">
-                                <div class="form-group">
-                                <label>Course Code</label>
-                                <input type="text" class="form-control styled required" id="c_code_1" name="p_code" placeholder="Code of this course" value="CS410" required>
-                            </div>
-                            </div>
-
-                              <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control styled required" id="c_title_1" name="p_title" placeholder="Title of this course" value="Compiler Design" required>
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                        <div class="row">
-                     
-                      <div class="col-md-4">
-                        
-                        <label>Currently Teaching?</label>
-                                 <select id="c_teaching_1" class="form-control styled required" > <option value="1" selected>Yes</option><option value="0" >No</option>  </select>
-                          
-                        </div>
-                       
-                                    <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Department</label>
-                                <select id="c_department_1" class="form-control styled required" > <option value="Computer Science & Engineering" selected>Computer Science & Engineering</option> <option value="Electronics & Communication Engineering" >Electronics & Communication Engineering</option> <option value="Mechanical Engineering" >Mechanical Engineering</option> <option value="Natural Sciences" >Natural Sciences</option> <option value="Design" >Design</option>   </select>
-
-                                
-                            </div>
-                            </div>
-
-
-                           
-                          
-
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" class="form-control styled required" id="c_desc_1" name="c_desc" placeholder="Link of this course(Give the full path : including http/https)" value="" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                         <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="c_ins_1" name="c_ins" placeholder="Institute where this course was held" value="IIITDM Jabalpur" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                      <div class="row">
-
-                          
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Category</label><br>
-                             <input type="checkbox" name="ug" value="UG" checked>UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="pg" value="PG">PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="phd" value="PhD">PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            </div>
-                            </div>
-
-                        
-                            
-                      </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
+	                    </div><!-- End row -->
+						<div class="row">
+	                    	<div class="col-md-4">
+	                        	<label>Currently Teaching?</label>
+	                            <select class="form-control styled required" name="currently_teaching[]"> 
+	                            	<option value="1" selected>Yes</option>
+	                            	<option value="0" >No</option>  
+	                        	</select>                          
+	                        </div>
+	                       	<div class="col-md-8">
+	                            <div class="form-group">
+	                                <label>Department</label>
+		                            <select  class="form-control styled " name="department[]">
+			                        	<option value="Computer Science & Engineering" selected>
+			                        	Computer Science & Engineering
+			                        	</option> 
+			                        	<option value="Electronics & Communication Engineering" >
+			                        	Electronics & Communication Engineering
+			                        	</option>
+			                        	<option value="Mechanical Engineering" >
+			                        	Mechanical Engineering
+			                        	</option> 
+			                        	<option value="Natural Sciences" >
+			                        	Natural Sciences
+			                        	</option>
+			                        	<option value="Design" >
+			                        	 Design
+			                        	</option>
+		                        	</select>
+								</div>
+	                        </div>
+						</div>
+	                    <div class="row">
+	                    	<div class="col-md-12">
+	                            <div class="form-group">
+		                            <label>Link</label>
+		                            <input type="text" class="form-control styled " 
+		                            name="link" 
+		                            placeholder="Link of this course(Give the full path 
+		                            : including http/https)" value="{{$course->link}}" >
+	                        	</div>
+	                        </div>
+	                    </div><!-- End row -->
+						<div class="row">
+	                        <div class="col-md-12">
+	                            <div class="form-group">
+	                                <label>Institute</label>
+	                                <input type="text" class="form-control styled "
+	                                 name="institute[]"
+	                                  placeholder="Institute where this course was held" 
+	                                  value="{{$course->institute}}" >
+	                            </div>
+	                        </div>
+						</div><!-- End row -->
+						<div class="row">
+							<div class="col-md-12">
+	                            <div class="form-group">
+	                                <label>Category</label><br>
+	                            	<input type="checkbox" name="category[][]" value="UG" 
+	                            	checked>UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	                            	<input type="checkbox" name="category[][]" value="PG">
+	                            	PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	                            	<input type="checkbox" name="category[][]" value="PhD">
+	                            	PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+	                            </div>
+	                        </div>
+						</div>
+						<hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
+	                </div>
+					@endforeach
+	                <div class="row">
+	                    <div class="col-md-3">
+	                        <div class="form-group">		                        
+	                            <button type="button" class="add_courses"  ><img src="/img/plus.png"/></button>
+	                             &nbsp&nbsp  <label>Add more fields</label>
+	                    	</div>
+	                    </div>
+	                </div>
+	  				<div class="row">
+	      				<div class="col-md-2">    
+	                    	<input class="button" type="submit" 
+	                    	value="Update Course section" name="submit"> 
+	      				</div>
+	     			</div>
+      			</form>        
  
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-
-                         <div class="col-md-4">
-                                <div class="form-group">
-                                <label>Course Code</label>
-                                <input type="text" class="form-control styled required" id="c_code_2" name="p_code" placeholder="Code of this course" value="" required>
-                            </div>
-                            </div>
-
-                              <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control styled required" id="c_title_2" name="p_title" placeholder="Title of this course" value="Computational Number Theory & Cryptography" required>
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                        <div class="row">
-                     
-                      <div class="col-md-4">
-                        
-                        <label>Currently Teaching?</label>
-                                 <select id="c_teaching_2" class="form-control styled required" > <option value="1" selected>Yes</option><option value="0" >No</option>  </select>
-                          
-                        </div>
-                       
-                                    <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Department</label>
-                                <select id="c_department_2" class="form-control styled required" > <option value="Computer Science & Engineering" selected>Computer Science & Engineering</option> <option value="Electronics & Communication Engineering" >Electronics & Communication Engineering</option> <option value="Mechanical Engineering" >Mechanical Engineering</option> <option value="Natural Sciences" >Natural Sciences</option> <option value="Design" >Design</option>   </select>
-
-                                
-                            </div>
-                            </div>
-
-
-                           
-                          
-
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" class="form-control styled required" id="c_desc_2" name="c_desc" placeholder="Link of this course(Give the full path : including http/https)" value="" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                         <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="c_ins_2" name="c_ins" placeholder="Institute where this course was held" value="IIITDM Jabalpur" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                      <div class="row">
-
-                          
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Category</label><br>
-                             <input type="checkbox" name="ug" value="UG" checked>UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="pg" value="PG">PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="phd" value="PhD">PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            </div>
-                            </div>
-
-                        
-                            
-                      </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-
-                         <div class="col-md-4">
-                                <div class="form-group">
-                                <label>Course Code</label>
-                                <input type="text" class="form-control styled required" id="c_code_3" name="p_code" placeholder="Code of this course" value="ES103" required>
-                            </div>
-                            </div>
-
-                              <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control styled required" id="c_title_3" name="p_title" placeholder="Title of this course" value="Data Structures and Algorithms" required>
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                        <div class="row">
-                     
-                      <div class="col-md-4">
-                        
-                        <label>Currently Teaching?</label>
-                                 <select id="c_teaching_3" class="form-control styled required" > <option value="1" >Yes</option><option value="0" selected>No</option>  </select>
-                          
-                        </div>
-                       
-                                    <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Department</label>
-                                <select id="c_department_3" class="form-control styled required" > <option value="Computer Science & Engineering" selected>Computer Science & Engineering</option> <option value="Electronics & Communication Engineering" >Electronics & Communication Engineering</option> <option value="Mechanical Engineering" >Mechanical Engineering</option> <option value="Natural Sciences" >Natural Sciences</option> <option value="Design" >Design</option>   </select>
-
-                                
-                            </div>
-                            </div>
-
-
-                           
-                          
-
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" class="form-control styled required" id="c_desc_3" name="c_desc" placeholder="Link of this course(Give the full path : including http/https)" value="" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                         <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="c_ins_3" name="c_ins" placeholder="Institute where this course was held" value="IIITDM Jabalpur" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                      <div class="row">
-
-                          
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Category</label><br>
-                             <input type="checkbox" name="ug" value="UG" checked>UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="pg" value="PG">PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="phd" value="PhD">PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            </div>
-                            </div>
-
-                        
-                            
-                      </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-
-                         <div class="col-md-4">
-                                <div class="form-group">
-                                <label>Course Code</label>
-                                <input type="text" class="form-control styled required" id="c_code_4" name="p_code" placeholder="Code of this course" value="CS205" required>
-                            </div>
-                            </div>
-
-                              <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control styled required" id="c_title_4" name="p_title" placeholder="Title of this course" value=" Language Theory" required>
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                        <div class="row">
-                     
-                      <div class="col-md-4">
-                        
-                        <label>Currently Teaching?</label>
-                                 <select id="c_teaching_4" class="form-control styled required" > <option value="1" >Yes</option><option value="0" selected>No</option>  </select>
-                          
-                        </div>
-                       
-                                    <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Department</label>
-                                <select id="c_department_4" class="form-control styled required" > <option value="Computer Science & Engineering" selected>Computer Science & Engineering</option> <option value="Electronics & Communication Engineering" >Electronics & Communication Engineering</option> <option value="Mechanical Engineering" >Mechanical Engineering</option> <option value="Natural Sciences" >Natural Sciences</option> <option value="Design" >Design</option>   </select>
-
-                                
-                            </div>
-                            </div>
-
-
-                           
-                          
-
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" class="form-control styled required" id="c_desc_4" name="c_desc" placeholder="Link of this course(Give the full path : including http/https)" value="" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                         <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="c_ins_4" name="c_ins" placeholder="Institute where this course was held" value="IIITDM Jabalpur" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                      <div class="row">
-
-                          
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Category</label><br>
-                             <input type="checkbox" name="ug" value="UG" checked>UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="pg" value="PG">PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="phd" value="PhD">PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            </div>
-                            </div>
-
-                        
-                            
-                      </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-
-                         <div class="col-md-4">
-                                <div class="form-group">
-                                <label>Course Code</label>
-                                <input type="text" class="form-control styled required" id="c_code_5" name="p_code" placeholder="Code of this course" value="CS532" required>
-                            </div>
-                            </div>
-
-                              <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control styled required" id="c_title_5" name="p_title" placeholder="Title of this course" value=" Advanced Data Structures and Algorithms " required>
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                        <div class="row">
-                     
-                      <div class="col-md-4">
-                        
-                        <label>Currently Teaching?</label>
-                                 <select id="c_teaching_5" class="form-control styled required" > <option value="1" >Yes</option><option value="0" selected>No</option>  </select>
-                          
-                        </div>
-                       
-                                    <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Department</label>
-                                <select id="c_department_5" class="form-control styled required" > <option value="Computer Science & Engineering" selected>Computer Science & Engineering</option> <option value="Electronics & Communication Engineering" >Electronics & Communication Engineering</option> <option value="Mechanical Engineering" >Mechanical Engineering</option> <option value="Natural Sciences" >Natural Sciences</option> <option value="Design" >Design</option>   </select>
-
-                                
-                            </div>
-                            </div>
-
-
-                           
-                          
-
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" class="form-control styled required" id="c_desc_5" name="c_desc" placeholder="Link of this course(Give the full path : including http/https)" value="" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                         <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="c_ins_5" name="c_ins" placeholder="Institute where this course was held" value="IIITDM Jabalpur" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                      <div class="row">
-
-                          
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Category</label><br>
-                             <input type="checkbox" name="ug" value="UG">UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="pg" value="PG" checked>PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="phd" value="PhD">PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            </div>
-                            </div>
-
-                        
-                            
-                      </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-
-                         <div class="col-md-4">
-                                <div class="form-group">
-                                <label>Course Code</label>
-                                <input type="text" class="form-control styled required" id="c_code_6" name="p_code" placeholder="Code of this course" value="CS607" required>
-                            </div>
-                            </div>
-
-                              <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control styled required" id="c_title_6" name="p_title" placeholder="Title of this course" value=" Cryptography & N/W Security" required>
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                        <div class="row">
-                     
-                      <div class="col-md-4">
-                        
-                        <label>Currently Teaching?</label>
-                                 <select id="c_teaching_6" class="form-control styled required" > <option value="1" >Yes</option><option value="0" selected>No</option>  </select>
-                          
-                        </div>
-                       
-                                    <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Department</label>
-                                <select id="c_department_6" class="form-control styled required" > <option value="Computer Science & Engineering" selected>Computer Science & Engineering</option> <option value="Electronics & Communication Engineering" >Electronics & Communication Engineering</option> <option value="Mechanical Engineering" >Mechanical Engineering</option> <option value="Natural Sciences" >Natural Sciences</option> <option value="Design" >Design</option>   </select>
-
-                                
-                            </div>
-                            </div>
-
-
-                           
-                          
-
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" class="form-control styled required" id="c_desc_6" name="c_desc" placeholder="Link of this course(Give the full path : including http/https)" value="" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                         <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="c_ins_6" name="c_ins" placeholder="Institute where this course was held" value="IIITDM Jabalpur" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                      <div class="row">
-
-                          
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Category</label><br>
-                             <input type="checkbox" name="ug" value="UG">UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="pg" value="PG" checked>PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="phd" value="PhD">PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            </div>
-                            </div>
-
-                        
-                            
-                      </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-
-                         <div class="col-md-4">
-                                <div class="form-group">
-                                <label>Course Code</label>
-                                <input type="text" class="form-control styled required" id="c_code_7" name="p_code" placeholder="Code of this course" value="CS308" required>
-                            </div>
-                            </div>
-
-                              <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Course Name</label>
-                                <input type="text" class="form-control styled required" id="c_title_7" name="p_title" placeholder="Title of this course" value=" Operating Systems" required>
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                        <div class="row">
-                     
-                      <div class="col-md-4">
-                        
-                        <label>Currently Teaching?</label>
-                                 <select id="c_teaching_7" class="form-control styled required" > <option value="1" >Yes</option><option value="0" selected>No</option>  </select>
-                          
-                        </div>
-                       
-                                    <div class="col-md-8">
-                                <div class="form-group">
-                                <label>Department</label>
-                                <select id="c_department_7" class="form-control styled required" > <option value="Computer Science & Engineering" selected>Computer Science & Engineering</option> <option value="Electronics & Communication Engineering" >Electronics & Communication Engineering</option> <option value="Mechanical Engineering" >Mechanical Engineering</option> <option value="Natural Sciences" >Natural Sciences</option> <option value="Design" >Design</option>   </select>
-
-                                
-                            </div>
-                            </div>
-
-
-                           
-                          
-
-                        </div>
-                        <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Link</label>
-                                <input type="text" class="form-control styled required" id="c_desc_7" name="c_desc" placeholder="Link of this course(Give the full path : including http/https)" value="" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                         <div class="row">
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Institute</label>
-                                <input type="text" class="form-control styled required" id="c_ins_7" name="c_ins" placeholder="Institute where this course was held" value="IIITDM Jabalpur" >
-                            </div>
-                            </div>
-
-                        </div><!-- End row -->
-
-                      <div class="row">
-
-                          
-                        <div class="col-md-12">
-                                <div class="form-group">
-                                <label>Category</label><br>
-                             <input type="checkbox" name="ug" value="UG" checked>UG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="pg" value="PG">PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="phd" value="PhD">PhD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
-                            </div>
-                            </div>
-
-                        
-                            
-                      </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
-   </div> <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                <button type="button" class="add_button_courses"><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            </div>      
-                            </div> 
+                   </div>  
 							</div>      
                             </div>                   
                       
@@ -1051,16 +567,54 @@
 
 
                     <h4>1) Project Activities</h4><br>
+                    <form action="/update-projects" method="post">
+                    	{{csrf_field()}}
+                    	@foreach (Auth::user()->projects as $project)
+                    	<div>
+                    		<a href="javascript:void(0);" 
+                    		class="remove_button" title="Remove field">Remove
+                    		</a><br><br>
+           					<div class="row">
+                            	<div class="col-md-6">
+                                	<div class="form-group">
+                                		<label>Title</label>
+                                		<input type="text" 
+                                		maxlength=200 
+                                		class="form-control styled " 
+                                		required name="title[]" 
+                                		placeholder="Title" value="{{$project->title}}">
+                            		</div>
+                            	</div>
+							</div><!-- End row -->
 
-                   </div><div class="row">
-                           <div class="row">
-                            <div  style="margin-left: 16px;" class="col-md-3">
-                                <div class="form-group">
-                                  <button type="button" class="add_button_research"><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            </div>
-                            </div>
+                         	<div class="row">
+                    			<div class="col-md-6">
+	                                <label>Description</label>
+	                                <textarea id="research_desc" maxlength=500  
+	                                name="description[]"  
+	                                placeholder="Give a short description for this work"
+	                                 rows="7" cols="45" >{{$project->description}}</textarea>
+	                            </div>
+			               </div>
+                   			<hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
+               			</div>
+                    	@endforeach
+						<div class="row">
+	                    	<div class="col-md-3">
+	                        	<div class="form-group">		                        
+		                            <button type="button" class="add_projects"  >
+		                            <img src="/img/plus.png"/></button>
+		                             &nbsp&nbsp  <label>Add more fields</label>
+	                    		</div>
+	                    	</div>
+	                	</div>
+		  				<div class="row">
+		      				<div class="col-md-2">    
+		                    	<input class="button" type="submit" 
+		                    	value="Update Projects section" name="submit"> 
+		      				</div>
+		     			</div>
+      				</form> 
                        </div> 
                       </div>
 					  </div>   
@@ -1071,413 +625,81 @@
                 <div class="wrapper_indent">
                 <h4>2) Publications</h4><br>
                 <div class="more_publications">
-         
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_1" name="p_title" placeholder="Title of this publication" value="Functional grouping of similar genes using eigenanalysis on minimum spanning tree based neighborhood graph">
+         		<form action="/update-publications" method="post">
+         			{{csrf_field()}}
+	     			@foreach(Auth::user()->publications as $publication)
+                		<div>
+	                		<a href="javascript:void(0);" 
+	                		class="remove_button" title="Remove field">Remove
+	                		</a><br><br>   
+							<div class="row">
+	                            <div class="col-md-6">
+	                                <div class="form-group">
+		                                <label>Title</label>
+		                                <input type="text" class="form-control styled required" required name="title[]" 
+		                                placeholder="Title of this publication" 
+		                                value="{{$publication->title}}">
+	                            	</div>
+	                            </div>
+	                            <div class="col-md-6">
+	                                <div class="form-group">
+	                                	<label>Authors</label>
+	                                	<input type="text" class="form-control styled required"
+	                                	 name="author[]" placeholder="Names of authors" value="{{$publication->author}}">
+	                            	</div>
+	                            </div>
+	                        </div><!-- End row -->                        
+                         	<div class="row">
+	                            <div class="col-md-6">
+	                                <label>Description</label>
+	                                <div class="styled-select">
+	                              		<input type="text" class="form-control styled required" 
+	                              		name="description[]" 
+	                              		placeholder="Short description for this publication" 
+	                              		value="{{$publication->description}}">
+	                            	</div>
+                            	</div>
+								<div class="col-md-6">
+                                	<label>Type</label>
+                                	<div class="styled-select">
+                              			<input type="text" class="form-control styled required" 
+                              			name="type[]" placeholder="Conference or journal? etc." 
+                              			value="{{$publication->type}}">
+                            		</div>
+                            	</div>
                             </div>
+                            <div class="row">
+                            	<div class="col-md-6">
+                                	<label>Download Link</label>
+                                	<div class="styled-select">
+	                              		<input type="url" class="form-control styled " name="link[]" 
+	                              		placeholder="Provide a link for this paper(Give the full path : including http/https)"
+	                              		 value="{{$publication->link}}">
+                            		</div>
+                            	</div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_1" name="authors" placeholder="Names of authors" value="R. Jothi, Sraban Kumar Mohanty, and A. Ojha">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_1" name="label" placeholder="Short description for this publication" value="Computers in Biology and Medicine ,71(C), 2016,pp.135-148 (2016). ">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_1" name="type" placeholder="Conference or journal? etc." value="Journal">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_1" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
                             <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
+                        </div>
+                    @endforeach
 
                         
  
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_2" name="p_title" placeholder="Title of this publication" value="Energy Efficient Secure Communication Architecture forWireless Sensor Network">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_2" name="authors" placeholder="Names of authors" value="Satyajit Mondal, Sraban Kumar Mohanty, Sukumar Nandi">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_2" name="label" placeholder="Short description for this publication" value="Security and Communication Networks, , 9(16) Pp3314–3323 (2016) ">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_2" name="type" placeholder="Conference or journal? etc." value="Journal">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_2" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_3" name="p_title" placeholder="Title of this publication" value="A scalable attribute-set-based access control with both sharing and full-fledged delegation of access privileges in cloud computing">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_3" name="authors" placeholder="Names of authors" value="Rohit Ahuja, Sraban Kumar Mohanty, Kouichi Sakurai,">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_3" name="label" placeholder="Short description for this publication" value="Computers & Electrical Engineering, 2016, [DOI: 10.1016/j.compeleceng.2016.11.028]">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_3" name="type" placeholder="Conference or journal? etc." value="Journal">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_3" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_4" name="p_title" placeholder="Title of this publication" value="Fast Minimum Spanning Tree Based Clustering Algorithms on Local Neighborhood Graph">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_4" name="authors" placeholder="Names of authors" value=". Jothi, Sraban Kumar Mohanty, and A. Ojha">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_4" name="label" placeholder="Short description for this publication" value="10th international workshop on Graph-Based Representations in Pattern Recognition (GbRPR 2015), Beijing, China, Lecture Notes in Computer Science, Vol-9069 , pp.292-301 ">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_4" name="type" placeholder="Conference or journal? etc." value="Conference">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_4" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_5" name="p_title" placeholder="Title of this publication" value="On Careful Selection of Initial Centers for K-means Algorithm">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_5" name="authors" placeholder="Names of authors" value="R. Jothi, Sraban Kumar Mohanty, and A. Ojha">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_5" name="label" placeholder="Short description for this publication" value="International Conference on Advanced Computing, Networking and Informatics (ICACNI 2015)Bhubaneswar, Odisha, India, Springer Smart Innovation, Systems and Technologies, Vol 43, pp. 435-445 ">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_5" name="type" placeholder="Conference or journal? etc." value="Conference">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_5" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_6" name="p_title" placeholder="Title of this publication" value="On the impact of post-clustering phase in multiway spectral partitioning">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_6" name="authors" placeholder="Names of authors" value="R. Jothi, Sraban Kumar Mohanty, and A. Ojha">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_6" name="label" placeholder="Short description for this publication" value=" International Conference on Mining Intelligence and Knowledge Exploration (MIKE 2015), IIIT Hyderabad, India, Springer Lecture Notes in Artificial Intelligence, vol. 9468, pp.161-169 ">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_6" name="type" placeholder="Conference or journal? etc." value="Conference">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_6" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_7" name="p_title" placeholder="Title of this publication" value="An Identity Preserving Access Control Scheme with Flexible System Privilege Revocation in Cloud Computing">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_7" name="authors" placeholder="Names of authors" value="Rohit Ahuja, Sraban Kumar Mohanty and Kouichi Sakurai">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_7" name="label" placeholder="Short description for this publication" value="11th Asia Joint Conference on Information Security (AsiaJCIS 2016), Fukuoka, Japan. August 4-5, 2016, pp.1-8">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_7" name="type" placeholder="Conference or journal? etc." value="Conference">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_7" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
- 
-                <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                 
-                   
-                    <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control styled required" id="p_title_8" name="p_title" placeholder="Title of this publication" value="A Traceable Signcryption Scheme for Secure Sharing of Data in Cloud Storage">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label>Authors</label>
-                                <input type="text" class="form-control styled required" id="p_authors_8" name="authors" placeholder="Names of authors" value="Rohit Ahuja, Sraban Kumar Mohanty and Kouichi Sakurai">
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Description</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_label_8" name="label" placeholder="Short description for this publication" value="6th IEEE International Symposium on Cloud and Service Computing, Nadi, Fiji, 2016 ">
-                            </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label>Type</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="p_type_8" name="type" placeholder="Conference or journal? etc." value="Conference">
-                            </div>
-                            </div>
-                            </div>
-
-                             <div class="row">
-                            <div class="col-md-6">
-                                <label>Download Link</label>
-                                <div class="styled-select">
-                              <input type="url" class="form-control styled required" id="p_dwnld_link_8" name="link" placeholder="Provide a link for this paper(Give the full path : including http/https)" value="">
-                            </div>
-                            </div>
-                            </div>
-
-                            <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
-                            </div>
-
-                        
-   </div> <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                <button type="button" class="add_button_publications"><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            </div>      
-
-
-
-
-
-
-                      </div>                  
-                      </div>
+                <div class="row">
+	                    <div class="col-md-3">
+	                        <div class="form-group">		                        
+	                            <button type="button" class="add_publications"  ><img src="/img/plus.png"/></button>
+	                             &nbsp&nbsp  <label>Add more fields</label>
+	                    	</div>
+	                    </div>
+	                </div>
+	  				<div class="row">
+	      				<div class="col-md-2">    
+	                    	<input class="button" type="submit" 
+	                    	value="Update Publications section" name="submit"> 
+	      				</div>
+	     			</div>
+      			</form>
+      			</div></div>
                       
         <br><br><br>
                     <div class="wrapper_indent">
@@ -1796,6 +1018,9 @@
 		var administrative_positions_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='administrative_position_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='administrative_position_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='administrative_position_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='administrative_position_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var student_detail_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-2'><label>Roll number</label><input type='text' class='form-control styled'  name='roll_number[]' value='' ></div><div class='col-md-3'><label>Name</label><input type='text' class='form-control styled'  name='name[]' required value='' ></div><div class='col-md-2'><label>Category</label><select  class='form-control styled ' name='category[]' value=''> <option value='Mtech' >Mtech</option><option value='PhD' selected>PhD</option><option value='PBI' >PBI</option></select></div><div class='col-md-3'><label>Status</label><select name='status[]' class='form-control styled required'value=''><option value='Completed' >Completed</option> <option value='Ongoing' selected>Ongoing</option></select></div><div class='col-md-2'><label>Year</label><input type='text' class='form-control styled required'  name='year[]' value='' ></div></div><!-- End row --><br><div class='row'><div class='col-md-7'><label>Title of Work</label><input type='text' class='form-control styled required'  name='title_work[]' value='' ></div><div class='col-md-5'><label>Co-guide(s)</label><input type='text' class='form-control styled'  name='co_guide[]' value='' ></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var conferences_HTML="<div><a href='javascript:void(0);' class='remove_button'	title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' required name='description[]' placeholder='Title, Description, Period etc.' value='' ></div></div><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' name='link[]' placeholder='Add Link' value='' ></div></div></div><!-- End row --><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
+        var courses_HTML="";
+        var publications_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='title[]' placeholder='Title of this publication'  value=''></div></div><div class='col-md-6'><div class='form-group'><label>Authors</label><input type='text' class='form-control styled '	 name='author[]' placeholder='Names of authors' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><div class='styled-select'><input type='text' class='form-control styled' name='description[]' placeholder='Short description for this publication' value=''></div></div><div class='col-md-6'><label>Type</label><div class='styled-select'><input type='text' class='form-control styled' name='type[]' placeholder='Conference or journal? etc.' value=''></div></div></div><div class='row'><div class='col-md-6'><label>Download Link</label><div class='styled-select'><input type='url' class='form-control styled' name='link[]' placeholder='Provide a link for this paper(Give the full path : including http/https)' value=''></div></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br>  </div>";
+        var projects_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' maxlength=200 class='form-control styled ' required name='title[]' placeholder='Title' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><textarea id='research_desc' maxlength=500 name='description[]'  placeholder='Give a short description for this work' rows='7' cols='45' ></textarea></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
         $('button.add_qualification').on('click',function(){
 			$(this).parent().parent().parent().prepend(qualification_HTML);
 		});
@@ -1811,7 +1036,15 @@
 		$('button.add_conferences').on('click',function(){
 			$(this).parent().parent().parent().prepend(conferences_HTML)
 		});
-
+		$('button.add_courses').on('click',function(){
+			$(this).parent().parent().parent().prepend(courses_HTML)
+		});
+		$('button.add_publications').on('click',function(){
+			$(this).parent().parent().parent().prepend(publications_HTML)
+		});
+		$('button.add_projects').on('click',function(){
+			$(this).parent().parent().parent().prepend(projects_HTML)
+		});
 		$('body').on('click', 'a.remove_button', function() {
     		$(this).parent().remove();
 		});

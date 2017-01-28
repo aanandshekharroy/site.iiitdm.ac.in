@@ -51,4 +51,13 @@ class User extends Authenticatable
     public function conferences(){
         return $this->hasMany('App\Conference','user_id','id');   
     }
+    public function courses(){
+        return $this->hasMany('App\Course','user_id','id');   
+    }
+    public function publications(){
+        return $this->hasMany('App\Publication','user_id','id');   
+    }
+    public function projects(){
+        return $this->hasMany('App\Project','user_id','id');   
+    }
 }

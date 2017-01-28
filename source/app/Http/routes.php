@@ -117,8 +117,8 @@ Route::group(['prefix' => 'students'], function () {
     });
 });
 
-Route::get('calender',function(){
-	return view('calender');
+Route::get('calendar',function(){
+	return view('calendar');
 });
 Route::get('programme',function(){
 	return view('programme');

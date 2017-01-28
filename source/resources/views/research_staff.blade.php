@@ -38,7 +38,7 @@
 						            	<p><img src="{{$person->filename}}" alt="" class="img-circle styled"></p>
 						            		<h4>{{$person->name}}</h4>
                                     		<p>{{$person->designation}}</p>
-                                   		 <h4><small>{{$person->email}}</small></h4>  
+                                   		 <h4><small>{{$person->descipline}}</small></h4>  
 	                                    <hr>
 	                                    <a href="#" class="button_outline">Profile</a>           
                                        </div>

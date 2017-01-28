@@ -12,6 +12,7 @@
 */
 use App\User;
 use App\Staff;
+use App\ResearchStaff;
 Route::get('/', function () {
     return view('index');
 });
@@ -41,6 +42,10 @@ Route::get('/faculty/{id}',function($id){
 Route::get('/staff',function(){
 	$staff=Staff::orderBy('name','ASC')->get();
 	return view('staff')->with('staff',$staff);
+});
+Route::get('/research-staff',function(){
+	$staff=ResearchStaff::orderBy('name','ASC')->get();
+	return view('research_staff')->with('staff',$staff);
 });
 Route::get('delete-cv','HomeController@delete_cv');
 Route::get('delete-image/{id}','HomeController@delete_images');

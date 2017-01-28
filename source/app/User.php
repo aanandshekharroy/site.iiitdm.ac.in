@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\FacultyStudent;
 class User extends Authenticatable
 {
     /**
@@ -62,5 +62,17 @@ class User extends Authenticatable
     }
     public function honors(){
         return $this->hasMany('App\Honor','user_id','id');   
+    }
+    public function mtech_students(){
+        $students=FacultyStudent::where('faculty_id',$this->id)
+        ->where('category','like','%'.'Mtech'."%")
+        ->orderBy('name')->get();
+        return $students;
+    }
+    public function phd_students(){
+        $students=FacultyStudent::where('faculty_id',$this->id)
+        ->where('category','like','%'.'PhD'."%")
+        ->orderBy('name')->get();
+        return $students;
     }
 }

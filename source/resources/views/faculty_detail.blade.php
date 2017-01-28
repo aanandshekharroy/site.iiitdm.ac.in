@@ -288,7 +288,17 @@
 																						<th>Co-guide</th>
 																					</tr>
 																				</thead>
-																				<tbody></tbody>
+																				<tbody>
+																				@foreach ($user->mtech_students() as $student)
+																				<tr><td><a href="#" style="color:#444;">{{$student->roll_number}}</a></td>
+																				<td><a href="#" style="color:#444;">{{$student->name}}</a></td>
+																				<td><a href="#" style="color:#444;">{{$student->status}}</a></td>
+																				<td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">{{$student->title_work}}
+																				</a>
+																				</td>
+																				<td><a href="#" style="color:#444;">{{$student->co_guide}}</a></td></tr>
+																				@endforeach
+																				</tbody>
 																			</table>
 																		</div>
 																		<h3 style="padding-bottom:10px;"><strong>Ph. D.</strong></h3>
@@ -304,10 +314,16 @@
 																						<th>Co-guide</th>
 																					</tr>
 																				</thead>
-																				<tbody><tr><td><a href="#" style="color:#444;">0</a></td><td><a href="#" style="color:#444;">Ms. R. Jothi</a></td><td><a href="#" style="color:#444;">Ongoing</a></td><td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">Minimum Spanning Tree based Clustering Algorithms for Gene Expression Analysis</a></td><td><a href="#" style="color:#444;">Prof. A. Ojha</a></td></tr>
-																					<tr><td><a href="#" style="color:#444;">0</a></td><td><a href="#" style="color:#444;">Mr. Rohit Ahuja</a></td><td><a href="#" style="color:#444;">Ongoing</a></td><td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">Security Issues in Cloud Computing</a></td><td> &nbsp&nbsp -</td></tr>
-																					<tr><td><a href="#" style="color:#444;">0</a></td><td><a href="#" style="color:#444;">Gaurav Mishra</a></td><td><a href="#" style="color:#444;">Ongoing</a></td><td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">Graph Theoretic Clustering Methods</a></td><td> &nbsp&nbsp -</td></tr>
-																					<tr><td><a href="#" style="color:#444;">0</a></td><td><a href="#" style="color:#444;">Bhoopenra Kumar Ahirwar</a></td><td><a href="#" style="color:#444;">Ongoing</a></td><td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">Security Challenges in Smart-Grid</a></td><td> &nbsp&nbsp -</td></tr>
+																				<tbody>
+																				@foreach ($user->phd_students() as $student)
+																				<tr><td><a href="#" style="color:#444;">{{$student->roll_number}}</a></td>
+																				<td><a href="#" style="color:#444;">{{$student->name}}</a></td>
+																				<td><a href="#" style="color:#444;">{{$student->status}}</a></td>
+																				<td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">{{$student->title_work}}
+																				</a>
+																				</td>
+																				<td><a href="#" style="color:#444;">{{$student->co_guide}}</a></td></tr>
+																				@endforeach
 																				</tbody>
 																			</table>
 																		</div> 

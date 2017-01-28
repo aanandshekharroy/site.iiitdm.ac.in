@@ -17,12 +17,15 @@ class CreateCoursesTable extends Migration
             $table->integer('user_id')->unsigned()->nullable(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('code');
-            $table->string('course');
+            $table->string('name');
             $table->string('category');
             $table->string('department');
             $table->string('institute');
             $table->string('link')->nullable(true);
             $table->integer('currently_teaching')->default(0);
+            $table->integer('ug')->default(0);
+            $table->integer('pg')->default(0);
+            $table->integer('phd')->default(0);
             $table->timestamps();
         });
     }

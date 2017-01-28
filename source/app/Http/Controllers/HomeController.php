@@ -285,26 +285,31 @@ class HomeController extends Controller
         $department=$request->input('department');
         $links=$request->input('link');
         $institute=$request->input('institute');
-        $category=$request->input('category');
+        $ugs=$request->input('ug');
+        $pgs=$request->input('pg');
+        $phds=$request->input('phd');
+        var_dump($request->all());
         $courses=Course::where('user_id',Auth::id())->get();
         // var_dump(json_encode($category[]));
-        die();
+        // die();
         foreach ($courses as $course) {
             $course->delete();
         }
         if(!empty($names)){
             foreach ($names as $index => $name) {
             # code...
-                $student=new FacultyStudent;
-                $student->faculty_id=Auth::id();
-                $student->roll_number=$roll_numbers[$index];
-                $student->name=$name;
-                $student->category=$categories[$index];
-                $student->status=$status[$index];
-                $student->year=$years[$index];
-                $student->title_work=$title_works[$index];
-                $student->co_guide=$co_guides[$index];
-                $student->save();
+                $course=new Course;
+                $course->user_id=Auth::id();
+                $course->code=$codes[$index];
+                $course->name=$name;
+                $course->currently_teaching=$currently_teaching[$index];
+                $course->department=$department[$index];
+                $course->link=$links[$index];
+                $course->institute=$institute[$index];
+                $course->ug=$ugs[$index];
+                $course->pg=$pgs[$index];
+                $course->phd=$phds[$index];
+                $course->save();
             }
         }
         

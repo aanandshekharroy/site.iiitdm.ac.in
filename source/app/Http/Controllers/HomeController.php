@@ -12,6 +12,7 @@ use App\ProfessionalExperience;
 use App\AdministrativePosition;
 use App\Gallery;
 use App\FacultyStudent;
+use App\Conference;
 class HomeController extends Controller
 {
     /**
@@ -166,9 +167,9 @@ class HomeController extends Controller
                 $position=new AdministrativePosition;
                 $position->user_id=Auth::id();
                 $position->title=$title;
-                $position->description=$position[$index];
-                $position->from=$position[$index];
-                $position->to=$position[$index];
+                $position->description=$administrative_position_description[$index];
+                $position->from=$administrative_position_from[$index];
+                $position->to=$administrative_position_to[$index];
                 $position->save();
             }
         }
@@ -251,6 +252,26 @@ class HomeController extends Controller
         $user->fax=$request->input('fax');
         $user->linkedin=$request->input('linkedin');
         $user->save();
+        return back()->with('msg','Updated successfully');
+    }
+    public function update_conferences(Request $request){
+        $descriptions=$request->input('description');
+        $links=$request->input('link');
+        $conferences=Conference::where('user_id',Auth::id())->get();
+        foreach ($conferences as $conference) {
+            $conference->delete();
+        }
+        if(!empty($descriptions)){
+            foreach ($descriptions as $index => $description) {
+            # code...
+                $conference=new Conference;
+                $conference->user_id=Auth::id();
+                $conference->description=$description;
+                $conference->link=$links[$index];
+                $conference->save();
+            }
+        }
+        
         return back()->with('msg','Updated successfully');
     }
 }

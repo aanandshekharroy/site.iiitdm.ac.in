@@ -377,7 +377,8 @@
 			                   	</div>
 	                     		<hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>   
 	                     	</div>
-	                 	@endforeach<div class="row">
+	                 	@endforeach
+	                 	<div class="row">
 	                        <div class="col-md-3">
 	                            <div class="form-group">		                        
 	                                <button type="button" class="add_administrative_position"  ><img src="/img/plus.png"/></button>
@@ -1481,118 +1482,48 @@
         <br><br><br>
                     <div class="wrapper_indent">
                     <h4>3) Conferences/Events</h4><br>
-                    <div class="more_conferences"> <div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
+                    <div class="more_conferences"> 
+                    <form action="/update-conferences" method="post">
+                    {{csrf_field()}} 
+                    @foreach (Auth::user()->conferences as $conference)
+                    	<div>
+                    		<a href="javascript:void(0);" class="remove_button" 
+                    		title="Remove field">Remove</a><br><br>   
 
-                        <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled required" id="r_conference" name="r_conference" placeholder="Title, Description, Period etc." value="Coordinator(With Dr. Deepak Kumar Dalai): 14th National Workshop on Cryptology 2014 (under the aegis of Cryptology Research Society of India), 25-27 September 2014, IIITDM Jabalpur" >
-                            </div>
-                            </div>
-						<div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled" id="r_link" name="r_link" placeholder="Add Link" value=" nwc.iiitdmj.ac.in ) " >
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled required" id="r_conference" name="r_conference" placeholder="Title, Description, Period etc." value="General Co-chair: 16th International Conference of International Academy of Physical Sciences on Physical sciences and Technology for Sustainable Development (CONIAPS-XVI), March 20-22, 2014, IIITDM Jabalpur" >
-                            </div>
-                            </div>
-						<div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled" id="r_link" name="r_link" placeholder="Add Link" value=" coniaps.iiitdmj.ac.in" >
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled required" id="r_conference" name="r_conference" placeholder="Title, Description, Period etc." value=" Coordinator (with Dr. Pritee Khanna): Introduction to Graph and Geometric Algorithms, November 1-3, 2012, IIITDM Jabalpur" >
-                            </div>
-                            </div>
-						<div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled" id="r_link" name="r_link" placeholder="Add Link" value="" >
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled required" id="r_conference" name="r_conference" placeholder="Title, Description, Period etc." value="Coordinator (with Dr. Pritee Khanna) Basic Data Mining Algorithms and their Scalability for Big Data, August 16-21, 2016, under Electronics and ICT academy, PDPM IIITDM Jabalpur." >
-                            </div>
-                            </div>
-						<div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled" id="r_link" name="r_link" placeholder="Add Link" value="ict.iiitdmj.ac.in" >
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled required" id="r_conference" name="r_conference" placeholder="Title, Description, Period etc." value="Coordinator (with Dr. M. K. Bajpai  ): Data Structure and Algorithm using C, September 19-26, 2015, under Electronics and ICT academy, PDPM IIITDM Jabalpur." >
-                            </div>
-                            </div>
-						<div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled" id="r_link" name="r_link" placeholder="Add Link" value="ict.iiitdmj.ac.in" >
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div><div><a href="javascript:void(0);" class="remove_button" title="Remove field">Remove</a><br><br>   
-
-                        <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled required" id="r_conference" name="r_conference" placeholder="Title, Description, Period etc." value="Coordinator (with Dr. Pritee Khanna) Advanced Data Mining Algorithms and their Scalability for Big Data, January 02-07, 2017, under Electronics and ICT academy, PDPM IIITDM Jabalpur" >
-                            </div>
-                            </div>
-						<div class="col-md-6">
-                                <div class="form-group">
-                             
-                                <input type="text" class="form-control styled" id="r_link" name="r_link" placeholder="Add Link" value="http://ict.iiitdmj.ac.in/adatamining.html" >
-                            </div>
-                            </div>
-                        </div><!-- End row -->
-                        <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
-                        </div> </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                <button type="button" class="add_button_conferences"><img src="../img/plus.png"/></button>
-                                 &nbsp&nbsp  <label>Add more fields</label>
-                            </div>
-                            </div>   
-                       
+                        	<div class="row">
+                        		<div class="col-md-6">
+                                	<div class="form-group">
+	                             		<input type="text" class="form-control styled" required 
+	                             		name="description[]" placeholder="Title, Description, Period etc."
+	                             		 value="{{$conference->description}}" >
+                            		</div>
+                            	</div>
+								<div class="col-md-6">
+                                	<div class="form-group">
+	                             		<input type="text" class="form-control styled" name="link[]" 
+	                             		placeholder="Add Link" value="{{$conference->link}} " >
+                            		</div>
+                            	</div>
+                        	</div><!-- End row -->
+                        	<hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>
                         </div>
+                    @endforeach
+                    <div class="row">
+	                        <div class="col-md-3">
+	                            <div class="form-group">		                        
+	                                <button type="button" class="add_conferences"  ><img src="/img/plus.png"/></button>
+	                                 &nbsp&nbsp  <label>Add more fields</label>
+	                        	</div>
+	                        </div>
+	                    </div>
+	      				<div class="row">
+	          				<div class="col-md-2">    
+	                        	<input class="button" type="submit" value="Update Conferences section" name="submit"> 
+	          				</div>
+	         			</div>
+	      			</form>
+                	</div>
+                        
                         </div>        <br><br><br>
                     <div class="wrapper_indent">
                     <h4>4) Students</h4><br>
@@ -1864,6 +1795,7 @@
 		var professional_experiences_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='professional_experience_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='professional_experience_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='professional_experience_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='professional_experience_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var administrative_positions_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='administrative_position_title[]' placeholder='Title of position eg. Professor etc.' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Description</label><input type='text' class='form-control styled '  name='administrative_position_description[]' placeholder='Description' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>From</label><input type='text' class='form-control styled ' name='administrative_position_from[]' placeholder='Start date (year or month etc)' value=''></div><div class='col-md-6'><label>To</label><input type='text' class='form-control styled ' name='administrative_position_to[]' placeholder='End date (year or month etc)' value=''></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var student_detail_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-2'><label>Roll number</label><input type='text' class='form-control styled'  name='roll_number[]' value='' ></div><div class='col-md-3'><label>Name</label><input type='text' class='form-control styled'  name='name[]' required value='' ></div><div class='col-md-2'><label>Category</label><select  class='form-control styled ' name='category[]' value=''> <option value='Mtech' >Mtech</option><option value='PhD' selected>PhD</option><option value='PBI' >PBI</option></select></div><div class='col-md-3'><label>Status</label><select name='status[]' class='form-control styled required'value=''><option value='Completed' >Completed</option> <option value='Ongoing' selected>Ongoing</option></select></div><div class='col-md-2'><label>Year</label><input type='text' class='form-control styled required'  name='year[]' value='' ></div></div><!-- End row --><br><div class='row'><div class='col-md-7'><label>Title of Work</label><input type='text' class='form-control styled required'  name='title_work[]' value='' ></div><div class='col-md-5'><label>Co-guide(s)</label><input type='text' class='form-control styled'  name='co_guide[]' value='' ></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
+		var conferences_HTML="<div><a href='javascript:void(0);' class='remove_button'	title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' required name='description[]' placeholder='Title, Description, Period etc.' value='' ></div></div><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' name='link[]' placeholder='Add Link' value='' ></div></div></div><!-- End row --><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
         $('button.add_qualification').on('click',function(){
 			$(this).parent().parent().parent().prepend(qualification_HTML);
 		});
@@ -1876,8 +1808,12 @@
 		$('button.add_student').on('click',function(){
 			$(this).parent().parent().parent().prepend(student_detail_HTML)
 		});
-		$('a.remove_button').on('click',function(){
-			$(this).parent().remove();
+		$('button.add_conferences').on('click',function(){
+			$(this).parent().parent().parent().prepend(conferences_HTML)
+		});
+
+		$('body').on('click', 'a.remove_button', function() {
+    		$(this).parent().remove();
 		});
 	});
 </script>

@@ -453,13 +453,13 @@
 
 									<ul>
 
-										<LI><a href="http://site.iiitdmj.ac.in/people/faculty.php">Faculty</a></LI>
+										<LI><a href="/faculty">Faculty</a></LI>
 
-										<LI><a href="http://site.iiitdmj.ac.in/people/research_staff.php">Research Staff</a></LI>
+										<LI><a href="/research-staff">Research Staff</a></LI>
 
-										<LI><a href="http://site.iiitdmj.ac.in/people/office_administration.php">Office Administration</a></LI>
+										<LI><a href="/office-administration">Office Administration</a></LI>
 
-										<LI><a href="http://site.iiitdmj.ac.in/people/staff.php">Staff</a></LI>
+										<LI><a href="/staff">Staff</a></LI>
 
 									</ul>
 

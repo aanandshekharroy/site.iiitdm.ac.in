@@ -13,6 +13,7 @@
 use App\User;
 use App\Staff;
 use App\ResearchStaff;
+use App\OfficeAdministration;
 Route::get('/', function () {
     return view('index');
 });
@@ -46,6 +47,10 @@ Route::get('/staff',function(){
 Route::get('/research-staff',function(){
 	$staff=ResearchStaff::orderBy('name','ASC')->get();
 	return view('research_staff')->with('staff',$staff);
+});
+Route::get('/office-administration',function(){
+	$staff=OfficeAdministration::orderBy('name','ASC')->get();
+	return view('office_administration')->with('staff',$staff);
 });
 Route::get('delete-cv','HomeController@delete_cv');
 Route::get('delete-image/{id}','HomeController@delete_images');

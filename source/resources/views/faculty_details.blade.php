@@ -1691,68 +1691,76 @@
              
             
                 <div class="webspace_area">
+                	<form action="/update-webdata" method="post">
+                		{{csrf_field()}}
                     <div class="row">
-                             <div class="col-md-6">
-                                <label>Gmail</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="gmail_id" name="gmail" placeholder="Gmail ID" value="sraban@gmail.com">
+                        <div class="col-md-6">
+                            <label>Gmail</label>
+                            <div class="styled-select">
+                            	<input type="text" class="form-control styled" 
+                            	name="gmail" placeholder="Gmail ID" value="{{Auth::user()->gmail}}">
                             </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label>Facebook</label>
-                                <input type="text" class="form-control styled required" id="facebook_id" name="facebook" placeholder="Facebook id" value="">
+                                <input type="text" class="form-control styled" 
+                                name="facebook" placeholder="Facebook id" value="{{Auth::user()->facebook}}">
                             </div>
-                            </div>
-                        </div><!-- End row -->
+                        </div>
+                    </div><!-- End row -->
                         
-                         <div class="row">
-                            <div class="col-md-6">
-                                <label>Twitter</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Twitter</label>
+                            <div class="styled-select">
+                              <input type="text" class="form-control styled" 
+                              name="twitter" placeholder="Twitter id" value="{{Auth::user()->twitter}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>LinkedIn</label>
                                 <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="twitter_link" name="twitter" placeholder="Twitter id" value="">
+                            		<input type="text" class="form-control styled " 
+                            		name="linkedin" placeholder="LinkedIn handle" value="{{Auth::user()->linkedin}}">
+                            	</div>
+                        </div>                       
+                   	</div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Skype</label>
+                            <div class="styled-select">
+                            	<input type="text" class="form-control styled " name="skype" 
+                            	placeholder="Skype ID" value="{{Auth::user()->skype}}">
                             </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>LinkedIn</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="linkedin" name="linkedin" placeholder="LinkedIn handle" value="">
-                            </div>
-                            </div>
-                       
-                   </div>
-                        
-                            <div class="row">
-                           
-                            <div class="col-md-6">
-                                <label>Skype</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="skype_id" name="skype" placeholder="Skype ID" value="skmfru">
-                            </div>
-                            </div>
+                        </div>
 
-                            <div class="col-md-6">
-                                <label>Alternate Phone</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="alt_phone_id" name="alt_phone" placeholder="Alternate Phone Number" value="">
+                        <div class="col-md-6">
+                            <label>Alternate Phone</label>
+                            <div class="styled-select">
+                              <input type="text" class="form-control styled" 
+                              name="alternate_phone" placeholder="Alternate Phone Number" value="{{Auth::user()->alternate_phone}}">
                             </div>
+                        </div>
+                    </div>  
+					<div class="row">
+                        <div class="col-md-6">
+                            <label>Fax</label>
+                            <div class="styled-select">
+                            	<input type="text" class="form-control styled " 
+                            	name="fax" placeholder="Fax number" value="{{Auth::user()->fax}}">
                             </div>
-                            
-                        </div>  
-
-                        <div class="row">
-                           
-                            <div class="col-md-6">
-                                <label>Fax</label>
-                                <div class="styled-select">
-                              <input type="text" class="form-control styled required" id="fax_id" name="fax" placeholder="Fax number" value="+91-">
-                            </div>
-                            </div>
-
-                            </div>
+                    	</div>
+					</div>
+					<div class="row">
+          				<div class="col-md-2">    
+                        	<input class="button" type="submit" value="Update Web data" name="submit"> 
+          				</div>
+         			</div>
 
                     
-                      </div>
+              	</div>
                       </div>
                    <div class="wrapper_indent">
                      	<br><br><br>

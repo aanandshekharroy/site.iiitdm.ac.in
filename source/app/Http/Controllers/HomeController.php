@@ -241,7 +241,7 @@ class HomeController extends Controller
         
         return back()->with('msg','Updated successfully');
     }
-    public function update_web_address(Request $request){
+    public function update_web_data(Request $request){
         $user=Auth::user();
         $user->gmail=$request->input('gmail');
         $user->facebook=$request->input('facebook');

@@ -204,7 +204,7 @@
 								@if(Auth::guest())
 									<a href="#" data-toggle="modal" data-target="#faculty_login">Faculty</a>
 								@else
-									<a href="home" >Home</a>
+									<a href="/home" >Home</a>
 								@endif
 								
 							</li>

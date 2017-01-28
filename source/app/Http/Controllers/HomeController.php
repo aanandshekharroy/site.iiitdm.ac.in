@@ -36,7 +36,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('faculty_details');
+        return view('faculty_edit_details');
     }
     public function upload_pic(Request $request){
         if($request->input('type')=='proPic'){

@@ -11,6 +11,7 @@
 |
 */
 use App\User;
+use App\Staff;
 Route::get('/', function () {
     return view('index');
 });
@@ -37,7 +38,10 @@ Route::get('/faculty/{id}',function($id){
 	$user=User::where('id',$id)->first();
 	return view('faculty_detail')->with('user',$user);
 });
-
+Route::get('/staff',function(){
+	$staff=Staff::orderBy('name','ASC')->get();
+	return view('staff')->with('staff',$staff);
+});
 Route::get('delete-cv','HomeController@delete_cv');
 Route::get('delete-image/{id}','HomeController@delete_images');
 Route::get('tender', function(){

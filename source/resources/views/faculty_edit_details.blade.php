@@ -969,7 +969,7 @@
                         	<input class="button" type="submit" value="Update Web data" name="submit"> 
           				</div>
          			</div>
-
+         			</form>
                     
               	</div>
                       </div>
@@ -1003,7 +1003,8 @@
 			                    <div class="row">
 			                       <div class="col-md-6">
 			                        	<div id="uploadingGallery">
-											<form action="/upload-photo" method="post" enctype="multipart/form-data" >
+											<form action="/upload-photo" 
+											method="post" enctype="multipart/form-data" >
 											{{csrf_field()}}                    
 			                         			<div class="col-md-12">
 			                            			<div class="form-group">

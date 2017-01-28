@@ -36,6 +36,26 @@ Route::post('update-courses','HomeController@update_courses');
 Route::post('update-publications','HomeController@update_publications');
 Route::post('update-projects','HomeController@update_projects');
 Route::post('update-honors','HomeController@update_honors');
+Route::get('/faculty',function(){
+	$users=User::orderBy('name')->get();
+	$computer_science_users=User::where('department', 'like', '%'.'Computer'.'%')
+	->orderBy('name')->get();
+	$design_users=User::where('department', 'like', '%'.'Design'.'%')
+	->orderBy('name')->get();
+	$electronics_users=User::where('department', 'like', '%'.'Electronics'.'%')
+	->orderBy('name')->get();
+	$mechanical_users=User::where('department', 'like', '%'.'mechanical'.'%')
+	->orderBy('name')->get();
+	$natural_science_users=User::where('department', 'like', '%'.'Physics'.'%')
+	->orWhere('department', 'like', '%'.'Maths'.'%')
+	->orderBy('name')->get();
+	return view('faculty')->with(['users'=>$users,
+		'computer_science_users'=>$computer_science_users,
+		'design_users'=>$design_users,
+		'electronics_users'=>$electronics_users,
+		'mechanical_users'=>$mechanical_users,
+		'natural_science_users'=>$natural_science_users]);
+});
 Route::get('/faculty/{id}',function($id){
 	$user=User::where('id',$id)->first();
 	return view('faculty_detail')->with('user',$user);

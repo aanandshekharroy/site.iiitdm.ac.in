@@ -150,7 +150,7 @@
             		</div>
                 	<div class="wrapper_indent">
             			<div class="basic_details_area">
-							<form action="update-basic-details" method="POST">
+							<form action="/update-basic-details" method="POST">
 								{{csrf_field()}}
 								<div class="row">
 	                            	<div class="col-md-6">
@@ -192,6 +192,16 @@
 			                            </div>
 		                            </div>
 			                    </div> <!-- End row -->
+			                    <div class="row">
+		                            <div class="col-md-6">
+		                                <div class="form-group">
+		                    	            <label>Address</label>
+			                                <input type="text" class="form-control styled required" 
+			                                id="webpage" name="address" value="{{Auth::user()->address}}"
+			                                 placeholder="Address">
+			                            </div>
+		                            </div>
+			                    </div>
 			                    <div class="row">
 		                            <div class="col-md-6">
 		                                <div class="form-group">
@@ -999,7 +1009,7 @@
                     
                    
                      
-                     
+                 
                     
                     
                 <h2>Contact</h2>
@@ -1085,18 +1095,7 @@
                       </div>
                    <div class="wrapper_indent">
                      	<br><br><br>
-                     	<h4>2) Add Address</h4><br>
-                     	<div class="more_address">
-                     	</div> 
-                     	<div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                        
-	                                <button type="button" class="add_button_address"  ><img src="../img/plus.png"/></button>
-	                                 &nbsp&nbsp  <label>Add more fields</label>
-                            	</div>
-                            </div>
-                        </div>
+                     	
                         <hr class="styled_2">
          
                 		<h2>Gallery</h2>
@@ -1152,8 +1151,7 @@
                       <div class="form-group">
 					<div class="icheckbox_square-blue" style="position: relative;"><input type="checkbox" name="policy_terms" id="policy_terms" class="required" value="Yes" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> 
 				</div>
-                     <p><button type="button" style="     margin-left: 200px;   width: 300px;" onclick="update()" class="button">Update</button></p>
-                      </div>
+                     </div>
                       
                     </div>
            </div>
@@ -1170,7 +1168,7 @@
  <hr class="styled">
                     <div class="box_side"><h4>Have a glance</h4> <i class="icon_pencil-edit"></i>
                     <p>After you update your profile, you can have the final look of your public profile by clicking on the button below </p>
-                    <a href="/faculty/{{AUth::id()}}" class="button small">See your profile</a>
+                    <a href="/faculty/{{Auth::id()}}" class="button small">See your profile</a>
 </div>
 
            </div>

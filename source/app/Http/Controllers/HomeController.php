@@ -100,6 +100,7 @@ class HomeController extends Controller
         $user->email=$request->input('email');
         $user->phone=$request->input('phone');
         $user->webpage=$request->input('webpage');
+        $user->address=$request->input('address');
         $user->about_me=$request->input('about_me');
         $user->interests=$request->input('interests');
         $user->save();

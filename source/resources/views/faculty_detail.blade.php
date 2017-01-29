@@ -45,7 +45,7 @@
 							<li>Designation  <strong class="pull-right">{{$user->designation}}</strong></li>
 							<li>Email <strong class="pull-right">{{$user->email}}</strong></li>
 							<li>Telephone  <strong class="pull-right"> {{$user->phone}}</strong></li>
-							<li>Address<strong class="pull-right">IIITDM Jabalpur</strong></li>
+							<li>Address<strong class="pull-right">{{$user->address}}</strong></li>
 							<li>Webpage<a href="{{$user->webpage}}" style="color:#444;">
 							<strong class="pull-right">{{$user->webpage}}</strong></a></li></ul>
 

@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('alternate_phone')->nullable(true);
             $table->string('fax')->nullable(true);
             $table->string('webpage');
+            $table->string('address');
             $table->longText('about_me');
             $table->longText('interests');
             $table->rememberToken();

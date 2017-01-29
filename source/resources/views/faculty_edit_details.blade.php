@@ -99,12 +99,7 @@
 	                                        <input type="text" class="form-control styled required" id="desig" name="desig" placeholder="Designation in the institute" value="{{Auth::user()->designation}}" disabled><h5 style="color:green">Edit in Basic Details</h5>
 	                                </div>
 	                            </div>
-	                      	</div> <!-- End row -->
-	                      	@if(Session::has('msg-index-page'))
-							    <div class="alert-box success">
-							        <strong><h2>{{ Session::get('msg-index-page') }}</h2><strong>
-							    </div>
-							@endif
+	                      	</div> 
 							<form action="update-index-page" method="POST">
 								{{csrf_field()}}
 		                        <div class="row">
@@ -133,17 +128,28 @@
 	                	</div>
 	                </div>
                 	<hr class="styled_2">
-					<div class="indent_title_in">
+
+
+
+
+
+					 <div class="panel-group" id="accordion">
+					  <div class="panel panel-default">
+					    <div class="panel-heading">
+					      <h4 class="panel-title">
+					        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+					        Basic Details </a>
+					      </h4>
+					    </div>
+					    <div id="collapse1" class="panel-collapse collapse in">
+					      <div class="panel-body">
+					      	
+					      	<div class="indent_title_in">
 		                <h3>Basic Details</h3>
                 		<p>Details present in the left panel</p>
             		</div>
                 	<div class="wrapper_indent">
             			<div class="basic_details_area">
-            				@if(Session::has('msg-basic-details'))
-							    <div class="alert-box success">
-							        <strong><h2>{{ Session::get('msg-basic-details') }}</h2><strong>
-							    </div>
-							@endif
 							<form action="update-basic-details" method="POST">
 								{{csrf_field()}}
 								<div class="row">
@@ -210,8 +216,24 @@
 	                 			</div>
                  			</form>
                 		</div>
-                	</div>                	
-					<div class="indent_title_in">              
+                	</div> 
+
+
+					      </div>
+					    </div>
+					  </div>
+					  <div class="panel panel-default">
+					    <div class="panel-heading">
+					      <h4 class="panel-title">
+					        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+					        Qualification, Professional experience, Administrative positions and CV</a>
+					      </h4>
+					    </div>
+					    <div id="collapse2" class="panel-collapse collapse">
+					      <div class="panel-body">
+
+
+<div class="indent_title_in">              
                 		<h4>3) Qualification</h4><br>
                 		
               			<div class="more_qual">
@@ -480,8 +502,21 @@
                    	</div>
                	</div>
          </div></div>    <hr class="styled_2">
-                    
-                   <div class="indent_title_in">
+					      </div>
+					    </div>
+					  </div>
+					  <div class="panel panel-default">
+					    <div class="panel-heading">
+					      <h4 class="panel-title">
+					        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+					        Courses</a>
+					      </h4>
+					    </div>
+					    <div id="collapse3" class="panel-collapse collapse">
+					      <div class="panel-body">
+					      	
+
+					      	<div class="indent_title_in">
 
                 <h2>Courses</h2>
                 <p style="    color: #999; margin: 0;   padding: 0;  font-size: 13px;  line-height: 14px;">Details of the Courses tab</p>
@@ -651,8 +686,21 @@
                       
                       
  <hr class="styled_2">
-                     
-                     <div class="indent_title_in">
+
+					      </div>
+					    </div>
+					  </div>
+					  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+        Research, Projects, Publications, Conferences and Students</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+      	
+      	<div class="indent_title_in">
                 <h2>Research</h2>
                 <p style="    color: #999; margin: 0;   padding: 0;  font-size: 13px;  line-height: 14px;">Details of the Research tab</p>
          
@@ -931,6 +979,27 @@
               			</form>
                     </div>
                         <hr class="styled_2">
+
+
+      </div>
+    </div>
+  </div>
+					</div> 
+
+
+
+
+
+
+
+
+
+					               	
+					
+                    
+                   
+                     
+                     
                     
                     
                 <h2>Contact</h2>

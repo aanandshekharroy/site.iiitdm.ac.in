@@ -1,0 +1,6 @@
+INSERT INTO `office_administrations` (`id`, `name`, `designation`, `qualification`, `phone`, `email`, `photo`, `fax`, `other_info`) VALUES
+(1, 'Shri R P Dwivedi', 'Registrar', 'MCA, MPM, LLB', '0761 2794021', 'registrar@iiitdmj.ac.in ', 'rpdwivedi.jpg', '0761 2794092', 'First Appellate Authority (RTI)'),
+(2, 'Mrs. Swapnali D Gadekar', 'Deputy Registrar', 'MBA', '0761 2794032, 27944063 ', 'swapnali@iiitdmj.ac.in', 'swapnali.jpg', NULL, 'Academics\r\nStudents Affairs'),
+(3, 'Shri Rizwan Ahmed', 'Assistant Registrar', 'M.Sc., PGDHRM', ' 0761 2794077,2794043', 'rizwan[at]iiitdmj.ac.in', 'rizwan.jpg', ' 0761 2632524', 'Purchase & Stores\r\nEstablishment\r\nPublic Information Officer'),
+(4, 'Shri Naresh Joshi', 'Assistant Registrar', 'M.Sc.', ' 0761 2794063, 2794073', ' nareshjoshi[at]iiitdmj.ac.in', 'njoshi.jpg', '0761 2632524', 'General Administration\r\nFinance & Accounts'),
+(5, 'Shri Santosh Mahobia', 'Assistant Registrar', 'B.Com., MBA', ' 0761 2794003 ', 'santosh[at]iiitdmj.ac.in', 'santosh.jpg', '0761 2632094', 'Directorate\r\nFaculty Affairs\r\nOfficial Language Officer \r\nInternal Audit');

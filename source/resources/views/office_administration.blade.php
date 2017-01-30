@@ -35,7 +35,7 @@
 						            @foreach ($staff as $person)
 						            <div class="col-md-4">
 						            	<div class="box_style_1">
-						            	<p><img src="{{$person->filename}}" alt="" class="img-circle styled"></p>
+						            	<p><img src="{{$person->photo}}" alt="" class="img-circle styled"></p>
 						            		<h4>{{$person->name}}</h4>
                                     		<p>{{$person->designation}}</p>
                                    		 <h4><small>{{$person->other_info}}</small></h4>  

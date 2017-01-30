@@ -202,7 +202,7 @@
 
 							<li class="submenu">
 								@if(Auth::guest())
-									<a href="#" data-toggle="modal" data-target="#faculty_login">Faculty</a>
+									<a href="/login" >Faculty</a>
 								@else
 									<a href="/home" >Home</a>
 								@endif

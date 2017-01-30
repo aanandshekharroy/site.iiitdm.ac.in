@@ -249,7 +249,7 @@
         </div>                
     </div>
     
-    <div class="container mt60 mb30">
+    <!-- <div class="container mt60 mb30">
         <div class="row">
             <div class="col-md-6">
                 <div id="tabs" class="tabs">
@@ -290,7 +290,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
    <div class="bg_content testimonials">
               <div class="row">

@@ -14,7 +14,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-require __DIR__.'/../../../beta.iiitdmj.ac.in/source/vendor/autoload.php';
+require __DIR__.'/../../../beta/source/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ require __DIR__.'/../../../beta.iiitdmj.ac.in/source/vendor/autoload.php';
 |
 */
 
-$compiledPath = __DIR__.'/../../../beta.iiitdmj.ac.in/source/bootstrap/cache/compiled.php';
+$compiledPath = __DIR__.'/../../../beta/source/bootstrap/cache/compiled.php';
 
 if (file_exists($compiledPath)) {
     require $compiledPath;

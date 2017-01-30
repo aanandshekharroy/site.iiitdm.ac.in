@@ -12,7 +12,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../../../beta.iiitdmj.ac.in/source/')
+    realpath(__DIR__.'/../../../beta/source/')
 );
 
 /*

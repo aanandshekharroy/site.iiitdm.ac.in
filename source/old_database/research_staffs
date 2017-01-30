@@ -1,0 +1,6 @@
+INSERT INTO `research_staffs` (`id`, `name`, `designation`, `discipline`, `research_area`, `phone`, `email`, `photo`, `webpage`, `fax`) VALUES
+(1, 'Mr. Awadhesh K. Singh ', 'Research Engineer ', 'Mechanical Engineering', 'Design, Analysis and Development of Interdisciplinary Systems (Mechatronics, MEMS and NEMS) ', '+91-761-2794423', 'aks@iiitdmj.ac.in', 'aks.jpg', 'http://web.iiitdmj.ac.in/~aks', ''),
+(2, 'Mr. K.K. Soundra Pandian', 'Research Engineer Grade-I', 'Electronics & Communication Engineering', 'VLSI- Cryptography, Information security, Stream cipher, Pseudorandom Number Generation.', '+91-761-2794473', 'kpandian@iiitdmj.ac.in\r\n', 'kpandian.jpg', NULL, NULL),
+(3, 'Mr. Dada Saheb Ramteke ', 'Research Engineer ', 'Mechanical Engineering ', 'Rotor dynamics, Tribology', '+91-761-2794424', 'dsramteke[at]iiitdmj.ac.in\r\ndadasaheb_ramteke[at]yahoo.com', 'dkrpass.jpg', NULL, NULL),
+(4, 'Mr. Saket Saurav ', 'Research Engineer ', 'Computer Science & Engineering', NULL, '+91-761-2794230', 'saket[at]iiitdmj.ac.in', 'saket.jpg', NULL, NULL),
+(5, 'Mr. Mohd. Sharique Husain ', 'Research Engineer ', 'Computer Science & Engineering', NULL, '	+91-761-2794231\r\n', 'shusain[at]iiitdmj.ac.in', 'shusain.jpg', NULL, NULL);

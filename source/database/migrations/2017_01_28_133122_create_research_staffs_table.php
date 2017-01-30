@@ -18,7 +18,7 @@ class CreateResearchStaffsTable extends Migration
             $table->string('email')->nullable(true);
             $table->string('photo')->nullable(true);
             $table->string('designation')->nullable(true);
-            $table->string('descipline')->nullable(true);
+            $table->string('discipline')->nullable(true);
             $table->string('research_area')->nullable(true);
             $table->string('phone')->nullable(true);
             $table->string('webpage')->nullable(true);

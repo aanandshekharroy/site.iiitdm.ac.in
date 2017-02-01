@@ -237,12 +237,7 @@
 																			<div class="col-md-10">
 																				<ul class="list_7">
 																				@foreach($user->publications as $publication)
-																					<li><a href="{{$publication->link}}" style="color:#444;"><strong>{{$publication->title}}</strong></a><p style="padding-top:6px;"><strong>Authors: </strong>
-																					&nbsp;{{$publication->author}}</p>
-																					<p style="margin-top: -15px;">
-																					<strong>{{$publication->type}}: </strong>
-																					&nbsp;{{$publication->description}}
-																					</p>
+																					<li><a href="{{$publication->link}}" style="color:#444;"><strong>{{$publication->paper}}</strong></a><p style="padding-top:6px;">
 																					</li>
 																				
 																				 @endforeach

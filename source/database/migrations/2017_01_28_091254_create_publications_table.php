@@ -16,11 +16,8 @@ class CreatePublicationsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('title')->nullable(false);
-            $table->string('author')->nullable(true);
-            $table->string('description')->nullable(true);
-            $table->string('type')->nullable(true);
-            $table->string('link')->nullable(true);
+            $table->string('paper')->nullable(false);
+            $table->integer('order')->default(100);
             $table->timestamps();
         });
     }

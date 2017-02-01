@@ -56,7 +56,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Course','user_id','id');   
     }
     public function publications(){
-        return $this->hasMany('App\Publication','user_id','id');   
+        return $this->hasMany('App\Publication','user_id','id')
+        ->orderBy('order');   
     }
     public function projects(){
         return $this->hasMany('App\Project','user_id','id');   

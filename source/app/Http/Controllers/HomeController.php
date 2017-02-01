@@ -317,25 +317,22 @@ class HomeController extends Controller
         return back()->with('msg','Updated successfully');
     }
     public function update_publications(Request $request){
-        $titles=$request->input('title');
-        $authors=$request->input('author');
-        $description=$request->input('description');
-        $types=$request->input('type');
-        $links=$request->input('link');
+        $papers=$request->input('paper');
+        $orders=$request->input('order');
         $publications=Publication::where('user_id',Auth::id())->get();
         foreach ($publications as $publication) {
             $publication->delete();
         }
-        if(!empty($titles)){
-            foreach ($titles as $index => $title) {
+        if(!empty($papers)){
+            foreach ($papers as $index => $paper) {
             # code...
                 $publication=new Publication;
                 $publication->user_id=Auth::id();
-                $publication->title=$title;
-                $publication->type=$types[$index];
-                $publication->author=$authors[$index];
-                $publication->description=$description[$index];
-                $publication->link=$links[$index];
+                $publication->paper=$paper;
+                if(!empty($orders[$index])){
+                    $publication->order=$orders[$index];    
+                }
+                
                 $publication->save();
             }
         }

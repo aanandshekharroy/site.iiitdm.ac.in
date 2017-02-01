@@ -18,6 +18,7 @@ class CreateOfficeAdministrationsTable extends Migration
             $table->string('email')->nullable(true);
             $table->string('photo')->nullable(true);
             $table->string('designation')->nullable(true);
+            $table->string('qualification')->nullable(true);
             $table->string('other_info')->nullable(true);
             $table->string('phone')->nullable(true);
             $table->string('webpage')->nullable(true);

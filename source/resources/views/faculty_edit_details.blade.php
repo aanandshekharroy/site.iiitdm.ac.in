@@ -792,49 +792,21 @@
 							<div class="row">
 	                            <div class="col-md-6">
 	                                <div class="form-group">
-		                                <label>Title</label>
-		                                <input type="text" class="form-control styled required" required name="title[]" 
-		                                placeholder="Title of this publication" 
-		                                value="{{$publication->title}}">
+		                                <label>Paper</label>
+		                                <input type="text" class="form-control styled required" required name="paper[]" 
+		                                placeholder="Paper" 
+		                                value="{{$publication->paper}}">
 	                            	</div>
 	                            </div>
 	                            <div class="col-md-6">
 	                                <div class="form-group">
-	                                	<label>Authors</label>
+	                                	<label>Rank</label>
 	                                	<input type="text" class="form-control styled required"
-	                                	 name="author[]" placeholder="Names of authors" value="{{$publication->author}}">
+	                                	 name="order[]" placeholder="Ran (1-100) 1 being most prominent" value="{{$publication->order}}">
 	                            	</div>
 	                            </div>
-	                        </div><!-- End row -->                        
-                         	<div class="row">
-	                            <div class="col-md-6">
-	                                <label>Description</label>
-	                                <div class="styled-select">
-	                              		<input type="text" class="form-control styled required" 
-	                              		name="description[]" 
-	                              		placeholder="Short description for this publication" 
-	                              		value="{{$publication->description}}">
-	                            	</div>
-                            	</div>
-								<div class="col-md-6">
-                                	<label>Type</label>
-                                	<div class="styled-select">
-                              			<input type="text" class="form-control styled required" 
-                              			name="type[]" placeholder="Conference or journal? etc." 
-                              			value="{{$publication->type}}">
-                            		</div>
-                            	</div>
-                            </div>
-                            <div class="row">
-                            	<div class="col-md-6">
-                                	<label>Download Link</label>
-                                	<div class="styled-select">
-	                              		<input type="url" class="form-control styled " name="link[]" 
-	                              		placeholder="Provide a link for this paper(Give the full path : including http/https)"
-	                              		 value="{{$publication->link}}">
-                            		</div>
-                            	</div>
-                            </div>
+	                        </div><!-- End row -->                   
+                         	
                             <hr style="height:1px;border:none;color:#333;background-color:#333;" /><br>  
                         </div>
                     @endforeach
@@ -1186,7 +1158,7 @@
 		var student_detail_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-2'><label>Roll number</label><input type='text' class='form-control styled'  name='roll_number[]' value='' ></div><div class='col-md-3'><label>Name</label><input type='text' class='form-control styled'  name='name[]' required value='' ></div><div class='col-md-2'><label>Category</label><select  class='form-control styled ' name='category[]' value=''> <option value='Mtech' >Mtech</option><option value='PhD' selected>PhD</option><option value='PBI' >PBI</option></select></div><div class='col-md-3'><label>Status</label><select name='status[]' class='form-control styled required'value=''><option value='Completed' >Completed</option> <option value='Ongoing' selected>Ongoing</option></select></div><div class='col-md-2'><label>Year</label><input type='text' class='form-control styled required'  name='year[]' value='' ></div></div><!-- End row --><br><div class='row'><div class='col-md-7'><label>Title of Work</label><input type='text' class='form-control styled required'  name='title_work[]' value='' ></div><div class='col-md-5'><label>Co-guide(s)</label><input type='text' class='form-control styled'  name='co_guide[]' value='' ></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
 		var conferences_HTML="<div><a href='javascript:void(0);' class='remove_button'	title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' required name='description[]' placeholder='Title, Description, Period etc.' value='' ></div></div><div class='col-md-6'><div class='form-group'><input type='text' class='form-control styled' name='link[]' placeholder='Add Link' value='' ></div></div></div><!-- End row --><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
         var courses_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-4'><div class='form-group'><label>Course Code</label><input type='text' class='form-control styled' name='code[]' placeholder='Code of this course' value=''></div></div><div class='col-md-8'><div class='form-group'><label>Course Name</label><input type='text' class='form-control styled ' name='name[]' placeholder='Title of this course' value='' required></div></div></div><!-- End row --><div class='row'><div class='col-md-4'><label>Currently Teaching?</label><select class='form-control styled required' name='currently_teaching[]'><option value='1' selected>Yes</option><option value='0' >No</option></select></div><div class='col-md-8'><div class='form-group'><label>Department</label><select  class='form-control styled ' name='department[]'><option value='Computer Science & Engineering' selected>Computer Science & Engineering</option> <option value='Electronics & Communication Engineering' >Electronics & Communication Engineering</option><option value='Mechanical Engineering' >Mechanical Engineering</option><option value='Natural Sciences' >Natural Sciences</option><option value='Design' >Design</option></select></div></div></div><div class='row'><div class='col-md-12'><div class='form-group'><label>Link</label><input type='text' class='form-control styled ' name='link' placeholder='Link of this course(Give the full path : including http/https)' value='' ></div></div></div><!-- End row --><div class='row'><div class='col-md-12'><div class='form-group'><label>Institute</label><input type='text' class='form-control styled ' name='institute[]' placeholder='Institute where this course was held' value='' ></div></div></div><!-- End row --><div class='row'><div class='col-md-12'><div class='form-group'><br><label>UG</label><br><input type='checkbox' name='ug[]' value='1'  checked='checked'>Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='checkbox' name='ug[]'value='0' >No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><label>PG</label><br><input type='checkbox' name='pg[]' value='1' checked='checked'>Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='checkbox' name='pg[]' value='0' >No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><label>PhD</label><br><input type='checkbox' name='phd[]' value='1' checked='checked'>Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='checkbox' name='phd[]' value='0' >No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></div></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
-        var publications_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' class='form-control styled ' required name='title[]' placeholder='Title of this publication'  value=''></div></div><div class='col-md-6'><div class='form-group'><label>Authors</label><input type='text' class='form-control styled '	 name='author[]' placeholder='Names of authors' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><div class='styled-select'><input type='text' class='form-control styled' name='description[]' placeholder='Short description for this publication' value=''></div></div><div class='col-md-6'><label>Type</label><div class='styled-select'><input type='text' class='form-control styled' name='type[]' placeholder='Conference or journal? etc.' value=''></div></div></div><div class='row'><div class='col-md-6'><label>Download Link</label><div class='styled-select'><input type='url' class='form-control styled' name='link[]' placeholder='Provide a link for this paper(Give the full path : including http/https)' value=''></div></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br>  </div>";
+        var publications_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Paper</label><input type='text' class='form-control styled ' required name='paper[]' placeholder='paper'  value=''></div></div><div class='col-md-6'><div class='form-group'><label>Order</label><input type='text' class='form-control styled '	 name='order[]' placeholder='Order (1-100) 1 being most prominent' value='100'></div></div></div><!-- End row --><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br>  </div>";
         var projects_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' maxlength=200 class='form-control styled ' required name='title[]' placeholder='Title' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><textarea id='research_desc' maxlength=500 name='description[]'  placeholder='Give a short description for this work' rows='7' cols='45' ></textarea></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
         var honors_HTML="<div><a href='javascript:void(0);' class='remove_button' title='Remove field'>Remove</a><br><br><div class='row'><div class='col-md-6'><div class='form-group'><label>Title</label><input type='text' maxlength=500 class='form-control styled ' required name='title[]' placeholder='Title of this honor' value=''></div></div><div class='col-md-6'><div class='form-group'><label>Period</label><input type='text' maxlength=15 class='form-control styled required' name='period[]' placeholder='When did you receive it?' value=''></div></div></div><!-- End row --><div class='row'><div class='col-md-6'><label>Description</label><textarea maxlength=500 name='description[]'  placeholder='Describe this honour' rows='7' cols='45'></textarea></div></div><hr style='height:1px;border:none;color:#333;background-color:#333;' /><br></div>";
         $('button.add_qualification').on('click',function(){

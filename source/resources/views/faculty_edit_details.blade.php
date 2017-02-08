@@ -220,6 +220,14 @@
 		                            </div>
 			                    </div>
 			                    <div class="row">
+		                            <div class="col-md-6">
+		                                <div class="form-group">
+		                    	            <label>Profile link</label>
+			                                <input type="text" name="profile_url" placeholder="Profile link (Optional)">
+			                            </div>
+		                            </div>
+			                    </div>
+			                    <div class="row">
 	                  				<div class="col-md-2">    
 	                                	<input class="button" type="submit" value="Update basic details" name="submit"> 
 	                  				</div>

@@ -223,7 +223,8 @@
 		                            <div class="col-md-6">
 		                                <div class="form-group">
 		                    	            <label>Profile link</label>
-			                                <input type="text" name="profile_url" placeholder="Profile link (Optional)">
+			                                <input type="webpage" class="form-control styled " 
+			                                name="profile_url" value="{{Auth::user()->profile_url}}" placeholder="Link of your profile">
 			                            </div>
 		                            </div>
 			                    </div>

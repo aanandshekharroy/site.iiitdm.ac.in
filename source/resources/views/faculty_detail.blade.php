@@ -211,29 +211,59 @@
 																	<p>Areas or Specialisation / Project Activities / Publications</p>
 																</div>
 																<div class="wrapper_indent">
+																	<div class="panel-group" id="accordion">
+  																		<div class="panel panel-default">
+  																			<div class="panel-heading">
+																		      <h4 class="panel-title">
+																		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+																		        Areas / Specialization</a>
+																		      </h4>
+																		    </div>
+																		    <div id="collapse1" class="panel-collapse collapse in">
+																		      <div class="panel-body">
+																		      	<div class="row">
+																				<div class="col-md-10">
+																					<p>{{$user->specialization}}<p>
+																					</div>
 
-																	<h3 style="padding-bottom:10px;">Areas / Specialisation</h3>
-																	<div class="row">
-																		<div class="col-md-10">
-																			<p>{{$user->specialization}}<p>
-																			</div>
+																				</div>
+																		      </div>
+																		    </div>
+																	    </div>
 
-																		</div><!-- End row--> 
+																	    <div class="panel panel-default">
+  																			<div class="panel-heading">
+																		      <h4 class="panel-title">
+																		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+																		        Project Activities</a>
+																		      </h4>
+																		    </div>
+																		    <div id="collapse2" class="panel-collapse collapse ">
+																		      <div class="panel-body">
+																		      	<div class="row">
+																					<div class="col-md-10">
+																						<ul class="list_8">
+																						@foreach($user->projects as $project)
+																						<li><strong>{{$project->title}}</strong><p>{{$project->description}}</p></li>
+																						@endforeach
+																						</ul>
+																					</div>
 
-																		<h3 style="padding-bottom:10px;">Project Activities</h3>
-																		<div class="row">
-																			<div class="col-md-10">
-																				<ul class="list_8">
-																				@foreach($user->projects as $project)
-																				<li><strong>{{$project->title}}</strong><p>{{$project->description}}</p></li>
-																				@endforeach
-																				</ul>
-																			</div>
+																				</div>
+																		      </div>
+																		    </div>
+																	    </div>
 
-																		</div><!-- End row--> 
-
-																		<h3 style="padding-bottom:10px;">Publications</h3>
-																		<div class="row">
+																	    <div class="panel panel-default">
+  																			<div class="panel-heading">
+																		      <h4 class="panel-title">
+																		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+																		        Publications</a>
+																		      </h4>
+																		    </div>
+																		    <div id="collapse3" class="panel-collapse collapse ">
+																		      <div class="panel-body">
+																		      	<div class="row">
 																			<div class="col-md-10">
 																				<ul class="list_7">
 																				@foreach($user->publications as $publication)
@@ -244,16 +274,24 @@
 																				 </ul>
 																			</div>
 
-																		</div><!-- End row--> 
+																		</div>
+																		      </div>
+																		    </div>
+																	    </div>
 
-																	</div><!--wrapper_indent -->
-																	<div class="indent_title_in">
-																		<i class="iconcustom-research"></i>
-																		<h3>Conference / Workshop</h3>
-																		<p>Organised/Attended</p>
-																	</div>
-																	<div class="wrapper_indent">
-																		<div class="row">
+																	    
+
+																	    <div class="panel panel-default">
+  																			<div class="panel-heading">
+																		      <h4 class="panel-title">
+																		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+																		        Conference / Workshop <h5>Organised/Attended</h5></a>
+																		      </h4>
+																		      
+																		    </div>
+																		    <div id="collapse4" class="panel-collapse collapse ">
+																		      <div class="panel-body">
+																		      	<div class="row">
 																			<div class="col-md-10">
 																				<ul class="list_9">
 																				@foreach($user->conferences as $conference)
@@ -264,16 +302,22 @@
 																				 </ul>
 																			</div>
 
-																		</div><!-- End row--> 
+																		</div>
+																		      </div>
+																		    </div>
+																	    </div>
 
-																	</div><!--wrapper_indent -->
-
-																	<div class="indent_title_in">
-																		<i class="iconcustom-education_online"></i>
-																		<h3>Students</h3>
-																		<p>M. Tech / Ph. D.</p>
-																	</div>
-																	<div class="wrapper_indent">
+																	    <div class="panel panel-default">
+  																			<div class="panel-heading">
+																		      <h3 style="padding-bottom:10px;" class="panel-title">
+																		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+																		        Students <h5>M. Tech / Ph. D.</h5></a>
+																		      </h3>
+																		      
+																		    </div>
+																		    <div id="collapse5" class="panel-collapse collapse ">
+																		      <div class="panel-body">
+																		      	<div class="wrapper_indent">
 																		<h3 style="padding-bottom:10px;"><strong>M. Tech.</strong></h3>
 																		<div class="table-responsive">
 																			<table class="table table-striped add_bottom_30">
@@ -292,7 +336,8 @@
 																				<tr><td><a href="#" style="color:#444;">{{$student->roll_number}}</a></td>
 																				<td><a href="#" style="color:#444;">{{$student->name}}</a></td>
 																				<td><a href="#" style="color:#444;">{{$student->status}}</a></td>
-																				<td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">{{$student->title_work}}
+																				<td><a href="#" style="color:#444;">{{$student->year}}</a></td>
+																				<td><a href="#" style="color:#444;">{{$student->title_work}}
 																				</a>
 																				</td>
 																				<td><a href="#" style="color:#444;">{{$student->co_guide}}</a></td></tr>
@@ -318,7 +363,8 @@
 																				<tr><td><a href="#" style="color:#444;">{{$student->roll_number}}</a></td>
 																				<td><a href="#" style="color:#444;">{{$student->name}}</a></td>
 																				<td><a href="#" style="color:#444;">{{$student->status}}</a></td>
-																				<td> &nbsp&nbsp -</td><td><a href="#" style="color:#444;">{{$student->title_work}}
+																				<td><a href="#" style="color:#444;">{{$student->year}}</a></td>
+																				<td><a href="#" style="color:#444;">{{$student->title_work}}
 																				</a>
 																				</td>
 																				<td><a href="#" style="color:#444;">{{$student->co_guide}}</a></td></tr>
@@ -327,6 +373,14 @@
 																			</table>
 																		</div> 
 																	</div><!--wrapper_indent -->
+																		      </div>
+																		    </div>
+																	    </div>
+																    </div>
+																	<!-- End row--> 
+
+																		
+																	
 																</div>
 															</section>
 

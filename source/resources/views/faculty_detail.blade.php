@@ -69,15 +69,36 @@
 											<i class="pe-7s-user"></i>
 											<h3>Profile</h3>
 											<p>{{$user->designation}} in the field of {{$user->department}}</p>
+											<p>{{$user->about_me}}</p>
 										</div>
 										<div class="wrapper_indent">
-											<p>{{$user->about_me}}</p>
-											<h3 style="padding-bottom:10px;">
-											Interests</h3>
-											<p>{{$user->interests}}</p>
-												<h3 style="padding-bottom:10px;">Qualifications</h3>
-												
-													<div class="row">
+										<div class="panel-group" id="accordion">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+										      		<h4 class="panel-title">
+										        	<a data-toggle="collapse" data-parent="#accordion" 
+										        	href="#interest">
+										        	Interest</a>
+										      		</h4>
+										    	</div>
+										    	<div id="interest" class="panel-collapse collapse in">
+										      		<div class="panel-body">
+									      				<p>{{$user->interests}}</p>
+										      		</div>
+										    	</div>
+										    </div>
+
+										    <div class="panel panel-default">
+													<div class="panel-heading">
+											      <h4 class="panel-title">
+											        <a data-toggle="collapse" 
+											        data-parent="#accordion" href="#qualification">
+											        Qualifications</a>
+											      </h4>
+											    </div>
+											    <div id="qualification" class="panel-collapse collapse ">
+											      <div class="panel-body">
+											      	<div class="row">
 	   			                                        <div class="col-md-10">
 				                                            <ul class="list_3">
 				                                            @foreach ($user->qualifications as $qualification)
@@ -89,10 +110,21 @@
 				                                            </ul>
 				                                        </div>
                                         			</div><!-- End row-->
-												
-
-												<h3 style="padding-bottom:10px;">Professional Experience</h3>
-												<div class="row">
+											      </div>
+											    </div>
+																	    
+									    	</div>
+									    	<div class="panel panel-default">
+													<div class="panel-heading">
+											      <h4 class="panel-title">
+											        <a data-toggle="collapse" 
+											        data-parent="#accordion" href="#experience">
+											        Professional Experience</a>
+											      </h4>
+											    </div>
+											    <div id="experience" class="panel-collapse collapse ">
+											      <div class="panel-body">
+											      	<div class="row">
 
 													<div class="col-md-10">
 														<ul class="list_6">
@@ -105,9 +137,22 @@
 													</div>
 
 												</div><!-- End row--> 
+											      </div>
+											    </div>
+																	    
+									    	</div>
 
-												<h3 style="padding-bottom:10px;">Administrative Positions</h3>
-												<div class="row">
+									    	<div class="panel panel-default">
+													<div class="panel-heading">
+											      <h4 class="panel-title">
+											        <a data-toggle="collapse" 
+											        data-parent="#accordion" href="#administrative">
+											        Administrative Positions</a>
+											      </h4>
+											    </div>
+											    <div id="administrative" class="panel-collapse collapse ">
+											      <div class="panel-body">
+											      	<div class="row">
 
 													<div class="col-md-10">
 														<ul class="list_6">
@@ -120,20 +165,41 @@
 													</div>
 
 												</div><!-- End row--> 
+											      </div>
+											    </div>
+																	    
+									    	</div>
 
-												<h3 style="padding-bottom:10px;">Honors & Awards</h3>
-												<div class="row">
+									    	<div class="panel panel-default">
+													<div class="panel-heading">
+											      <h4 class="panel-title">
+											        <a data-toggle="collapse" 
+											        data-parent="#accordion" href="#honors">
+											        Honors & Awards</a>
+											      </h4>
+											    </div>
+											    <div id="honors" class="panel-collapse collapse ">
+											      <div class="panel-body">
+											      	<div class="row">
 
 													<div class="col-md-10">
-														<ul class="list_5">
-														@foreach ($user->honors as $honor)
-															<li><strong>{{$honor->period}} -   {{$honor->title}}</strong>
-															<p>{{$honor->description}}</p>
+														<ul class="list_6">
+														@foreach ($user->administrative_positions as $position)
+															<li><strong>{{$position->from}}-{{$position->to}} as {{$position->title}}</strong>
+															<p>{{$position->description}}</p>
 															</li> 
 														@endforeach
 														</ul>
 													</div>
-												</div>
+
+												</div><!-- End row--> 
+											      </div>
+											    </div>
+																	    
+									    	</div>
+									    </div>
+											
+
 
 											</div><!--wrapper_indent -->
 
@@ -149,8 +215,18 @@
 												<p>Current & Previous</p>
 											</div>
 											<div class="wrapper_indent">
-												<h3 style="padding-bottom:10px;"><strong>Current</strong></h3>
-												<div class="table-responsive">
+											<div class="panel-group" id="accordion">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+											      <h4 class="panel-title">
+											        <a data-toggle="collapse" data-parent="#accordion" 
+											        href="#course_current">
+											        Current</a>
+											      </h4>
+											    </div>
+											    <div id="course_current" class="panel-collapse collapse in">
+											      <div class="panel-body">
+											      	<div class="table-responsive">
 													<table class="table table-striped add_bottom_30">
 														<thead>
 															<tr>
@@ -171,9 +247,22 @@
 															@endforeach
 															</tbody>
 														</table>
-													</div>
-													<h3 style="padding-bottom:10px;"><strong>Previous</strong></h3>
-													<div class="table-responsive">
+												</div>
+											      </div>
+											    </div>
+										    </div>
+
+										    <div class="panel panel-default">
+													<div class="panel-heading">
+											      <h4 class="panel-title">
+											        <a data-toggle="collapse" 
+											        data-parent="#accordion" href="#course_previous">
+											        Previous</a>
+											      </h4>
+											    </div>
+											    <div id="course_previous" class="panel-collapse collapse ">
+											      <div class="panel-body">
+											      	<div class="table-responsive">
 														<table class="table table-striped add_bottom_30">
 															<thead>
 																<tr>
@@ -195,7 +284,12 @@
 																			</tbody>
 																		</table>
 																	</div> 
-																</div><!--wrapper_indent -->
+											      </div>
+											    </div>
+																	    
+										    </div></div>
+												
+													</div><!--wrapper_indent -->
 
 
 

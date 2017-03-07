@@ -18,7 +18,22 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
+
+
+
 Route::auth();
+
+
+//To register new faculty, remove the next block of code. From....
+Route::get('/register',function(){
+	return "Not permitted! See the routes.php for further info";
+});
+// ...To here
+
+
+
 
 Route::get('/home', 'HomeController@index');
 Route::post('upload-photo','HomeController@upload_pic');
@@ -36,6 +51,7 @@ Route::post('update-courses','HomeController@update_courses');
 Route::post('update-publications','HomeController@update_publications');
 Route::post('update-projects','HomeController@update_projects');
 Route::post('update-honors','HomeController@update_honors');
+
 Route::get('/faculty',function(){
 	$users=User::orderBy('name')->get();
 	$computer_science_users=User::where('department', 'like', '%'.'Computer'.'%')

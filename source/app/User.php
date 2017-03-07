@@ -85,5 +85,8 @@ class User extends Authenticatable
         $previous_courses=Course::where('currently_teaching',0)->get();
         return $previous_courses;
     }
+    public function getUsernameAttribute(){
+        return $this->email;
+    }
 
 }

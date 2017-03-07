@@ -17,7 +17,7 @@ class User extends Authenticatable
         'specialization','department','designation',
         'phone','webpage','about_me','interests','cv',
         'gmail','twitter','facebook','linkedin','skype',
-        'alternate_phone','fax',
+        'alternate_phone','fax','username',
     ];
 
     /**
@@ -84,9 +84,6 @@ class User extends Authenticatable
     public function previous_courses(){
         $previous_courses=Course::where('currently_teaching',0)->get();
         return $previous_courses;
-    }
-    public function getUsernameAttribute(){
-        return $this->email;
     }
 
 }

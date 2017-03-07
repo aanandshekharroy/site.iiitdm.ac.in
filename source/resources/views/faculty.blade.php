@@ -92,7 +92,7 @@
                                     <a href="{{$user->profile_url}}" target="_blank" 
                                     class="button_outline" style="margin-top: 15px;">Profile</a>
                                     @else
-                                        <a href="/faculty/{{$user->id}}" target="_blank" 
+                                        <a href="/faculty/{{$user->username}}" target="_blank" 
                                     class="button_outline" style="margin-top: 15px;">Profile</a>
                                     @endif
                                                
@@ -122,8 +122,14 @@
                                     <p style="margin-bottom:15px;">{{$user->designation}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
-                                    <a href="/faculty/{{$user->id}}" target="_blank" 
-                                    class="button_outline" style="margin-top: 15px;">Profile</a>           
+                                    @if(!empty($user->profile_url))
+                                    <a href="{{$user->profile_url}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @else
+                                        <a href="/faculty/{{$user->username}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @endif
+                                               
                                        </div></div>
                                 @endforeach</td></tr>
                                         </tbody></table><div>
@@ -149,8 +155,14 @@
                                     <p style="margin-bottom:15px;">{{$user->designation}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
-                                    <a href="/faculty/{{$user->id}}" target="_blank" 
-                                    class="button_outline" style="margin-top: 15px;">Profile</a>           
+                                    @if(!empty($user->profile_url))
+                                    <a href="{{$user->profile_url}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @else
+                                        <a href="/faculty/{{$user->username}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @endif
+                                               
                                        </div></div>
                                 @endforeach</td></tr>
                                         </tbody></table><div>
@@ -175,8 +187,14 @@
                                     <p style="margin-bottom:15px;">{{$user->designation}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
-                                    <a href="/faculty/{{$user->id}}" target="_blank" 
-                                    class="button_outline" style="margin-top: 15px;">Profile</a>           
+                                    @if(!empty($user->profile_url))
+                                    <a href="{{$user->profile_url}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @else
+                                        <a href="/faculty/{{$user->username}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @endif
+                                               
                                        </div></div>
                                 @endforeach</td></tr>
                                         </tbody></table><div>
@@ -203,8 +221,14 @@
                                     <p style="margin-bottom:15px;">{{$user->designation}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
-                                    <a href="/faculty/{{$user->id}}" target="_blank" 
-                                    class="button_outline" style="margin-top: 15px;">Profile</a>           
+                                    @if(!empty($user->profile_url))
+                                    <a href="{{$user->profile_url}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @else
+                                        <a href="/faculty/{{$user->username}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @endif
+                                               
                                        </div></div>
                                 @endforeach</td></tr>
                                         </tbody></table><div>
@@ -232,8 +256,14 @@
                                     <p style="margin-bottom:15px;">{{$user->designation}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
-                                    <a href="/faculty/{{$user->id}}" target="_blank" 
-                                    class="button_outline" style="margin-top: 15px;">Profile</a>           
+                                    @if(!empty($user->profile_url))
+                                    <a href="{{$user->profile_url}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @else
+                                        <a href="/faculty/{{$user->username}}" target="_blank" 
+                                    class="button_outline" style="margin-top: 15px;">Profile</a>
+                                    @endif
+                                               
                                        </div></div>
                                 @endforeach</td></tr>
                                         </tbody></table><div>

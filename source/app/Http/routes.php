@@ -27,12 +27,21 @@ Route::auth();
 
 
 //To register new faculty, remove the next block of code. From....
-Route::get('/register',function(){
-	return "Not permitted! See the routes.php for further info";
-});
+// Route::get('/register',function(){
+// 	return "Not permitted! See the routes.php for further info";
+// });
 // ...To here
 
-
+Route::get('/seed-username',function(){
+$users=User::all();
+foreach ($users as $user) {
+	# code...
+	if(empty($user->username)){
+		$user->username=substr($user->email,0,strpos($user->email,"@"));
+		$user->save();
+	}
+}
+});
 
 
 Route::get('/home', 'HomeController@index');
@@ -72,8 +81,10 @@ Route::get('/faculty',function(){
 		'mechanical_users'=>$mechanical_users,
 		'natural_science_users'=>$natural_science_users]);
 });
-Route::get('/faculty/{id}',function($id){
-	$user=User::where('id',$id)->first();
+Route::get('/faculty/{username}',function($username){
+
+	$user=User::where('username',$username)->first();
+	// return $user->username;
 	return view('faculty_detail')->with('user',$user);
 });
 Route::get('/staff',function(){

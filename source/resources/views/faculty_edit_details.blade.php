@@ -232,7 +232,7 @@
 		                                    <a href="{{Auth::user()->profile_url}}" target="_blank" 
 		                                    class="" style="margin-top: 15px;">Current public link</a>
 		                                    @else
-		                                        <a href="/faculty/{{Auth::user()->id}}" target="_blank" 
+		                                        <a href="/faculty/{{Auth::user()->username}}" target="_blank" 
 		                                    class="" style="margin-top: 15px;">Current public link</a>
 		                                    @endif    
 		                                </div>

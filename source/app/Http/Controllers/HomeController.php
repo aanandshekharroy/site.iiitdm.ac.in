@@ -103,6 +103,7 @@ class HomeController extends Controller
         $user->address=$request->input('address');
         $user->about_me=$request->input('about_me');
         $user->interests=$request->input('interests');
+        $user->profile_url=$request->input('profile_url');
         $user->save();
         return back()->with('msg','Updated successfully');
     }

@@ -220,6 +220,25 @@
 		                            </div>
 			                    </div>
 			                    <div class="row">
+		                            <div class="col-md-6">
+		                                <div class="form-group">
+		                    	            <label>Profile link</label>
+			                                <input type="webpage" class="form-control styled " 
+			                                name="profile_url" value="{{Auth::user()->profile_url}}" placeholder="Link of your profile">
+			                            </div>
+			                            <div class="form-group">
+		                    	            
+			                            	@if(!empty(Auth::user()->profile_url))
+		                                    <a href="{{Auth::user()->profile_url}}" target="_blank" 
+		                                    class="" style="margin-top: 15px;">Current public link</a>
+		                                    @else
+		                                        <a href="/faculty/{{Auth::user()->id}}" target="_blank" 
+		                                    class="" style="margin-top: 15px;">Current public link</a>
+		                                    @endif    
+		                                </div>
+		                            </div>
+			                    </div>
+			                    <div class="row">
 	                  				<div class="col-md-2">    
 	                                	<input class="button" type="submit" value="Update basic details" name="submit"> 
 	                  				</div>

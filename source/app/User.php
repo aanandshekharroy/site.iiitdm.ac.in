@@ -82,7 +82,7 @@ class User extends Authenticatable
         return $current_courses;
     }
     public function previous_courses(){
-        $previous_courses=Course::where('currently_teaching',0)->get();
+        $previous_courses=Course::where(['currently_teaching'=>0,'user_id'=>$this->id])->get();
         return $previous_courses;
     }
 

@@ -27,9 +27,9 @@ Route::auth();
 
 
 //To register new faculty, remove the next block of code. From....
-// Route::get('/register',function(){
-// 	return "Not permitted! See the routes.php for further info";
-// });
+Route::get('/register',function(){
+	return "Not permitted! See the routes.php for further info";
+});
 // ...To here
 
 Route::get('/seed-username',function(){

@@ -84,6 +84,7 @@ Route::get('/faculty',function(){
 Route::get('/faculty/{username}',function($username){
 
 	$user=User::where('username',$username)->first();
+	// return $user->courses();
 	// return $user->username;
 	return view('faculty_detail')->with('user',$user);
 });

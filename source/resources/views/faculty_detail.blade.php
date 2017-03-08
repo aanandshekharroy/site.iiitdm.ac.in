@@ -129,7 +129,7 @@
 													<div class="col-md-10">
 														<ul class="list_6">
 															@foreach ($user->professional_experiences as $experience)
-																<li><strong>{{$experience->from}}-{{$experience->to}} as {{$experience->title}}</strong>
+																<li><strong>{{$experience->from}}-{{$experience->to}} {{$experience->title}}</strong>
 																<p>{{$experience->description}}</p>
 																</li> 
 															@endforeach
@@ -157,7 +157,7 @@
 													<div class="col-md-10">
 														<ul class="list_6">
 														@foreach ($user->administrative_positions as $position)
-															<li><strong>{{$position->from}}-{{$position->to}} as {{$position->title}}</strong>
+															<li><strong>{{$position->from}}-{{$position->to}} {{$position->title}}</strong>
 															<p>{{$position->description}}</p>
 															</li> 
 														@endforeach
@@ -236,6 +236,8 @@
 																<th>Course name</th>
 																<th>Category</th>
 																<th>Institute</th>
+																<th>Department</th>
+																<th>Link</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -244,7 +246,9 @@
 															<td><a href="" style="color:#444;">{{$course->code}}</a></td>
 															<td><a href="" style="color:#444;">{{$course->name}}</a></td>
 																<td>{{$course->course_category()}}</td>
-																<td>{{$course->code}}</td>
+																<td>{{$course->institute}}</td>
+																<td>{{$course->department}}</td>
+																<td>{{$course->link}}</td>
 															</tr>
 															@endforeach
 															</tbody>

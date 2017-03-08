@@ -595,7 +595,11 @@
 	                       	<div class="col-md-8">
 	                            <div class="form-group">
 	                                <label>Department</label>
-		                            <select  class="form-control styled " name="department[]">
+	                                <input type="text" class="form-control styled " 
+		                            name="department[]" 
+		                            placeholder="Link of this course(Give the full path 
+		                            : including http/https)" value="{{$course->department}}" >
+		                            <!-- <select  class="form-control styled " name="department[]">
 			                        	<option value="Computer Science & Engineering" selected>
 			                        	Computer Science & Engineering
 			                        	</option> 
@@ -611,7 +615,7 @@
 			                        	<option value="Design" >
 			                        	 Design
 			                        	</option>
-		                        	</select>
+		                        	</select> -->
 								</div>
 	                        </div>
 						</div>
@@ -620,7 +624,7 @@
 	                            <div class="form-group">
 		                            <label>Link</label>
 		                            <input type="text" class="form-control styled " 
-		                            name="link" 
+		                            name="link[]" 
 		                            placeholder="Link of this course(Give the full path 
 		                            : including http/https)" value="{{$course->link}}" >
 	                        	</div>

@@ -286,11 +286,14 @@ class HomeController extends Controller
         $currently_teaching=$request->input('currently_teaching');
         $department=$request->input('department');
         $links=$request->input('link');
+        // var_dump("links: ");
+        // var_dump($links);
         $institute=$request->input('institute');
         $ugs=$request->input('ug');
         $pgs=$request->input('pg');
         $phds=$request->input('phd');
-        var_dump($request->all());
+        // var_dump("");
+
         $courses=Course::where('user_id',Auth::id())->get();
         // var_dump(json_encode($category[]));
         // die();
@@ -316,6 +319,7 @@ class HomeController extends Controller
                 
                 if(!empty($links[$index])){
                     $course->link=$links[$index];
+                    // var_dump($links[$index]);
                 }
                 if(!empty($institute[$index])){
                     $course->institute=$institute[$index];

@@ -302,15 +302,33 @@ class HomeController extends Controller
             # code...
                 $course=new Course;
                 $course->user_id=Auth::id();
-                $course->code=$codes[$index];
+                
                 $course->name=$name;
-                $course->currently_teaching=$currently_teaching[$index];
-                $course->department=$department[$index];
-                $course->link=$links[$index];
-                $course->institute=$institute[$index];
-                $course->ug=$ugs[$index];
-                $course->pg=$pgs[$index];
-                $course->phd=$phds[$index];
+                if(!empty($codes[$index])){
+                    $course->code=$codes[$index];
+                }
+                if(!empty($currently_teaching[$index])){
+                    $course->currently_teaching=$currently_teaching[$index];
+                }
+                if(!empty($department[$index])){
+                    $course->department=$department[$index];
+                }
+                
+                if(!empty($links[$index])){
+                    $course->link=$links[$index];
+                }
+                if(!empty($institute[$index])){
+                    $course->institute=$institute[$index];
+                }
+                if(!empty($ugs[$index])){
+                    $course->ug=$ugs[$index];
+                }
+                if(!empty($pgs[$index])){
+                    $course->pg=$pgs[$index];
+                }
+                if(!empty($phds[$index])){
+                    $course->phd=$phds[$index];
+                }
                 $course->save();
             }
         }

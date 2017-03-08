@@ -184,10 +184,12 @@
 
 													<div class="col-md-10">
 														<ul class="list_6">
-														@foreach ($user->administrative_positions as $position)
-															<li><strong>{{$position->from}}-{{$position->to}} as {{$position->title}}</strong>
-															<p>{{$position->description}}</p>
-															</li> 
+														@foreach ($user->honors as $honor)
+															<li><strong>{{$honor->title}}</strong>
+															
+															<p>{{$honor->period}}</p>
+															<p>{{$honor->description}}</p>
+															</li>
 														@endforeach
 														</ul>
 													</div>

@@ -85,7 +85,7 @@
                                 <div class="col-md-4"><div class="box_style_1">
                                     <p><img src="{{$user->proPic}}" alt="" class="img-circle styled"></p>
                                     <h4>{{$user->name}}</h4>
-                                    <p style="margin-bottom:15px;">{{$user->designation}}</p>
+                                    <p style="margin-bottom:15px;">{{$user->department}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
                                     @if(!empty($user->profile_url))
@@ -119,7 +119,7 @@
                                 <div class="col-md-4"><div class="box_style_1">
                                     <p><img src="{{$user->proPic}}" alt="" class="img-circle styled"></p>
                                     <h4>{{$user->name}}</h4>
-                                    <p style="margin-bottom:15px;">{{$user->designation}}</p>
+                                    <p style="margin-bottom:15px;">{{$user->department}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
                                     @if(!empty($user->profile_url))
@@ -152,7 +152,7 @@
                                 <div class="col-md-4"><div class="box_style_1">
                                     <p><img src="{{$user->proPic}}" alt="" class="img-circle styled"></p>
                                     <h4>{{$user->name}}</h4>
-                                    <p style="margin-bottom:15px;">{{$user->designation}}</p>
+                                    <p style="margin-bottom:15px;">{{$user->department}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
                                     @if(!empty($user->profile_url))
@@ -184,7 +184,7 @@
                                 <div class="col-md-4"><div class="box_style_1">
                                     <p><img src="{{$user->proPic}}" alt="" class="img-circle styled"></p>
                                     <h4>{{$user->name}}</h4>
-                                    <p style="margin-bottom:15px;">{{$user->designation}}</p>
+                                    <p style="margin-bottom:15px;">{{$user->department}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
                                     @if(!empty($user->profile_url))
@@ -218,7 +218,7 @@
                                 <div class="col-md-4"><div class="box_style_1">
                                     <p><img src="{{$user->proPic}}" alt="" class="img-circle styled"></p>
                                     <h4>{{$user->name}}</h4>
-                                    <p style="margin-bottom:15px;">{{$user->designation}}</p>
+                                    <p style="margin-bottom:15px;">{{$user->department}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
                                     @if(!empty($user->profile_url))
@@ -253,7 +253,7 @@
                                 <div class="col-md-4"><div class="box_style_1">
                                     <p><img src="{{$user->proPic}}" alt="" class="img-circle styled"></p>
                                     <h4>{{$user->name}}</h4>
-                                    <p style="margin-bottom:15px;">{{$user->designation}}</p>
+                                    <p style="margin-bottom:15px;">{{$user->department}}</p>
                                     <h4 style="font-size:19px;"><small>{{$user->discipline}}</small></h4><br>
                                     <p style="font-size:14px;">{{$user->specialization}}</p>
                                     @if(!empty($user->profile_url))

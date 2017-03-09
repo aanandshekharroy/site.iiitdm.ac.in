@@ -1169,6 +1169,9 @@
                     <div class="box_side"><h4>Have a glance</h4> <i class="icon_pencil-edit"></i>
                     <p>After you update your profile, you can have the final look of your public profile by clicking on the button below </p>
                     <a href="/faculty/{{Auth::user()->username}}" class="button small">See your profile</a>
+                    @if(Auth::user()->admin)
+                    	<a href="/admin" class="button small">Admin panel</a>
+                    @endif
 </div>
 
            </div>

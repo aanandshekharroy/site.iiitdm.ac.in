@@ -43,6 +43,7 @@ foreach ($users as $user) {
 }
 });
 
+Route::get('/admin','AdminController@index');
 
 Route::get('/home', 'HomeController@index');
 Route::post('upload-photo','HomeController@upload_pic');

@@ -85,5 +85,8 @@ class User extends Authenticatable
         $previous_courses=Course::where(['currently_teaching'=>0,'user_id'=>$this->id])->get();
         return $previous_courses;
     }
+    public function admin(){
+        return $this->hasOne('App\Admin','user_id','id');   
+    }
 
 }

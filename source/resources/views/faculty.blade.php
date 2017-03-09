@@ -71,7 +71,7 @@
                       <section class="content-current" id="section-1">    
                         <div class="box_style_1 animated fadeIn" 
                         style="background-color: rgba(246, 246, 246, 0.83);">
-                            <div class="row staff">'; 
+                            <div class="row staff">
                                 <table id="fac_table1" class="table" border="0" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
@@ -105,7 +105,7 @@
 
                  <section id="section-2">    
                     <div class="box_style_1 animated fadeIn" style="background-color: rgba(246, 246, 246, 0.83);">
-                         <div class="row staff">'; 
+                         <div class="row staff">
                                 <table id="fac_table2" class="table" border="0" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
@@ -138,7 +138,7 @@
 
                 <section id="section-3">    
                     <div class="box_style_1 animated fadeIn" style="background-color: rgba(246, 246, 246, 0.83);">
-                         <div class="row staff">'; 
+                         <div class="row staff">
                                 <table id="fac_table5" class="table" border="0" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
@@ -171,7 +171,7 @@
 
                  <section id="section-4">    
                         <div class="box_style_1 animated fadeIn" style="background-color: rgba(246, 246, 246, 0.83);">
-                             <div class="row staff">'; 
+                             <div class="row staff">
                                 <table id="fac_table3" class="table" border="0" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
@@ -205,7 +205,7 @@
   
            <section id="section-5">    
                     <div class="box_style_1 animated fadeIn" style="background-color: rgba(246, 246, 246, 0.83);">
-                         <div class="row staff">'; 
+                         <div class="row staff">
                                 <table id="fac_table4" class="table" border="0" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
@@ -240,7 +240,7 @@
 
                  <section id="section-6">    
                     <div class="box_style_1 animated fadeIn" style="background-color: rgba(246, 246, 246, 0.83);">
-                         <div class="row staff">'; 
+                         <div class="row staff">
                                 <table id="fac_table6" class="table" border="0" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>

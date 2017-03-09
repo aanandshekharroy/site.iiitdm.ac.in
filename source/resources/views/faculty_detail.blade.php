@@ -47,7 +47,12 @@
 							<li>Telephone  <strong class="pull-right"> {{$user->phone}}</strong></li>
 							<li>Address<strong class="pull-right">{{$user->address}}</strong></li>
 							<li>Webpage<a href="{{$user->webpage}}" style="color:#444;">
-							<strong class="pull-right">{{$user->webpage}}</strong></a></li></ul>
+							<strong class="pull-right">{{$user->webpage}}</strong></a></li>
+							<li>C.V. <a href="{{$user->cv}}" >
+							<strong class="pull-right">Download C.V.</strong></a></li>
+							<li><a href="/home" >
+							Update profile</a></li>
+							</ul>
 
 						</div><!-- End box-sidebar -->
 					</aside>

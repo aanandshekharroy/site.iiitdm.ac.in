@@ -587,9 +587,14 @@
 						<div class="row">
 	                    	<div class="col-md-4">
 	                        	<label>Currently Teaching?</label>
-	                            <select class="form-control styled required" name="currently_teaching[]"> 
+	                            <select class="form-control styled required" name="currently_teaching[]">
+	                            	 @if($course->currently_teaching==1)
 	                            	<option value="1" selected>Yes</option>
-	                            	<option value="0" >No</option>  
+	                            	<option value="0">No</option>
+	                            	@else
+	                            	<option value="0" selected >No</option>  
+	                            	<option value="1"  >Yes</option>  
+	                            	@endif
 	                        	</select>                          
 	                        </div>
 	                       	<div class="col-md-8">
@@ -1163,7 +1168,7 @@
  <hr class="styled">
                     <div class="box_side"><h4>Have a glance</h4> <i class="icon_pencil-edit"></i>
                     <p>After you update your profile, you can have the final look of your public profile by clicking on the button below </p>
-                    <a href="/faculty/{{Auth::id()}}" class="button small">See your profile</a>
+                    <a href="/faculty/{{Auth::user()->username}}" class="button small">See your profile</a>
 </div>
 
            </div>

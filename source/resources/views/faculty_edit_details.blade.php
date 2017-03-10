@@ -115,7 +115,7 @@
 		                            <div class="col-md-12">
 		                                <div class="form-group">
 		                                <label>Specialization</label> 
-		                                        <input type="text" class="form-control styled required" id="specialisation" name="specialization" placeholder="Specialization (40 words)" value="{{Auth::user()->specialization}}">
+		                                        <input type="text" maxlength="40" class="form-control styled required" id="specialisation" name="specialization" placeholder="Specialization (40 words)" value="{{Auth::user()->specialization}}">
 		                                </div>
 		                            </div>
 		                      	</div> <!-- End row -->

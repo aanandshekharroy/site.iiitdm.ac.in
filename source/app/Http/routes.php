@@ -27,9 +27,9 @@ Route::auth();
 
 
 //To register new faculty, remove the next block of code. From....
-Route::get('/register',function(){
-	return "Not permitted! See the routes.php for further info";
-});
+// Route::get('/register',function(){
+// 	return "Not permitted! See the routes.php for further info";
+// });
 // ...To here
 
 Route::get('/seed-username',function(){
@@ -44,6 +44,9 @@ foreach ($users as $user) {
 });
 
 Route::get('/admin','AdminController@index');
+Route::get('/admin/delete-user','AdminController@delete');
+Route::post('/admin/add-user','AdminController@add_user');
+Route::get('/admin/change-password','AdminController@change_password');
 
 Route::get('/home', 'HomeController@index');
 Route::post('upload-photo','HomeController@upload_pic');

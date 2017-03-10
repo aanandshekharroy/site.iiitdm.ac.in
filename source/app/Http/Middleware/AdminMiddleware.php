@@ -16,7 +16,10 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         // die(Auth::user()->isAdmin);
-        if(Auth::guest()||!Auth::user()->admin){
+        if(Auth::guest()){
+            return redirect()->guest('login');
+        }
+        if(!Auth::user()->admin){
             return "Not permitted!";
             
         }
